@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="th" data-theme="dark">
+<html lang="th" data-theme="dark" data-lang="th">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -82,6 +82,10 @@
       color: var(--color-accent);
     }
 
+    /* Bilingual Visibility Control */
+    [data-lang="th"] .lang-en { display: none !important; }
+    [data-lang="en"] .lang-th { display: none !important; }
+
     /* Top Sticky Header */
     header {
       position: sticky;
@@ -134,7 +138,7 @@
       align-items: center;
       gap: 10px;
     }
-    @media (max-width: 900px) {
+    @media (max-width: 960px) {
       .header-center { display: none; }
     }
 
@@ -161,7 +165,35 @@
     .header-right {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+    }
+
+    /* Language Switcher Segmented Control */
+    .lang-switcher {
+      display: inline-flex;
+      align-items: stretch;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      background: var(--color-background-100);
+      overflow: hidden;
+    }
+    .lang-btn {
+      padding: 5px 10px;
+      background: transparent;
+      border: none;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--color-gray-700);
+      cursor: pointer;
+      transition: all 0.12s;
+    }
+    .lang-btn:hover {
+      color: var(--color-gray-1000);
+    }
+    .lang-btn.active {
+      background: var(--color-background-200);
+      color: var(--color-accent);
     }
 
     .gh-pill {
@@ -305,7 +337,7 @@
       line-height: 1.6;
     }
 
-    /* Usage / Quick Action Card (getdesign.md signature) */
+    /* Usage / Quick Action Card */
     .usage-grid {
       display: grid;
       grid-template-columns: 1.4fr 1fr;
@@ -401,7 +433,7 @@
     }
     .cta-banner-btn:hover { opacity: 0.92; }
 
-    /* Top Tabs Bar: Live Document vs Raw DESIGN.md */
+    /* Top Tabs Bar */
     .view-tabs-bar {
       display: flex;
       align-items: center;
@@ -436,7 +468,7 @@
       font-weight: 600;
     }
 
-    /* Content Modules (Typography & Components) */
+    /* Content Modules */
     .module-card {
       margin-bottom: 36px;
       padding-top: 12px;
@@ -560,7 +592,7 @@
     table.data-table tr:last-child td { border-bottom: none; }
     table.data-table td strong { color: var(--color-gray-1000); }
 
-    /* Interactive Financial Calculator in getdesign.md style */
+    /* Interactive Financial Calculator */
     .calc-panel {
       background: var(--color-background-100);
       border: 1px solid var(--color-border);
@@ -709,20 +741,29 @@
         <div class="header-center">
           <a href="#sec-prep" class="header-btn">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
-            Pipeline Setup
+            <span class="lang-th">ตั้งค่า Pipeline</span>
+            <span class="lang-en">Pipeline Setup</span>
           </a>
           <a href="#sec-step12" class="header-btn">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            Unit Economics
+            <span class="lang-th">เศรษฐศาสตร์รายได้</span>
+            <span class="lang-en">Unit Economics</span>
           </a>
           <a href="#sec-workshops" class="header-btn">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>
-            Case Studies
+            <span class="lang-th">เวิร์กช็อปจริง</span>
+            <span class="lang-en">Case Studies</span>
           </a>
         </div>
       </div>
 
       <div class="header-right">
+        <!-- Language Switcher: TH / EN -->
+        <div class="lang-switcher">
+          <button class="lang-btn active" id="btnTh" onclick="setLanguage('th')">TH</button>
+          <button class="lang-btn" id="btnEn" onclick="setLanguage('en')">EN</button>
+        </div>
+
         <a href="https://github.com/nattcharoen-beep/ai-video-mastery" target="_blank" rel="noopener" class="gh-pill">
           <span class="gh-pill-left">
             <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path></svg>
@@ -747,38 +788,164 @@
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
       <div>
-        <div class="nav-group-title">Core Pipeline</div>
-        <a href="#sec-prep" class="nav-link active"><span>00. Toolchain Setup</span><span class="tag">4 apps</span></a>
-        <a href="#sec-step1" class="nav-link"><span>01. Script Architecture</span><span class="tag">4 cuts</span></a>
-        <a href="#sec-step2" class="nav-link"><span>02. Character Lock</span><span class="tag">--cref</span></a>
-        <a href="#sec-step3" class="nav-link"><span>03. Motion Synthesis</span><span class="tag">Kling</span></a>
-        <a href="#sec-step4" class="nav-link"><span>04. Voiceover Synthesis</span><span class="tag">ElevenLabs</span></a>
-        <a href="#sec-step5" class="nav-link"><span>05. CapCut Assembly</span><span class="tag">9:16</span></a>
+        <div class="nav-group-title">
+          <span class="lang-th">ไปป์ไลน์การผลิตหลัก</span>
+          <span class="lang-en">Core Pipeline</span>
+        </div>
+        <a href="#sec-prep" class="nav-link active">
+          <span>
+            <span class="lang-th">00. การตั้งค่าเครื่องมือ</span>
+            <span class="lang-en">00. Toolchain Setup</span>
+          </span>
+          <span class="tag">4 apps</span>
+        </a>
+        <a href="#sec-step1" class="nav-link">
+          <span>
+            <span class="lang-th">01. สถาปัตยกรรมสคริปต์</span>
+            <span class="lang-en">01. Script Architecture</span>
+          </span>
+          <span class="tag">4 cuts</span>
+        </a>
+        <a href="#sec-step2" class="nav-link">
+          <span>
+            <span class="lang-th">02. ล็อกหน้าตัวละคร</span>
+            <span class="lang-en">02. Character Lock</span>
+          </span>
+          <span class="tag">--cref</span>
+        </a>
+        <a href="#sec-step3" class="nav-link">
+          <span>
+            <span class="lang-th">03. สังเคราะห์การเคลื่อนไหว</span>
+            <span class="lang-en">03. Motion Synthesis</span>
+          </span>
+          <span class="tag">Kling</span>
+        </a>
+        <a href="#sec-step4" class="nav-link">
+          <span>
+            <span class="lang-th">04. วิศวกรรมเสียงพากย์</span>
+            <span class="lang-en">04. Voiceover Synthesis</span>
+          </span>
+          <span class="tag">ElevenLabs</span>
+        </a>
+        <a href="#sec-step5" class="nav-link">
+          <span>
+            <span class="lang-th">05. การประกอบตัดต่อ</span>
+            <span class="lang-en">05. CapCut Assembly</span>
+          </span>
+          <span class="tag">9:16</span>
+        </a>
       </div>
 
       <div>
-        <div class="nav-group-title">Monetization & SEO</div>
-        <a href="#sec-step6" class="nav-link"><span>06. Commercial Models</span><span class="tag">Affiliate</span></a>
-        <a href="#sec-step7" class="nav-link"><span>07. Algorithm SEO</span><span class="tag">Tier 1-3</span></a>
-        <a href="#sec-step8" class="nav-link"><span>08. Audience Retention</span><span class="tag">Analytics</span></a>
-        <a href="#sec-step9" class="nav-link"><span>09. A/B Testing</span><span class="tag">5 Hooks</span></a>
+        <div class="nav-group-title">
+          <span class="lang-th">การสร้างรายได้ & SEO</span>
+          <span class="lang-en">Monetization & SEO</span>
+        </div>
+        <a href="#sec-step6" class="nav-link">
+          <span>
+            <span class="lang-th">06. โมเดลเชิงพาณิชย์</span>
+            <span class="lang-en">06. Commercial Models</span>
+          </span>
+          <span class="tag">Affiliate</span>
+        </a>
+        <a href="#sec-step7" class="nav-link">
+          <span>
+            <span class="lang-th">07. แฮชแท็ก & SEO</span>
+            <span class="lang-en">07. Algorithm SEO</span>
+          </span>
+          <span class="tag">Tier 1-3</span>
+        </a>
+        <a href="#sec-step8" class="nav-link">
+          <span>
+            <span class="lang-th">08. วิเคราะห์การดูจบ</span>
+            <span class="lang-en">08. Audience Retention</span>
+          </span>
+          <span class="tag">Analytics</span>
+        </a>
+        <a href="#sec-step9" class="nav-link">
+          <span>
+            <span class="lang-th">09. การทดสอบ 5 Hook</span>
+            <span class="lang-en">09. A/B Testing</span>
+          </span>
+          <span class="tag">5 Hooks</span>
+        </a>
       </div>
 
       <div>
-        <div class="nav-group-title">Studio Operations</div>
-        <a href="#sec-step10" class="nav-link"><span>10. Sound & Suno AI</span><span class="tag">Audio</span></a>
-        <a href="#sec-step11" class="nav-link"><span>11. Batch Pipeline</span><span class="tag">25/wk</span></a>
-        <a href="#sec-step12" class="nav-link"><span>12. Unit Economics</span><span class="tag">Calc</span></a>
-        <a href="#sec-step13" class="nav-link"><span>13. Advanced Directing</span><span class="tag">Camera</span></a>
-        <a href="#sec-step14" class="nav-link"><span>14. Legal & Compliance</span><span class="tag">IP</span></a>
-        <a href="#sec-step15" class="nav-link"><span>15. Client Acquisition</span><span class="tag">Portfolio</span></a>
-        <a href="#sec-bonus" class="nav-link"><span>16. Benchmark 2026</span><span class="tag">Models</span></a>
+        <div class="nav-group-title">
+          <span class="lang-th">การดำเนินงานสตูดิโอ</span>
+          <span class="lang-en">Studio Operations</span>
+        </div>
+        <a href="#sec-step10" class="nav-link">
+          <span>
+            <span class="lang-th">10. ดนตรี & Suno AI</span>
+            <span class="lang-en">10. Sound & Suno AI</span>
+          </span>
+          <span class="tag">Audio</span>
+        </a>
+        <a href="#sec-step11" class="nav-link">
+          <span>
+            <span class="lang-th">11. การผลิตแบบกลุ่ม</span>
+            <span class="lang-en">11. Batch Pipeline</span>
+          </span>
+          <span class="tag">25/wk</span>
+        </a>
+        <a href="#sec-step12" class="nav-link">
+          <span>
+            <span class="lang-th">12. แบบจำลองรายได้</span>
+            <span class="lang-en">12. Unit Economics</span>
+          </span>
+          <span class="tag">Calc</span>
+        </a>
+        <a href="#sec-step13" class="nav-link">
+          <span>
+            <span class="lang-th">13. เทคนิคการกำกับกล้อง</span>
+            <span class="lang-en">13. Advanced Directing</span>
+          </span>
+          <span class="tag">Camera</span>
+        </a>
+        <a href="#sec-step14" class="nav-link">
+          <span>
+            <span class="lang-th">14. กฎหมายและลิขสิทธิ์</span>
+            <span class="lang-en">14. Legal & Compliance</span>
+          </span>
+          <span class="tag">IP</span>
+        </a>
+        <a href="#sec-step15" class="nav-link">
+          <span>
+            <span class="lang-th">15. การรับงานแบรนด์</span>
+            <span class="lang-en">15. Client Acquisition</span>
+          </span>
+          <span class="tag">Portfolio</span>
+        </a>
+        <a href="#sec-bonus" class="nav-link">
+          <span>
+            <span class="lang-th">16. เปรียบเทียบโมเดล 2026</span>
+            <span class="lang-en">16. Benchmark 2026</span>
+          </span>
+          <span class="tag">Models</span>
+        </a>
       </div>
 
       <div>
-        <div class="nav-group-title">Blueprints & QA</div>
-        <a href="#sec-workshops" class="nav-link"><span>Case Studies A & B</span><span class="tag">Prompts</span></a>
-        <a href="#sec-checklist" class="nav-link"><span>Pre-Flight QA</span><span class="tag">8 Items</span></a>
+        <div class="nav-group-title">
+          <span class="lang-th">พิมพ์เขียว & ตรวจงาน</span>
+          <span class="lang-en">Blueprints & QA</span>
+        </div>
+        <a href="#sec-workshops" class="nav-link">
+          <span>
+            <span class="lang-th">กรณีศึกษา A & B</span>
+            <span class="lang-en">Case Studies A & B</span>
+          </span>
+          <span class="tag">Prompts</span>
+        </a>
+        <a href="#sec-checklist" class="nav-link">
+          <span>
+            <span class="lang-th">เช็กลิสต์ตรวจงาน</span>
+            <span class="lang-en">Pre-Flight QA</span>
+          </span>
+          <span class="tag">8 Items</span>
+        </a>
       </div>
     </aside>
 
@@ -789,19 +956,25 @@
       <div class="breadcrumbs">
         <a href="https://github.com/nattcharoen-beep/ai-video-mastery" target="_blank" rel="noopener">
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6"></path></svg>
-          Repository
+          <span class="lang-th">คลังโค้ด GitHub</span>
+          <span class="lang-en">Repository</span>
         </a>
         <span>/</span>
-        <span>Commercial Production</span>
+        <span class="lang-th">การผลิตเชิงพาณิชย์</span>
+        <span class="lang-en">Commercial Production</span>
         <span>/</span>
         <span style="color:var(--color-gray-1000);">DESIGN.md</span>
       </div>
 
       <!-- Page Hero Header -->
       <div class="page-hero">
-        <h1 class="page-title">Design System Analysis: AI Video Production</h1>
+        <h1 class="page-title">
+          <span class="lang-th">Design System: การผลิตวิดีโอ AI เชิงพาณิชย์</span>
+          <span class="lang-en">Design System Analysis: AI Video Production</span>
+        </h1>
         <p class="page-subtitle">
-          End-to-end framework for short-form commercial video synthesis. High-throughput pipeline combining Midjourney character anchoring, Kling AI motion simulation, ElevenLabs vocal direction, and algorithmic distribution economics.
+          <span class="lang-th">เฟรมเวิร์กการผลิตวิดีโอสั้นเชิงพาณิชย์ครบวงจร: สถาปัตยกรรมการผลิตความเร็วสูง ผสานการล็อกอัตลักษณ์ตัวละครใน Midjourney, การสังเคราะห์การเคลื่อนไหวใน Kling AI, วิศวกรรมเสียงพากย์ ElevenLabs และเศรษฐศาสตร์การนำส่งของอัลกอริทึม</span>
+          <span class="lang-en">End-to-end framework for short-form commercial video synthesis. High-throughput pipeline combining Midjourney character anchoring, Kling AI motion simulation, ElevenLabs vocal direction, and algorithmic distribution economics.</span>
         </p>
       </div>
 
@@ -815,14 +988,18 @@
             </button>
           </div>
           <p style="font-size:12.5px; color:var(--color-gray-800); line-height:1.6;">
-            Run this command from your terminal, or reference this <span style="font-family:var(--font-mono); color:var(--color-gray-1000);">DESIGN.md</span> directly in your AI coding agent or video production workspace.
+            <span class="lang-th">รันคำสั่งนี้ในเทอร์มินัลของคุณ หรือใช้อ้างอิงไฟล์ <span style="font-family:var(--font-mono); color:var(--color-gray-1000);">DESIGN.md</span> นี้กับ AI Coding Agent หรือเวิร์กสเปซการผลิตวิดีโอของคุณได้ทันที</span>
+            <span class="lang-en">Run this command from your terminal, or reference this <span style="font-family:var(--font-mono); color:var(--color-gray-1000);">DESIGN.md</span> directly in your AI coding agent or video production workspace.</span>
           </p>
         </div>
 
         <div>
           <div class="stat-row">
             <div class="stat-box">
-              <span class="stat-box-label">Production</span>
+              <span class="stat-box-label">
+                <span class="lang-th">กำลังการผลิต</span>
+                <span class="lang-en">Production</span>
+              </span>
               <span class="stat-box-val">25/wk</span>
             </div>
             <div class="stat-box">
@@ -832,7 +1009,8 @@
           </div>
           <a href="#sec-step12" class="cta-banner-btn">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-            Interactive Revenue Calculator
+            <span class="lang-th">เปิดเครื่องคำนวณรายได้ Interactive</span>
+            <span class="lang-en">Interactive Revenue Calculator</span>
           </a>
         </div>
       </div>
@@ -840,11 +1018,17 @@
       <!-- View Switcher -->
       <div class="view-tabs-bar">
         <div class="view-tabs">
-          <button class="v-tab active" onclick="switchView('live-doc', this)">Document View</button>
-          <button class="v-tab" onclick="switchView('raw-markdown', this)">Raw DESIGN.md</button>
+          <button class="v-tab active" onclick="switchView('live-doc', this)">
+            <span class="lang-th">มุมมองเอกสาร (Document View)</span>
+            <span class="lang-en">Document View</span>
+          </button>
+          <button class="v-tab" onclick="switchView('raw-markdown', this)">
+            <span class="lang-th">มาร์กดาวน์ดิบ (Raw DESIGN.md)</span>
+            <span class="lang-en">Raw DESIGN.md</span>
+          </button>
         </div>
         <div style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">
-          FORMAT: GFM SPECIFICATION V3.2
+          SPEC: GFM STANDARDS V3.2
         </div>
       </div>
 
@@ -857,34 +1041,47 @@
             <span class="module-badge">Module 00</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">TOOLCHAIN INFRASTRUCTURE</span>
           </div>
-          <h2 class="module-heading">00. โครงสร้างเครื่องมือพื้นฐานสำหรับสตูดิโอ (Core Toolchain)</h2>
-          <p class="module-desc">การวาง 4 เสาหลักของระบบผลิตคอนเทนต์ เพื่อให้กระบวนการทำงานลื่นไหลและประหยัดต้นทุนที่สุด</p>
+          <h2 class="module-heading">
+            <span class="lang-th">00. โครงสร้างเครื่องมือพื้นฐานสำหรับสตูดิโอ (Core Toolchain)</span>
+            <span class="lang-en">00. Toolchain Infrastructure & Studio Architecture</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">การวาง 4 เสาหลักของระบบผลิตคอนเทนต์ เพื่อให้กระบวนการทำงานลื่นไหลและประหยัดต้นทุนที่สุด</span>
+            <span class="lang-en">The 4 operational pillars connecting scripting, static visual anchors, temporal motion, and audio synthesis.</span>
+          </p>
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>เครื่องมือ</th><th>บทบาทในระบบ</th><th>ข้อมูลจำเพาะ / พารามิเตอร์</th><th>การเข้าถึง</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">เครื่องมือ</span><span class="lang-en">Tool</span></th>
+                  <th><span class="lang-th">บทบาทในระบบ</span><span class="lang-en">Pipeline Function</span></th>
+                  <th><span class="lang-th">ข้อมูลจำเพาะ / พารามิเตอร์</span><span class="lang-en">Specifications / Parameters</span></th>
+                  <th><span class="lang-th">การเข้าถึง</span><span class="lang-en">Access</span></th>
+                </tr>
+              </thead>
               <tbody>
                 <tr>
                   <td><strong>ChatGPT / Claude</strong></td>
-                  <td>Creative Direction & Scripting</td>
-                  <td>สคริปต์ 4 คัต (9:16) + Midjourney Prompt ภาษาอังกฤษ</td>
+                  <td><span class="lang-th">วางโครงเรื่อง & เขียนสคริปต์</span><span class="lang-en">Creative Direction & Scripting</span></td>
+                  <td><span class="lang-th">สคริปต์ 4 คัต (9:16) + Midjourney Prompt ภาษาอังกฤษ</span><span class="lang-en">4-Cut 9:16 Script + English Diffusion Prompts</span></td>
                   <td><a href="https://chatgpt.com" target="_blank" rel="noopener" style="color:var(--color-accent);">chatgpt.com &rarr;</a></td>
                 </tr>
                 <tr>
                   <td><strong>Midjourney / Flux</strong></td>
-                  <td>Visual Asset & Character Anchor</td>
+                  <td><span class="lang-th">สร้างภาพต้นแบบตัวละคร</span><span class="lang-en">Visual Asset & Character Anchor</span></td>
                   <td>35mm lens, 85mm portrait, <code>--ar 9:16</code>, <code>--cref</code></td>
                   <td><a href="https://midjourney.com" target="_blank" rel="noopener" style="color:var(--color-accent);">midjourney.com &rarr;</a></td>
                 </tr>
                 <tr>
                   <td><strong>Kling AI / Hailuo</strong></td>
-                  <td>Motion Synthesis (Image-to-Video)</td>
+                  <td><span class="lang-th">สังเคราะห์ภาพเป็นวิดีโอ</span><span class="lang-en">Motion Synthesis (Image-to-Video)</span></td>
                   <td>Duration: 5s, Motion: 3-4, Camera Controls</td>
                   <td><a href="https://klingai.com" target="_blank" rel="noopener" style="color:var(--color-accent);">klingai.com &rarr;</a></td>
                 </tr>
                 <tr>
                   <td><strong>ElevenLabs + CapCut</strong></td>
-                  <td>Voice Synthesis & Post-Production</td>
+                  <td><span class="lang-th">เสียงพากย์ & ตัดต่อสมบูรณ์</span><span class="lang-en">Voice Synthesis & Post-Production</span></td>
                   <td>Multilingual v2, Stability: 40%, Clarity: 75%</td>
                   <td><a href="https://elevenlabs.io" target="_blank" rel="noopener" style="color:var(--color-accent);">elevenlabs.io &rarr;</a></td>
                 </tr>
@@ -899,8 +1096,14 @@
             <span class="module-badge">Module 01</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">SCRIPT ARCHITECTURE</span>
           </div>
-          <h2 class="module-heading">01. สถาปัตยกรรมสคริปต์ 4 ท่อน (Hook &bull; Pain &bull; Solution &bull; CTA)</h2>
-          <p class="module-desc">การตัดแบ่งสคริปต์ความยาว 20 วินาทีเป็น 4 จังหวะเวลามาตรฐานเพื่อหยุดนิ้วผู้ชม</p>
+          <h2 class="module-heading">
+            <span class="lang-th">01. สถาปัตยกรรมสคริปต์ 4 ท่อน (Hook &bull; Pain &bull; Solution &bull; CTA)</span>
+            <span class="lang-en">01. 4-Stage Script Architecture (Hook &bull; Pain &bull; Solution &bull; CTA)</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">การตัดแบ่งสคริปต์ความยาว 20 วินาทีเป็น 4 จังหวะเวลามาตรฐานเพื่อหยุดนิ้วผู้ชม</span>
+            <span class="lang-en">Pacing breakdown for 20-second vertical video assets designed to maximize 3-second hold rate.</span>
+          </p>
 
           <div class="snippet-box">
             <div class="snippet-header">
@@ -928,8 +1131,14 @@
             <span class="module-badge">Module 02</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">ASSET CONSISTENCY</span>
           </div>
-          <h2 class="module-heading">02. การคงอัตลักษณ์ตัวละคร (Character Consistency & Reference Anchoring)</h2>
-          <p class="module-desc">สร้างภาพตั้งต้น Master Anchor เพื่อใช้ตรึงใบหน้าและเครื่องแต่งกายในทุกช็อตตลอดคลิป</p>
+          <h2 class="module-heading">
+            <span class="lang-th">02. การคงอัตลักษณ์ตัวละคร (Character Consistency & Reference Anchoring)</span>
+            <span class="lang-en">02. Character Consistency & Reference Anchoring</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">สร้างภาพตั้งต้น Master Anchor เพื่อใช้ตรึงใบหน้าและเครื่องแต่งกายในทุกช็อตตลอดคลิป</span>
+            <span class="lang-en">Technique for generating a Master Anchor image and maintaining persistent facial features across multiple cuts.</span>
+          </p>
 
           <div class="snippet-box">
             <div class="snippet-header">
@@ -940,7 +1149,9 @@
           </div>
 
           <div class="callout-box">
-            <strong>Production Rule:</strong> เมื่อนำภาพต้นแบบไปสร้างคัตที่ 2 เช่น ตัวละครถือผลิตภัณฑ์ ให้ใส่ลิงก์ภาพเดิมพร้อมพารามิเตอร์ <code>--cref [Image URL] --cw 100</code> เพื่อรักษาโครงหน้าเดิมไว้มากกว่า 90%
+            <strong><span class="lang-th">ข้อกำหนดโปรดักชัน:</span><span class="lang-en">Production Rule:</span></strong> 
+            <span class="lang-th">เมื่อนำภาพต้นแบบไปสร้างคัตที่ 2 เช่น ตัวละครถือผลิตภัณฑ์ ให้ใส่ลิงก์ภาพเดิมพร้อมพารามิเตอร์ <code>--cref [Image URL] --cw 100</code> เพื่อรักษาโครงหน้าเดิมไว้มากกว่า 90%</span>
+            <span class="lang-en">When generating Cut 02 (e.g. subject interacting with product), pass the anchor image URL with <code>--cref [URL] --cw 100</code> in Midjourney to maintain &gt;90% facial fidelity.</span>
           </div>
         </section>
 
@@ -950,8 +1161,14 @@
             <span class="module-badge">Module 03</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">MOTION SYNTHESIS</span>
           </div>
-          <h2 class="module-heading">03. การสังเคราะห์การเคลื่อนไหวด้วย Kling AI (Image-to-Video)</h2>
-          <p class="module-desc">การเปลี่ยนภาพนิ่งให้เคลื่อนไหวด้วยการกำหนดค่า Motion และคำสั่งกล้องที่แม่นยำ</p>
+          <h2 class="module-heading">
+            <span class="lang-th">03. การสังเคราะห์การเคลื่อนไหวด้วย Kling AI (Image-to-Video)</span>
+            <span class="lang-en">03. Kling AI Motion Synthesis & Temporal Controls</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">การเปลี่ยนภาพนิ่งให้เคลื่อนไหวด้วยการกำหนดค่า Motion และคำสั่งกล้องที่แม่นยำ</span>
+            <span class="lang-en">Transforming static anchors into fluid 5-second video sequences using controlled intensity sliders.</span>
+          </p>
 
           <div class="snippet-box">
             <div class="snippet-header">
@@ -963,11 +1180,29 @@
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>พารามิเตอร์</th><th>การตั้งค่า</th><th>เหตุผลทางเทคนิค</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">พารามิเตอร์</span><span class="lang-en">Parameter</span></th>
+                  <th><span class="lang-th">การตั้งค่า</span><span class="lang-en">Setting</span></th>
+                  <th><span class="lang-th">เหตุผลทางเทคนิค</span><span class="lang-en">Technical Rationale</span></th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td><strong>Duration</strong></td><td>5 Seconds</td><td>ความยาว 5 วินาทีต่อคัตคือระยะมาตรฐานสำหรับการตัดต่อกระชับ</td></tr>
-                <tr><td><strong>Motion Intensity</strong></td><td>ระดับ 3 ถึง 4</td><td>ค่าสูงเกิน 5 อาจทำให้สรีระหรือองค์ประกอบฉากหลังบิดเบี้ยว (Morphing)</td></tr>
-                <tr><td><strong>Mode</strong></td><td>Standard / Professional</td><td>Standard สำหรับทดสอบ Prototype, Professional สำหรับ Final Commercial</td></tr>
+                <tr>
+                  <td><strong>Duration</strong></td>
+                  <td>5 Seconds</td>
+                  <td><span class="lang-th">ความยาว 5 วินาทีต่อคัตคือระยะมาตรฐานสำหรับการตัดต่อกระชับ</span><span class="lang-en">5 seconds per cut is optimal for concise commercial trimming</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Motion Intensity</strong></td>
+                  <td>3 - 4</td>
+                  <td><span class="lang-th">ค่าสูงเกิน 5 อาจทำให้สรีระหรือองค์ประกอบฉากหลังบิดเบี้ยว (Morphing)</span><span class="lang-en">Values &gt;5 induce anatomical distortions and frame warping</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Mode</strong></td>
+                  <td>Standard / Professional</td>
+                  <td><span class="lang-th">Standard สำหรับทดสอบ Prototype, Professional สำหรับ Final Commercial</span><span class="lang-en">Standard for prototyping, Professional for commercial deliverables</span></td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -979,23 +1214,47 @@
             <span class="module-badge">Module 04</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">VOCAL SYNTHESIS</span>
           </div>
-          <h2 class="module-heading">04. วิศวกรรมเสียงพากย์ภาษาไทย (ElevenLabs Multilingual v2)</h2>
-          <p class="module-desc">การปรับจูน Sliders เพื่อให้น้ำเสียงมีความเป็นธรรมชาติเสมือนเสียงบันทึกจริงจากสตูดิโอ</p>
+          <h2 class="module-heading">
+            <span class="lang-th">04. วิศวกรรมเสียงพากย์ภาษาไทย (ElevenLabs Multilingual v2)</span>
+            <span class="lang-en">04. Thai Vocal Synthesis & Audio Direction</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">การปรับจูน Sliders เพื่อให้น้ำเสียงมีความเป็นธรรมชาติเสมือนเสียงบันทึกจริงจากสตูดิโอ</span>
+            <span class="lang-en">Fine-tuning speech synthesis parameters for natural cadence, emotional inflection, and breathing intervals.</span>
+          </p>
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>พารามิเตอร์ Slider</th><th>ค่าเป้าหมาย</th><th>ผลกระทบต่อเสียงภาษาไทย</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">พารามิเตอร์ Slider</span><span class="lang-en">Parameter Slider</span></th>
+                  <th><span class="lang-th">ค่าเป้าหมาย</span><span class="lang-en">Target Value</span></th>
+                  <th><span class="lang-th">ผลกระทบต่อเสียงภาษาไทย</span><span class="lang-en">Effect on Thai Tonality</span></th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td><strong>Stability</strong></td><td><strong>40%</strong></td><td>เปิดช่องว่างให้น้ำเสียงมีการขึ้นลง มีจังหวะหายใจ ไม่แบนราบ</td></tr>
-                <tr><td><strong>Clarity + Similarity</strong></td><td><strong>75%</strong></td><td>รักษาความคมชัดของสระและพยัญชนะภาษาไทย ไม่ให้อู้อี้</td></tr>
-                <tr><td><strong>Style Exaggeration</strong></td><td><strong>20%</strong></td><td>ใส่อารมณ์และความมีชีวิตชีวาตามบริบทของบทโฆษณา</td></tr>
+                <tr>
+                  <td><strong>Stability</strong></td>
+                  <td><strong>40%</strong></td>
+                  <td><span class="lang-th">เปิดช่องว่างให้น้ำเสียงมีการขึ้นลง มีจังหวะหายใจ ไม่แบนราบ</span><span class="lang-en">Allows natural tonal inflection and micro-breathing pauses</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Clarity + Similarity</strong></td>
+                  <td><strong>75%</strong></td>
+                  <td><span class="lang-th">รักษาความคมชัดของสระและพยัญชนะภาษาไทย ไม่ให้อู้อี้</span><span class="lang-en">Preserves crisp phoneme and vowel definition</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Style Exaggeration</strong></td>
+                  <td><strong>20%</strong></td>
+                  <td><span class="lang-th">ใส่อารมณ์และความมีชีวิตชีวาตามบริบทของบทโฆษณา</span><span class="lang-en">Injects dynamic emotional resonance without distortion</span></td>
+                </tr>
               </tbody>
             </table>
           </div>
 
           <div class="snippet-box">
             <div class="snippet-header">
-              <span>VOICEOVER SCRIPT WITH PACING (จังหวะหายใจ)</span>
+              <span>VOICEOVER SCRIPT WITH PACING</span>
               <button class="snippet-copy-btn" onclick="copySnippet('p_voice', this)">Copy Script</button>
             </div>
             <pre class="snippet-code" id="p_voice">ถ้าคุณเคยเจอปัญหาเรื่องผิวหมองคล้ำ... ลองมาหลายวิธีแต่ยังไม่เห็นผลลัพธ์ที่ชัดเจน,
@@ -1010,19 +1269,31 @@
             <span class="module-badge">Module 05</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">POST-PRODUCTION</span>
           </div>
-          <h2 class="module-heading">05. การประกอบร่างและตัดต่อใน CapCut (Post-Production)</h2>
-          <p class="module-desc">การรวมไฟล์วิดีโอ 4 คัต + ไฟล์เสียงพากย์ + ดนตรีประกอบ และคำบรรยายอัตโนมัติ</p>
+          <h2 class="module-heading">
+            <span class="lang-th">05. การประกอบร่างและตัดต่อใน CapCut (Post-Production)</span>
+            <span class="lang-en">05. CapCut Assembly, Audio Mixing & Captions</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">การรวมไฟล์วิดีโอ 4 คัต + ไฟล์เสียงพากย์ + ดนตรีประกอบ และคำบรรยายอัตโนมัติ</span>
+            <span class="lang-en">Timeline assembly protocol: sync pacing to voiceover, apply auto captions, and balance audio gain.</span>
+          </p>
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>ขั้นตอน</th><th>ฟังก์ชันใน CapCut</th><th>มาตรฐานการปรับแต่ง</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">ขั้นตอน</span><span class="lang-en">Step</span></th>
+                  <th><span class="lang-th">ฟังก์ชันใน CapCut</span><span class="lang-en">CapCut Action</span></th>
+                  <th><span class="lang-th">มาตรฐานการปรับแต่ง</span><span class="lang-en">Standard Setting</span></th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td>1. Canvas Ratio</td><td>Ratio</td><td>ตั้งค่าเป็น <strong>9:16 (Vertical)</strong></td></tr>
-                <tr><td>2. Audio Track</td><td>Primary Track</td><td>วางเสียงพากย์ MP3 เป็นไกด์ไลน์ความยาวหลักของวิดีโอ</td></tr>
-                <tr><td>3. Visual Match</td><td>Trim to Speech</td><td>ตัดแต่งคลิป AI แต่ละคัต (3-4 วินาที) ให้สอดรับกับประโยคพูด</td></tr>
-                <tr><td>4. Auto Captions</td><td>Text &rarr; Auto captions</td><td>เลือกภาษา Thai &bull; ฟอนต์ตัวหนา &bull; จัดวางกึ่งกลางล่าง</td></tr>
-                <tr><td>5. BGM Mix</td><td>Audio Volume</td><td>ลดระดับความดังของเพลงพื้นหลังลงที่ <strong>-22dB ถึง -25dB</strong></td></tr>
-                <tr><td>6. Export Spec</td><td>Export</td><td>1080x1920 (Full HD), 30fps หรือ 60fps, Recommended Bitrate</td></tr>
+                <tr><td>1. Canvas Ratio</td><td>Ratio</td><td><strong>9:16 (Vertical)</strong></td></tr>
+                <tr><td>2. Audio Track</td><td>Primary Track</td><td><span class="lang-th">วางเสียงพากย์ MP3 เป็นไกด์ไลน์ความยาวหลัก</span><span class="lang-en">Place ElevenLabs MP3 as master timing spine</span></td></tr>
+                <tr><td>3. Visual Match</td><td>Trim to Speech</td><td><span class="lang-th">ตัดแต่งคลิป AI แต่ละคัต (3-4 วิ) ให้สอดรับกับประโยคพูด</span><span class="lang-en">Trim AI cuts (3-4s) strictly to dialogue cadence</span></td></tr>
+                <tr><td>4. Auto Captions</td><td>Text &rarr; Auto captions</td><td><span class="lang-th">เลือกภาษา Thai &bull; ฟอนต์ตัวหนา &bull; กึ่งกลางล่าง</span><span class="lang-en">Auto-generate Thai subtitles, center-bottom safe area</span></td></tr>
+                <tr><td>5. BGM Mix</td><td>Audio Volume</td><td><span class="lang-th">ลดระดับเสียงดนตรีพื้นหลังลงที่ <strong>-22dB ถึง -25dB</strong></span><span class="lang-en">Ducking background music gain to <strong>-22dB to -25dB</strong></span></td></tr>
+                <tr><td>6. Export Spec</td><td>Export</td><td>1080x1920 (Full HD), 30fps/60fps, Recommended Bitrate</td></tr>
               </tbody>
             </table>
           </div>
@@ -1034,30 +1305,43 @@
             <span class="module-badge">Module 06</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">MONETIZATION CHANNELS</span>
           </div>
-          <h2 class="module-heading">06. สถาปัตยกรรมการสร้างรายได้ (Monetization Models)</h2>
-          <p class="module-desc">การวิเคราะห์ 3 เส้นทางรายได้หลักสำหรับคอนเทนต์วิดีโอ AI ในปัจจุบัน</p>
+          <h2 class="module-heading">
+            <span class="lang-th">06. สถาปัตยกรรมการสร้างรายได้ (Monetization Models)</span>
+            <span class="lang-en">06. Commercial Monetization Architecture</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">การวิเคราะห์ 3 เส้นทางรายได้หลักสำหรับคอนเทนต์วิดีโอ AI ในปัจจุบัน</span>
+            <span class="lang-en">Evaluating the primary revenue generation vectors: Affiliate E-commerce, Performance Bonus, and Brand Agency Contracts.</span>
+          </p>
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>โมเดล</th><th>รูปแบบคอนเทนต์</th><th>การคิดผลตอบแทน</th><th>จุดวิกฤตที่ต้องระวัง</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">โมเดล</span><span class="lang-en">Model</span></th>
+                  <th><span class="lang-th">รูปแบบคอนเทนต์</span><span class="lang-en">Content Format</span></th>
+                  <th><span class="lang-th">การคิดผลตอบแทน</span><span class="lang-en">Revenue Yield</span></th>
+                  <th><span class="lang-th">จุดวิกฤตที่ต้องระวัง</span><span class="lang-en">Critical Guardrail</span></th>
+                </tr>
+              </thead>
               <tbody>
                 <tr>
                   <td><strong>TikTok Shop Affiliate</strong></td>
-                  <td>UGC แสดงการใช้งานและแก้ปัญหา</td>
-                  <td>คอมมิชชัน 10% - 30% ต่อยอดขาย</td>
-                  <td>ต้องปักตะกร้าตรงกับสินค้าจริง ไม่อ้างรีวิวเกินจริง</td>
+                  <td><span class="lang-th">UGC แสดงการใช้งานและแก้ปัญหา</span><span class="lang-en">UGC Problem-solving / Product demos</span></td>
+                  <td><span class="lang-th">คอมมิชชัน 10% - 30% ต่อยอดขาย</span><span class="lang-en">10% - 30% commission per sale</span></td>
+                  <td><span class="lang-th">ต้องปักตะกร้าตรงกับสินค้าจริง ไม่อ้างรีวิวเกินจริง</span><span class="lang-en">Pin authentic SKU; no fraudulent claims</span></td>
                 </tr>
                 <tr>
                   <td><strong>Facebook Reels Bonus</strong></td>
-                  <td>หนังสั้นดราม่า / ลึกลับ / สาระความรู้</td>
-                  <td>Performance Bonus ($1 - $8 ต่อ 1K วิว)</td>
-                  <td>ต้องรักษา Retention Curve ให้คนดูจนจบเกิน 50%</td>
+                  <td><span class="lang-th">หนังสั้นดราม่า / ลึกลับ / สาระความรู้</span><span class="lang-en">Narrative shorts, suspense, micro-dramas</span></td>
+                  <td><span class="lang-th">โบนัสวิว ($1.00 - $8.00 ต่อ 1K วิว)</span><span class="lang-en">Performance Bonus ($1.00 - $8.00 RPM)</span></td>
+                  <td><span class="lang-th">ต้องรักษา Retention Curve ให้คนดูจนจบเกิน 50%</span><span class="lang-en">Must sustain &gt;50% completion retention</span></td>
                 </tr>
                 <tr>
                   <td><strong>Commercial Client Service</strong></td>
-                  <td>วิดีโอโฆษณาสำหรับแบรนด์และเอเจนซี่</td>
-                  <td>1,500 - 10,000 บาท ต่อคลิป</td>
-                  <td>ต้องส่งงานคุณภาพระดับสตูดิโอ มี Storyboard ชัดเจน</td>
+                  <td><span class="lang-th">วิดีโอโฆษณาสำหรับแบรนด์และเอเจนซี่</span><span class="lang-en">Short-form ad creative for SME brands</span></td>
+                  <td><span class="lang-th">1,500 - 10,000 บาท ต่อคลิป</span><span class="lang-en">฿1,500 - ฿10,000 ($45 - $300) per asset</span></td>
+                  <td><span class="lang-th">ต้องส่งงานคุณภาพระดับสตูดิโอ มี Storyboard ชัดเจน</span><span class="lang-en">Deliver studio-grade storyboard + clean cuts</span></td>
                 </tr>
               </tbody>
             </table>
@@ -1070,16 +1354,29 @@
             <span class="module-badge">Module 07</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">ALGORITHM SEO</span>
           </div>
-          <h2 class="module-heading">07. สูตรแฮชแท็ก 3 ระดับ และการทำ SEO สำหรับวิดีโอสั้น</h2>
-          <p class="module-desc">การวางชุดคำค้นหาใน 3 บรรทัดแรกของคำบรรยายเพื่อส่งสัญญาณให้อัลกอริทึมจัดหมวดหมู่ถูกต้อง</p>
+          <h2 class="module-heading">
+            <span class="lang-th">07. สูตรแฮชแท็ก 3 ระดับ และการทำ SEO สำหรับวิดีโอสั้น</span>
+            <span class="lang-en">07. 3-Tier Hashtag Structure & Short-Form SEO</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">การวางชุดคำค้นหาใน 3 บรรทัดแรกของคำบรรยายเพื่อส่งสัญญาณให้อัลกอริทึมจัดหมวดหมู่ถูกต้อง</span>
+            <span class="lang-en">Algorithmic indexing hierarchy: positioning high-intent keywords across caption lines 1-3.</span>
+          </p>
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>ระดับแฮชแท็ก</th><th>สัดส่วน</th><th>ยอดวิวเฉลี่ย</th><th>ตัวอย่างการใช้งาน</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">ระดับแฮชแท็ก</span><span class="lang-en">Tag Tier</span></th>
+                  <th><span class="lang-th">สัดส่วน</span><span class="lang-en">Quantity</span></th>
+                  <th><span class="lang-th">ยอดวิวเฉลี่ย</span><span class="lang-en">Audience Volume</span></th>
+                  <th><span class="lang-th">ตัวอย่างการใช้งาน</span><span class="lang-en">Example Set</span></th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td><strong>Tier 1: Broad</strong></td><td>1-2 แท็ก</td><td>1M+ Views</td><td><code>#fyp #foryou #tiktokthailand</code></td></tr>
-                <tr><td><strong>Tier 2: Niche</strong></td><td>3-4 แท็ก</td><td>100K - 1M</td><td><code>#รีวิวสกินแคร์ #หน้าใสไร้สิว #กู้ผิวโทรม</code></td></tr>
-                <tr><td><strong>Tier 3: Micro</strong></td><td>2-3 แท็ก</td><td>&lt; 100K</td><td><code>#เซรั่มใบบัวบก #ฟื้นฟูผิวเร่งด่วน</code></td></tr>
+                <tr><td><strong>Tier 1: Broad</strong></td><td>1 - 2</td><td>1M+ Views</td><td><code>#fyp #foryou #tiktokthailand</code></td></tr>
+                <tr><td><strong>Tier 2: Niche</strong></td><td>3 - 4</td><td>100K - 1M</td><td><code>#รีวิวสกินแคร์ #หน้าใสไร้สิว #กู้ผิวโทรม</code></td></tr>
+                <tr><td><strong>Tier 3: Micro</strong></td><td>2 - 3</td><td>&lt; 100K</td><td><code>#เซรั่มใบบัวบก #ฟื้นฟูผิวเร่งด่วน</code></td></tr>
               </tbody>
             </table>
           </div>
@@ -1091,17 +1388,50 @@
             <span class="module-badge">Module 08</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">AUDIENCE RETENTION</span>
           </div>
-          <h2 class="module-heading">08. การอ่าน Analytics Dashboard & Retention Curve</h2>
-          <p class="module-desc">วิเคราะห์ตัวเลขเพื่อทราบว่าคลิปหลุดในวินาทีใด และควรปรับสปีดหรือเปลี่ยน Hook อย่างไร</p>
+          <h2 class="module-heading">
+            <span class="lang-th">08. การอ่าน Analytics Dashboard & Retention Curve</span>
+            <span class="lang-en">08. Audience Retention Analytics & Drop-off Diagnostics</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">วิเคราะห์ตัวเลขเพื่อทราบว่าคลิปหลุดในวินาทีใด และควรปรับสปีดหรือเปลี่ยน Hook อย่างไร</span>
+            <span class="lang-en">Identifying retention decay patterns to diagnose hook failure versus mid-clip pacing drag.</span>
+          </p>
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>ตัวชี้วัด (KPI)</th><th>เกณฑ์ผ่าน</th><th>เกณฑ์ระดับไวรัล</th><th>แนวทางปรับแก้เมื่อต่ำกว่าเกณฑ์</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">ตัวชี้วัด (KPI)</span><span class="lang-en">Metric (KPI)</span></th>
+                  <th><span class="lang-th">เกณฑ์ผ่าน</span><span class="lang-en">Benchmark</span></th>
+                  <th><span class="lang-th">เกณฑ์ระดับไวรัล</span><span class="lang-en">Viral Threshold</span></th>
+                  <th><span class="lang-th">นัยยะสำคัญและการปรับแก้</span><span class="lang-en">Diagnostic Action</span></th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td><strong>Average Watch Time %</strong></td><td>&gt; 50%</td><td>&gt; 70%</td><td>เปลี่ยนประโยคเปิดตัวใน 3 วินาทีแรกให้กระชับขึ้น</td></tr>
-                <tr><td><strong>Retention at 3s</strong></td><td>&gt; 60%</td><td>&gt; 80%</td><td>ลดจังหวะชะงักตอนเริ่มคลิป และใส่ซับไตเติลคำแรกทันที</td></tr>
-                <tr><td><strong>Share Rate</strong></td><td>&gt; 1%</td><td>&gt; 3%</td><td>ใส่ประเด็นที่สร้างความประหลาดใจหรือมีประโยชน์ต่อคนรอบตัว</td></tr>
-                <tr><td><strong>Conversion Rate</strong></td><td>&gt; 1.5%</td><td>&gt; 4%</td><td>ปรับปรุง Call to Action ให้ชัดเจนและระบุตำแหน่งตะกร้า</td></tr>
+                <tr>
+                  <td><strong>Average Watch Time %</strong></td>
+                  <td>&gt; 50%</td>
+                  <td style="color:var(--color-accent);"><strong>&gt; 70%</strong></td>
+                  <td><span class="lang-th">หากต่ำกว่า 40% ให้ตัดประโยคเปิดตัวให้สั้นและใส่ประเด็นทันที</span><span class="lang-en">Below 40% indicates hook drag; compress opening sentence</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Retention at 3s</strong></td>
+                  <td>&gt; 60%</td>
+                  <td style="color:var(--color-accent);"><strong>&gt; 80%</strong></td>
+                  <td><span class="lang-th">ลดจังหวะชะงักตอนเริ่มคลิป และใส่ซับไตเติลคำแรกทันที</span><span class="lang-en">Eliminate lead-in pauses; display bold headline at 0.0s</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Share Rate</strong></td>
+                  <td>&gt; 1%</td>
+                  <td style="color:var(--color-accent);"><strong>&gt; 3%</strong></td>
+                  <td><span class="lang-th">การแชร์มีน้ำหนักสูงสุดในการนำส่งคลิปสู่วงกว้าง</span><span class="lang-en">Primary driver for algorithmic cross-cluster distribution</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Conversion Rate</strong></td>
+                  <td>&gt; 1.5%</td>
+                  <td style="color:var(--color-accent);"><strong>&gt; 4%</strong></td>
+                  <td><span class="lang-th">ปรับปรุง Call to Action ให้ชัดเจนและระบุตำแหน่งตะกร้า</span><span class="lang-en">Direct visual cues pointing to shopping basket icon</span></td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -1113,18 +1443,50 @@
             <span class="module-badge">Module 09</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">HOOK EXPERIMENTATION</span>
           </div>
-          <h2 class="module-heading">09. สูตร 5 Hook สำหรับการทดสอบ A/B Testing</h2>
-          <p class="module-desc">ทดสอบคลิปเดียวกันโดยปรับเฉพาะช่วงเปิดตัว 3 วินาทีแรกเพื่อค้นหาอัตรา Conversion สูงสุด</p>
+          <h2 class="module-heading">
+            <span class="lang-th">09. สูตร 5 Hook สำหรับการทดสอบ A/B Testing</span>
+            <span class="lang-en">09. 5 Proven Hook Archetypes for A/B Testing</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">ทดสอบคลิปเดียวกันโดยปรับเฉพาะช่วงเปิดตัว 3 วินาทีแรกเพื่อค้นหาอัตรา Conversion สูงสุด</span>
+            <span class="lang-en">Isolate the 3-second opening variable across identical bodies to discover peak conversion rate.</span>
+          </p>
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>ประเภท Hook</th><th>ตัวอย่างสคริปต์</th><th>หลักจิตวิทยาของผู้ชม</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">ประเภท Hook</span><span class="lang-en">Hook Archetype</span></th>
+                  <th><span class="lang-th">ตัวอย่างสคริปต์</span><span class="lang-en">Script Example</span></th>
+                  <th><span class="lang-th">หลักจิตวิทยาของผู้ชม</span><span class="lang-en">Viewer Psychology</span></th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td><strong>Question Hook</strong></td><td>"เคยสงสัยไหมว่าทำไมการทาครีมแบบเดิม ถึงไม่ช่วยแก้ปัญหาจริง?"</td><td>กระตุ้นให้สมองต้องการค้นหาคำตอบต่อ</td></tr>
-                <tr><td><strong>Shock / Contrast</strong></td><td>"หยุดทาสกินแคร์ 5 ขั้นตอน ถ้าคุณยังไม่ได้แก้สิ่งนี้..."</td><td>สร้างความขัดแย้งกับความเชื่อเดิม ดึงดูดความสนใจทันที</td></tr>
-                <tr><td><strong>Number Hook</strong></td><td>"3 สัญญาณเตือนของผิวที่คนส่วนใหญ่มักมองข้าม"</td><td>ตัวเลขระบุความเฉพาะเจาะจง เพิ่มระดับความน่าเชื่อถือ</td></tr>
-                <tr><td><strong>Challenge Hook</strong></td><td>"ลองทำตามสูตรนี้ติดต่อกัน 7 วัน แล้วสังเกตความเปลี่ยนแปลง"</td><td>กระตุ้นความท้าทายให้อยากทดลองพิสูจน์</td></tr>
-                <tr><td><strong>Story Hook</strong></td><td>"ตอนที่ส่องกระจกคืนนั้น... ก็ตัดสินใจแล้วว่าจะไม่ยอมปล่อยให้เป็นแบบนี้"</td><td>เปิดเรื่องแบบละครดราม่า สร้างความผูกพันทางอารมณ์</td></tr>
+                <tr>
+                  <td><strong>Question Hook</strong></td>
+                  <td>"เคยสงสัยไหมว่าทำไมการทาครีมแบบเดิม ถึงไม่ช่วยแก้ปัญหาจริง?"</td>
+                  <td><span class="lang-th">กระตุ้นให้สมองต้องการค้นหาคำตอบต่อ</span><span class="lang-en">Creates open informational loops</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Shock / Contrast</strong></td>
+                  <td>"หยุดทาสกินแคร์ 5 ขั้นตอน ถ้าคุณยังไม่ได้แก้สิ่งนี้..."</td>
+                  <td><span class="lang-th">สร้างความขัดแย้งกับความเชื่อเดิม ดึงดูดความสนใจทันที</span><span class="lang-en">Interrupts entrenched behavioural assumptions</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Number Hook</strong></td>
+                  <td>"3 สัญญาณเตือนของผิวที่คนส่วนใหญ่มักมองข้าม"</td>
+                  <td><span class="lang-th">ตัวเลขระบุความเฉพาะเจาะจง เพิ่มระดับความน่าเชื่อถือ</span><span class="lang-en">Specific quantification increases authority</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Challenge Hook</strong></td>
+                  <td>"ลองทำตามสูตรนี้ติดต่อกัน 7 วัน แล้วสังเกตความเปลี่ยนแปลง"</td>
+                  <td><span class="lang-th">กระตุ้นความท้าทายให้อยากทดลองพิสูจน์</span><span class="lang-en">Action-oriented commitment trigger</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Story Hook</strong></td>
+                  <td>"ตอนที่ส่องกระจกคืนนั้น... ก็ตัดสินใจแล้วว่าจะไม่ยอมปล่อยให้เป็นแบบนี้"</td>
+                  <td><span class="lang-th">เปิดเรื่องแบบละครดราม่า สร้างความผูกพันทางอารมณ์</span><span class="lang-en">Narrative immersion stimulates empathy</span></td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -1136,8 +1498,14 @@
             <span class="module-badge">Module 10</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">AUDIO DESIGN</span>
           </div>
-          <h2 class="module-heading">10. คลังดนตรีปลอดลิขสิทธิ์และการสร้างเพลงด้วย Suno AI</h2>
-          <p class="module-desc">การจัดหา BGM และ SFX ปลอดภัยไม่เสี่ยงต่อการโดนระงับบัญชีหรือ Copyright Strike</p>
+          <h2 class="module-heading">
+            <span class="lang-th">10. คลังดนตรีปลอดลิขสิทธิ์และการสร้างเพลงด้วย Suno AI</span>
+            <span class="lang-en">10. Royalty-Free Sound Design & Suno AI Music Generation</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">การจัดหา BGM และ SFX ปลอดภัยไม่เสี่ยงต่อการโดนระงับบัญชีหรือ Copyright Strike</span>
+            <span class="lang-en">Sourcing compliant background audio and generating bespoke instrumental soundtracks.</span>
+          </p>
 
           <div class="snippet-box">
             <div class="snippet-header">
@@ -1157,18 +1525,56 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
             <span class="module-badge">Module 11</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">BATCH OPERATIONS</span>
           </div>
-          <h2 class="module-heading">11. กระบวนการผลิตแบบกลุ่ม (Batch Production: 25 Assets/สัปดาห์)</h2>
-          <p class="module-desc">ตารางทำงานระดับสตูดิโอ แยกเฟสงานเพื่อลดเวลาสลับเครื่องมือ</p>
+          <h2 class="module-heading">
+            <span class="lang-th">11. กระบวนการผลิตแบบกลุ่ม (Batch Production: 25 Assets/สัปดาห์)</span>
+            <span class="lang-en">11. High-Throughput Batch Pipeline (25 Assets/Week)</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">ตารางทำงานระดับสตูดิโอ แยกเฟสงานเพื่อลดเวลาสลับเครื่องมือ</span>
+            <span class="lang-en">Weekly schedule segmenting tasks by functional discipline to eliminate cognitive switching costs.</span>
+          </p>
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>วัน</th><th>เฟสการผลิต</th><th>ผลผลิตที่ได้</th><th>เวลาเฉลี่ย</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">วัน</span><span class="lang-en">Day</span></th>
+                  <th><span class="lang-th">เฟสการผลิต</span><span class="lang-en">Production Phase</span></th>
+                  <th><span class="lang-th">ผลผลิตที่ได้</span><span class="lang-en">Output Asset</span></th>
+                  <th><span class="lang-th">เวลาเฉลี่ย</span><span class="lang-en">Time</span></th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td><strong>จันทร์</strong></td><td>สคริปต์ & โครงเรื่อง</td><td>5 สคริปต์ &bull; 5 Storyboards &bull; 20 Midjourney Prompts</td><td>2.0 ชม.</td></tr>
-                <tr><td><strong>อังคาร</strong></td><td>การเจนภาพนิ่ง</td><td>สร้างภาพ Master Anchor และ 20 ช็อตใน Midjourney/Flux</td><td>2.5 ชม.</td></tr>
-                <tr><td><strong>พุธ</strong></td><td>การสังเคราะห์วิดีโอ</td><td>ส่ง 20 ช็อตเข้าสู่ Kling AI เพื่อแปลงเป็นวิดีโอ 5 วินาที</td><td>3.0 ชม.</td></tr>
-                <tr><td><strong>พฤหัสบดี</strong></td><td>เสียง & การตัดต่อ</td><td>ทำเสียง ElevenLabs 5 สคริปต์ และตัดต่อจบใน CapCut</td><td>3.5 ชม.</td></tr>
-                <tr><td><strong>ศุกร์</strong></td><td>กำหนดเวลาเผยแพร่</td><td>ตั้งเวลาโพสต์ล่วงหน้า 7 วันผ่าน Meta Business Suite และ TikTok Studio</td><td>1.0 ชม.</td></tr>
+                <tr>
+                  <td><strong><span class="lang-th">จันทร์</span><span class="lang-en">Mon</span></strong></td>
+                  <td><span class="lang-th">สคริปต์ & โครงเรื่อง</span><span class="lang-en">Scripting & Directing</span></td>
+                  <td><span class="lang-th">5 สคริปต์ &bull; 5 Storyboards &bull; 20 Midjourney Prompts</span><span class="lang-en">5 Scripts &bull; 5 Storyboards &bull; 20 Midjourney Prompts</span></td>
+                  <td>2.0 hrs</td>
+                </tr>
+                <tr>
+                  <td><strong><span class="lang-th">อังคาร</span><span class="lang-en">Tue</span></strong></td>
+                  <td><span class="lang-th">การเจนภาพนิ่ง</span><span class="lang-en">Static Asset Generation</span></td>
+                  <td><span class="lang-th">ภาพ Master Anchor + 20 ช็อตใน Midjourney/Flux</span><span class="lang-en">Master Anchor + 20 Cuts generated in Midjourney</span></td>
+                  <td>2.5 hrs</td>
+                </tr>
+                <tr>
+                  <td><strong><span class="lang-th">พุธ</span><span class="lang-en">Wed</span></strong></td>
+                  <td><span class="lang-th">การสังเคราะห์วิดีโอ</span><span class="lang-en">Motion Synthesis</span></td>
+                  <td><span class="lang-th">ส่ง 20 ช็อตเข้าสู่ Kling AI แปลงเป็นคลิป 5 วินาที</span><span class="lang-en">20 Cuts converted into 5s videos via Kling AI</span></td>
+                  <td>3.0 hrs</td>
+                </tr>
+                <tr>
+                  <td><strong><span class="lang-th">พฤหัส</span><span class="lang-en">Thu</span></strong></td>
+                  <td><span class="lang-th">เสียง & การตัดต่อ</span><span class="lang-en">Audio & Editing</span></td>
+                  <td><span class="lang-th">เสียง ElevenLabs 5 สคริปต์ + ตัดต่อจบ 5 คลิปใน CapCut</span><span class="lang-en">5 ElevenLabs MP3s + 5 Final Cuts assembled in CapCut</span></td>
+                  <td>3.5 hrs</td>
+                </tr>
+                <tr>
+                  <td><strong><span class="lang-th">ศุกร์</span><span class="lang-en">Fri</span></strong></td>
+                  <td><span class="lang-th">ตั้งเวลาเผยแพร่</span><span class="lang-en">Scheduled Distribution</span></td>
+                  <td><span class="lang-th">ตั้งเวลาโพสต์ล่วงหน้า 7 วัน (2-3 คลิป/วัน)</span><span class="lang-en">7-day queue scheduled across TikTok & Meta Studio</span></td>
+                  <td>1.0 hr</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -1180,18 +1586,30 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
             <span class="module-badge">Module 12</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">UNIT ECONOMICS</span>
           </div>
-          <h2 class="module-heading">12. แบบจำลองเศรษฐศาสตร์ต่อหน่วยและเครื่องคำนวณรายได้</h2>
-          <p class="module-desc">ประเมินผลตอบแทนตามยอดการรับชมจริงและค่า RPM เฉลี่ยของแต่ละแพลตฟอร์ม</p>
+          <h2 class="module-heading">
+            <span class="lang-th">12. แบบจำลองเศรษฐศาสตร์ต่อหน่วยและเครื่องคำนวณรายได้</span>
+            <span class="lang-en">12. Unit Economics & Interactive Monetization Calculator</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">ประเมินผลตอบแทนตามยอดการรับชมจริงและค่า RPM เฉลี่ยของแต่ละแพลตฟอร์ม</span>
+            <span class="lang-en">Live financial simulator projecting monthly revenue based on verified platform RPM yield rates.</span>
+          </p>
 
           <div class="calc-panel">
             <div class="calc-grid">
               <div>
-                <label class="calc-field-label" for="c_views">ยอดการรับชมสะสมต่อเดือน (Total Views)</label>
+                <label class="calc-field-label" for="c_views">
+                  <span class="lang-th">ยอดการรับชมสะสมต่อเดือน (Total Views)</span>
+                  <span class="lang-en">Total Monthly Views</span>
+                </label>
                 <input type="number" id="c_views" class="calc-input" value="300000" min="10000" step="50000">
                 <input type="range" id="c_slider" style="width:100%; margin-top:8px; accent-color:var(--color-accent);" min="10000" max="5000000" step="10000" value="300000">
               </div>
               <div>
-                <label class="calc-field-label" for="c_platform">ประเภทแพลตฟอร์มและโมเดลการแปลงมูลค่า</label>
+                <label class="calc-field-label" for="c_platform">
+                  <span class="lang-th">แพลตฟอร์มและโมเดลการแปลงมูลค่า</span>
+                  <span class="lang-en">Platform & Monetization Model</span>
+                </label>
                 <select id="c_platform" class="calc-select">
                   <option value="tiktok_aff" selected>TikTok Shop Affiliate (RPM ~$2.50 / ฿87.50)</option>
                   <option value="fb_reels">Facebook Reels Performance Bonus (RPM ~$3.50 / ฿122.50)</option>
@@ -1204,7 +1622,10 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
 
             <div class="calc-results-row">
               <div class="res-metric">
-                <span class="res-metric-label">ประมาณการรายได้สุทธิ</span>
+                <span class="res-metric-label">
+                  <span class="lang-th">ประมาณการรายได้สุทธิ</span>
+                  <span class="lang-en">Projected Net Revenue</span>
+                </span>
                 <span class="res-metric-value" id="r_thb">฿26,250</span>
                 <span class="res-metric-sub" id="r_usd">≈ $750.00 USD</span>
               </div>
@@ -1214,9 +1635,15 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
                 <span class="res-metric-sub" id="r_model">TikTok Shop Affiliate</span>
               </div>
               <div class="res-metric">
-                <span class="res-metric-label">ยอดวิวเฉลี่ยต่อวัน</span>
+                <span class="res-metric-label">
+                  <span class="lang-th">ยอดวิวเฉลี่ยต่อวัน</span>
+                  <span class="lang-en">Required Daily Views</span>
+                </span>
                 <span class="res-metric-value" id="r_daily">10,000</span>
-                <span class="res-metric-sub">คิดเป็น 3-4 คลิป/วัน</span>
+                <span class="res-metric-sub">
+                  <span class="lang-th">คิดเป็น 3-4 คลิป/วัน</span>
+                  <span class="lang-en">~3-4 uploads daily</span>
+                </span>
               </div>
             </div>
           </div>
@@ -1228,17 +1655,45 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
             <span class="module-badge">Module 13</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">ADVANCED CINEMATOGRAPHY</span>
           </div>
-          <h2 class="module-heading">13. เทคนิคการกำกับกล้องขั้นสูง (Camera Directing for Kling AI)</h2>
-          <p class="module-desc">การใช้คำสั่งเลียนแบบภาษาภาพยนตร์เพื่อสร้างความลึกและมิติให้แก่วิดีโอ</p>
+          <h2 class="module-heading">
+            <span class="lang-th">13. เทคนิคการกำกับกล้องขั้นสูง (Camera Directing for Kling AI)</span>
+            <span class="lang-en">13. Advanced Camera Directing for Video Synthesis</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">การใช้คำสั่งเลียนแบบภาษาภาพยนตร์เพื่อสร้างความลึกและมิติให้แก่วิดีโอ</span>
+            <span class="lang-en">Cinematographic motion descriptors for cinematic depth, parallax, and dimensional immersion.</span>
+          </p>
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>เทคนิคการเคลื่อนกล้อง</th><th>Prompt คำสั่งสำหรับ Kling AI</th><th>สถานการณ์ที่เหมาะสม</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">เทคนิคการเคลื่อนกล้อง</span><span class="lang-en">Camera Technique</span></th>
+                  <th><span class="lang-th">Prompt คำสั่งสำหรับ Kling AI</span><span class="lang-en">Kling AI Prompt String</span></th>
+                  <th><span class="lang-th">สถานการณ์ที่เหมาะสม</span><span class="lang-en">Optimal Context</span></th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td><strong>Dolly Push-In</strong></td><td><code>Slow steady dolly zoom in towards subject eyes, 35mm lens, 24fps</code></td><td>การเน้นอารมณ์หรือจุดเปลี่ยนสำคัญของเรื่อง</td></tr>
-                <tr><td><strong>Horizontal Pan</strong></td><td><code>Smooth horizontal camera pan from left to right, revealing product texture</code></td><td>การแนะนำผลิตภัณฑ์หรือฉากกว้าง</td></tr>
-                <tr><td><strong>Orbit Transition</strong></td><td><code>Subtle camera orbiting around subject 45 degrees, cinematic directional lighting</code></td><td>การแสดงมิติของตัวละครแบบ 3 มิติ</td></tr>
-                <tr><td><strong>Handheld Shake</strong></td><td><code>Subtle realistic handheld camera motion, documentary aesthetic, natural tremor</code></td><td>สร้างความรู้สึกสมจริงในแนวเรื่องเล่าหรือระทึกขวัญ</td></tr>
+                <tr>
+                  <td><strong>Dolly Push-In</strong></td>
+                  <td><code>Slow steady dolly zoom in towards subject eyes, 35mm lens, 24fps</code></td>
+                  <td><span class="lang-th">เน้นอารมณ์หรือจุดเปลี่ยนสำคัญของเรื่อง</span><span class="lang-en">Pivotal emotional revelations</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Horizontal Pan</strong></td>
+                  <td><code>Smooth horizontal camera pan from left to right, revealing product texture</code></td>
+                  <td><span class="lang-th">แนะนำผลิตภัณฑ์หรือแสดงความกว้างของฉาก</span><span class="lang-en">Product reveal across scene canvas</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Orbit Transition</strong></td>
+                  <td><code>Subtle camera orbiting around subject 45 degrees, cinematic directional lighting</code></td>
+                  <td><span class="lang-th">แสดงมิติของตัวละครแบบ 3 มิติ</span><span class="lang-en">Dimensional showcase around subject</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Handheld Shake</strong></td>
+                  <td><code>Subtle realistic handheld camera motion, documentary aesthetic, natural tremor</code></td>
+                  <td><span class="lang-th">สร้างความรู้สึกสมจริงในแนวเรื่องเล่าหรือระทึกขวัญ</span><span class="lang-en">Documentary realism, horror, drama</span></td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -1250,24 +1705,35 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
             <span class="module-badge">Module 14</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">LEGAL & COMPLIANCE</span>
           </div>
-          <h2 class="module-heading">14. กฎหมาย ลิขสิทธิ์ และความปลอดภัยเชิงพาณิชย์</h2>
-          <p class="module-desc">ข้อกำหนดทางกฎหมายที่ต้องตรวจสอบก่อนการเผยแพร่เนื้อหาเชิงพาณิชย์</p>
+          <h2 class="module-heading">
+            <span class="lang-th">14. กฎหมาย ลิขสิทธิ์ และความปลอดภัยเชิงพาณิชย์</span>
+            <span class="lang-en">14. Legal, Copyright & Commercial Compliance</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">ข้อกำหนดทางกฎหมายที่ต้องตรวจสอบก่อนการเผยแพร่เนื้อหาเชิงพาณิชย์</span>
+            <span class="lang-en">Intellectual property guardrails, platform disclosure mandates, and consumer protection boundaries.</span>
+          </p>
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>แนวปฏิบัติที่ปลอดภัย (Safe Harbor)</th><th>ข้อห้ามเด็ดขาด (Strict Violations)</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">แนวปฏิบัติที่ปลอดภัย (Safe Harbor)</span><span class="lang-en">Permissible Practices (Safe Harbor)</span></th>
+                  <th><span class="lang-th">ข้อห้ามเด็ดขาด (Strict Violations)</span><span class="lang-en">Prohibited Violations (High Risk)</span></th>
+                </tr>
+              </thead>
               <tbody>
                 <tr>
                   <td>
-                    &bull; สร้างตัวละครเสมือนจาก AI โดยไม่ใช้ภาพบุคคลที่มีตัวตนจริง<br>
-                    &bull; ใช้เสียงสังเคราะห์จากคลังเสียงมาตรฐานของ ElevenLabs<br>
-                    &bull; ใช้เสียงดนตรีประกอบจากแหล่ง Royalty-Free หรือสร้างเองด้วย Suno AI<br>
-                    &bull; ติดป้ายกำกับ "AI-Generated Content" ตามเงื่อนไขของแพลตฟอร์ม
+                    &bull; <span class="lang-th">สร้างตัวละครเสมือนจาก AI โดยไม่ใช้ภาพบุคคลจริง</span><span class="lang-en">Purely synthetic avatars with no resemblance to real individuals</span><br>
+                    &bull; <span class="lang-th">ใช้เสียงสังเคราะห์จากคลังเสียงมาตรฐานของ ElevenLabs</span><span class="lang-en">Synthetic voices from commercial licensed tiers</span><br>
+                    &bull; <span class="lang-th">ใช้เสียงดนตรีประกอบจากแหล่ง Royalty-Free หรือ Suno AI</span><span class="lang-en">Royalty-free audio tracks or custom Suno instrumentals</span><br>
+                    &bull; <span class="lang-th">ติดป้ายกำกับ "AI-Generated Content" ตามเงื่อนไขแพลตฟอร์ม</span><span class="lang-en">Apply "AI-Generated" metadata labels where required</span>
                   </td>
                   <td>
-                    &bull; ห้ามใช้ใบหน้า เสียง หรืออัตลักษณ์ของบุคคลที่มีชื่อเสียงโดยไม่ได้รับอนุญาต (Deepfake)<br>
-                    &bull; ห้ามกล่าวอ้างสรรพคุณเท็จหรือแอบอ้างว่าเป็นรีวิวจากผู้ใช้จริงโดยไม่มีการทดสอบจริง<br>
-                    &bull; ห้ามนำเพลงที่มีลิขสิทธิ์จากแพลตฟอร์มหนึ่งไปเผยแพร่เชิงพาณิชย์บนอีกแพลตฟอร์มหนึ่ง
+                    &bull; <span class="lang-th">ห้ามใช้ใบหน้า เสียง หรืออัตลักษณ์ของคนดัง (Deepfake)</span><span class="lang-en">No unauthorized celebrity likeness or voice clones (Deepfake)</span><br>
+                    &bull; <span class="lang-th">ห้ามกล่าวอ้างสรรพคุณเท็จหรือแอบอ้างว่าทดลองจริง</span><span class="lang-en">No deceptive claims disguised as authentic clinical testimonials</span><br>
+                    &bull; <span class="lang-th">ห้ามนำเพลงลิขสิทธิ์จาก TikTok ไปเผยแพร่ข้ามแพลตฟอร์ม</span><span class="lang-en">Do not repurpose platform-restricted licensed music</span>
                   </td>
                 </tr>
               </tbody>
@@ -1281,16 +1747,40 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
             <span class="module-badge">Module 15</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">CLIENT ACQUISITION</span>
           </div>
-          <h2 class="module-heading">15. การสร้าง Portfolio และการเสนอราคาสำหรับลูกค้าแบรนด์</h2>
-          <p class="module-desc">การกำหนดโครงสร้างราคาการรับจ้างผลิตวิดีโอโฆษณาสั้น</p>
+          <h2 class="module-heading">
+            <span class="lang-th">15. การสร้าง Portfolio และการเสนอราคาสำหรับลูกค้าแบรนด์</span>
+            <span class="lang-en">15. Commercial Portfolio & Client Acquisition Pricing</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">การกำหนดโครงสร้างราคาการรับจ้างผลิตวิดีโอโฆษณาสั้นสำหรับแบรนด์และเอเจนซี่</span>
+            <span class="lang-en">Standard service tiers, scope deliverables, and commercial pricing structures.</span>
+          </p>
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>แพ็กเกจบริการ</th><th>ขอบเขตงานส่งมอบ</th><th>โครงสร้างราคาแนะนำ</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">ระดับบริการ</span><span class="lang-en">Service Tier</span></th>
+                  <th><span class="lang-th">ขอบเขตงานส่งมอบ</span><span class="lang-en">Deliverables Scope</span></th>
+                  <th><span class="lang-th">โครงสร้างราคาแนะนำ</span><span class="lang-en">Recommended Pricing</span></th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td><strong>Standard UGC Asset</strong></td><td>คลิปความยาว 15-20 วินาที, สคริปต์ 4 คัต, เสียงพากย์ AI, ซับไตเติล, ดนตรีปลอดลิขสิทธิ์</td><td><strong>1,500 - 3,000 บาท</strong></td></tr>
-                <tr><td><strong>Narrative Commercial</strong></td><td>คลิปความยาว 30-60 วินาที, ควบคุมอัตลักษณ์ตัวละครต่อเนื่อง, Sound Design ครบวงจร</td><td><strong>5,000 - 8,000 บาท</strong></td></tr>
-                <tr><td><strong>Studio Campaign</strong></td><td>ชุดคลิป 3 รูปแบบสำหรับทดสอบ A/B, แหล่งไฟล์คุณภาพสูง, รองรับการปรับแก้ 2 ครั้ง</td><td><strong>12,000 - 20,000 บาท</strong></td></tr>
+                <tr>
+                  <td><strong>Standard UGC Asset</strong></td>
+                  <td><span class="lang-th">คลิปความยาว 15-20 วินาที, สคริปต์ 4 คัต, เสียงพากย์ AI, ซับไตเติล, ดนตรีปลอดลิขสิทธิ์</span><span class="lang-en">15-20s video, 4 cuts, AI voiceover, styled captions, royalty-free BGM</span></td>
+                  <td><strong>1,500 - 3,000 ฿</strong> ($45 - $90)</td>
+                </tr>
+                <tr>
+                  <td><strong>Narrative Commercial</strong></td>
+                  <td><span class="lang-th">คลิปความยาว 30-60 วินาที, ควบคุมอัตลักษณ์ตัวละครต่อเนื่อง, Sound Design ครบวงจร</span><span class="lang-en">30-60s video, persistent character continuity, bespoke sound design</span></td>
+                  <td><strong>5,000 - 8,000 ฿</strong> ($150 - $240)</td>
+                </tr>
+                <tr>
+                  <td><strong>Studio Campaign</strong></td>
+                  <td><span class="lang-th">ชุดคลิป 3 รูปแบบสำหรับทดสอบ A/B, ไฟล์ Source Master, สิทธิ์แก้ไข 2 รอบ</span><span class="lang-en">3 Hook variants for A/B testing, master exports, 2 revision cycles</span></td>
+                  <td><strong>12,000 - 20,000 ฿</strong> ($350 - $600)</td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -1302,17 +1792,45 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
             <span class="module-badge">Module 16</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">MODEL BENCHMARK</span>
           </div>
-          <h2 class="module-heading">16. การเปรียบเทียบเครื่องมือรุ่นใหม่ (Benchmark 2026)</h2>
-          <p class="module-desc">ภาพรวมทางเลือกเครื่องมือสำหรับการขยายขีดความสามารถของโปรดักชัน</p>
+          <h2 class="module-heading">
+            <span class="lang-th">16. การเปรียบเทียบเครื่องมือรุ่นใหม่ (Benchmark 2026)</span>
+            <span class="lang-en">16. Emerging AI Toolchain Benchmark (2026 Analysis)</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">ภาพรวมทางเลือกเครื่องมือสำหรับการขยายขีดความสามารถของโปรดักชัน</span>
+            <span class="lang-en">Comparative breakdown of contemporary video foundation models and automated editing engines.</span>
+          </p>
 
           <div class="data-table-wrap">
             <table class="data-table">
-              <thead><tr><th>เครื่องมือ</th><th>จุดเด่นทางเทคนิค</th><th>ความเหมาะสมต่องาน</th></tr></thead>
+              <thead>
+                <tr>
+                  <th><span class="lang-th">เครื่องมือ</span><span class="lang-en">Tool</span></th>
+                  <th><span class="lang-th">จุดเด่นทางเทคนิค</span><span class="lang-en">Technical Strength</span></th>
+                  <th><span class="lang-th">ความเหมาะสมต่องาน</span><span class="lang-en">Best Used For</span></th>
+                </tr>
+              </thead>
               <tbody>
-                <tr><td><strong>Runway Gen-3 / Gen-4</strong></td><td>ความสามารถในการควบคุมทิศทางของวัตถุและกล้องได้อย่างแม่นยำ</td><td>งานโฆษณาและภาพยนตร์สั้นระดับสูง</td></tr>
-                <tr><td><strong>Luma Dream Machine</strong></td><td>ความเร็วในการประมวลผลและการรักษาโครงสร้างฟิสิกส์</td><td>การสังเคราะห์ฉากสภาพแวดล้อมและการเคลื่อนที่เร็ว</td></tr>
-                <tr><td><strong>Topview.ai</strong></td><td>ระบบอัตโนมัติแปลงลิงก์สินค้าเป็นวิดีโอโฆษณาพร้อมใช้</td><td>งาน E-commerce ผลิตจำนวนมาก</td></tr>
-                <tr><td><strong>Opus Clip</strong></td><td>การคัดสรรจังหวะสำคัญจากวิดีโอยาวสู่คลิปสั้นแนวตั้ง</td><td>การต่อยอดเนื้อหาพอดแคสต์หรือบทสัมภาษณ์</td></tr>
+                <tr>
+                  <td><strong>Runway Gen-3 / Gen-4</strong></td>
+                  <td><span class="lang-th">การควบคุมทิศทางวัตถุและกล้องได้อย่างแม่นยำสูง</span><span class="lang-en">Precision camera pathing and cinematic lighting</span></td>
+                  <td><span class="lang-th">งานโฆษณาและภาพยนตร์สั้นระดับสูง</span><span class="lang-en">High-end commercials & narrative films</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Luma Dream Machine</strong></td>
+                  <td><span class="lang-th">ความเร็วในการประมวลผลและการรักษาโครงสร้างฟิสิกส์</span><span class="lang-en">Rapid rendering with realistic physics consistency</span></td>
+                  <td><span class="lang-th">การสังเคราะห์ฉากสภาพแวดล้อมและการเคลื่อนที่เร็ว</span><span class="lang-en">Action shots and dynamic environmental scenes</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Topview.ai</strong></td>
+                  <td><span class="lang-th">ระบบอัตโนมัติแปลงลิงก์สินค้าเป็นวิดีโอโฆษณาพร้อมใช้</span><span class="lang-en">Automated e-commerce product link to video</span></td>
+                  <td><span class="lang-th">งาน E-commerce ผลิตจำนวนมาก</span><span class="lang-en">Rapid-fire bulk catalog asset production</span></td>
+                </tr>
+                <tr>
+                  <td><strong>Opus Clip</strong></td>
+                  <td><span class="lang-th">การคัดสรรจังหวะสำคัญจากวิดีโอยาวสู่คลิปสั้นแนวตั้ง</span><span class="lang-en">Intelligent curation of viral long-to-short cuts</span></td>
+                  <td><span class="lang-th">การต่อยอดเนื้อหาพอดแคสต์หรือบทสัมภาษณ์</span><span class="lang-en">Podcast repurposing and interview clips</span></td>
+                </tr>
               </tbody>
             </table>
           </div>
@@ -1324,42 +1842,69 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
             <span class="module-badge">Blueprints</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">OPERATIONAL CASES</span>
           </div>
-          <h2 class="module-heading">พิมพ์เขียวเวิร์กช็อปภาคปฏิบัติ (Case Studies A & B)</h2>
-          <p class="module-desc">โครงสร้างช็อต สคริปต์ และคำสั่งภาพที่พร้อมนำไปใช้งานจริงได้ทันที</p>
+          <h2 class="module-heading">
+            <span class="lang-th">พิมพ์เขียวเวิร์กช็อปภาคปฏิบัติ (Case Studies A & B)</span>
+            <span class="lang-en">Operational Blueprints: Hands-on Case Studies</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">โครงสร้างช็อต สคริปต์ และคำสั่งภาพที่พร้อมนำไปใช้งานจริงได้ทันที</span>
+            <span class="lang-en">Production-ready prompt matrices for e-commerce UGC and narrative suspense shorts.</span>
+          </p>
 
           <div style="margin: 16px 0;">
-            <strong style="color:var(--color-gray-1000); font-size:14.5px;">Case Study A: UGC สกินแคร์ 20 วินาที (E-commerce Focus)</strong>
+            <strong style="color:var(--color-gray-1000); font-size:14.5px;">
+              <span class="lang-th">Case Study A: UGC สกินแคร์ 20 วินาที (E-commerce Focus)</span>
+              <span class="lang-en">Case Study A: 20-Second Skincare UGC Video (E-commerce Focus)</span>
+            </strong>
             <div class="data-table-wrap" style="margin-top:8px;">
               <table class="data-table">
-                <thead><tr><th style="width:110px;">ช็อต / เวลา</th><th style="width:240px;">สคริปต์เสียงพากย์</th><th>Prompt ภาพ (Midjourney) & Kling Motion</th></tr></thead>
+                <thead>
+                  <tr>
+                    <th style="width:110px;"><span class="lang-th">ช็อต / เวลา</span><span class="lang-en">Cut / Time</span></th>
+                    <th style="width:240px;"><span class="lang-th">สคริปต์เสียงพากย์</span><span class="lang-en">Voiceover Script</span></th>
+                    <th><span class="lang-th">Prompt ภาพ (Midjourney) & Kling Motion</span><span class="lang-en">Midjourney Prompt & Kling Motion</span></th>
+                  </tr>
+                </thead>
                 <tbody>
                   <tr>
-                    <td><strong>01 / Hook</strong><br>00 - 04 วิ</td>
-                    <td>"เคยไหมคะ? ดูแลผิวทุกวัน... แต่ความหมองคล้ำและรอยสิวก็ยังไม่ยอมจางสักที"</td>
+                    <td><strong>01 / Hook</strong><br>00 - 04s</td>
+                    <td>
+                      <span class="lang-th">"เคยไหมคะ? ดูแลผิวทุกวัน... แต่ความหมองคล้ำและรอยสิวก็ยังไม่ยอมจางสักที"</span>
+                      <span class="lang-en">"Ever feel like you do your skincare every day... but the dullness and blemishes just never fade away?"</span>
+                    </td>
                     <td>
                       <div style="font-family:var(--font-mono); font-size:12px; color:var(--color-gray-1000);">A tired 24yo Thai woman looking in bathroom mirror with subtle skin imperfections, natural morning light, 85mm portrait, realistic film grain --ar 9:16</div>
                       <div style="font-size:11.5px; color:var(--color-gray-700); margin-top:4px;"><strong>Kling Motion:</strong> Slow camera push-in towards subject face with reflective expression</div>
                     </td>
                   </tr>
                   <tr>
-                    <td><strong>02 / Pain</strong><br>05 - 09 วิ</td>
-                    <td>"ลองเปลี่ยนมาหลายขั้นตอน แต่ผลลัพธ์ก็ยังไม่ชัดเจนจนเกือบจะถอดใจ..."</td>
+                    <td><strong>02 / Pain</strong><br>05 - 09s</td>
+                    <td>
+                      <span class="lang-th">"ลองเปลี่ยนมาหลายขั้นตอน แต่ผลลัพธ์ก็ยังไม่ชัดเจนจนเกือบจะถอดใจ..."</span>
+                      <span class="lang-en">"Tried changing routines so many times, yet results remain disappointing..."</span>
+                    </td>
                     <td>
                       <div style="font-family:var(--font-mono); font-size:12px; color:var(--color-gray-1000);">Close-up of minimalist wooden vanity table with multiple glass skincare bottles, moody soft shadows, 50mm lens --ar 9:16</div>
                       <div style="font-size:11.5px; color:var(--color-gray-700); margin-top:4px;"><strong>Kling Motion:</strong> Slow horizontal pan across the cosmetic bottles on table</div>
                     </td>
                   </tr>
                   <tr>
-                    <td><strong>03 / Solution</strong><br>10 - 15 วิ</td>
-                    <td>"จนได้สัมผัสเซรั่มขวดนี้ เนื้อเข้มข้นแต่ซึมซาบไว คืนความชุ่มชื้นและฟื้นฟูผิวอย่างล้ำลึก"</td>
+                    <td><strong>03 / Solution</strong><br>10 - 15s</td>
+                    <td>
+                      <span class="lang-th">"จนได้สัมผัสเซรั่มขวดนี้ เนื้อเข้มข้นแต่ซึมซาบไว คืนความชุ่มชื้นและฟื้นฟูผิวอย่างล้ำลึก"</span>
+                      <span class="lang-en">"Until discovering this rich serum, absorbing instantly to deeply restore moisture and radiance."</span>
+                    </td>
                     <td>
                       <div style="font-family:var(--font-mono); font-size:12px; color:var(--color-gray-1000);">Macro 100mm lens shot, amber serum droplet absorbing smoothly into clean textured skin, commercial studio softbox lighting --ar 9:16</div>
                       <div style="font-size:11.5px; color:var(--color-gray-700); margin-top:4px;"><strong>Kling Motion:</strong> Droplet melts and absorbs into skin texture smoothly</div>
                     </td>
                   </tr>
                   <tr>
-                    <td><strong>04 / CTA</strong><br>16 - 20 วิ</td>
-                    <td>"สัมผัสความเปลี่ยนแปลงด้วยตัวคุณเองวันนี้ ดูโปรโมชันพิเศษที่ตะกร้าด้านล่างได้เลยค่ะ"</td>
+                    <td><strong>04 / CTA</strong><br>16 - 20s</td>
+                    <td>
+                      <span class="lang-th">"สัมผัสความเปลี่ยนแปลงด้วยตัวคุณเองวันนี้ ดูโปรโมชันพิเศษที่ตะกร้าด้านล่างได้เลยค่ะ"</span>
+                      <span class="lang-en">"Experience the difference for yourself today. Tap the yellow basket below for exclusive offers."</span>
+                    </td>
                     <td>
                       <div style="font-family:var(--font-mono); font-size:12px; color:var(--color-gray-1000);">The same Thai woman with radiant natural glowing skin holding the amber dropper bottle, serene smile, bright airy interior --ar 9:16</div>
                       <div style="font-size:11.5px; color:var(--color-gray-700); margin-top:4px;"><strong>Kling Motion:</strong> Subject smiles with gentle hand gesture towards bottom corner</div>
@@ -1377,41 +1922,71 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
             <span class="module-badge">Quality Assurance</span>
             <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">PRE-FLIGHT QA</span>
           </div>
-          <h2 class="module-heading">เช็กลิสต์การตรวจมาตรฐานก่อนเผยแพร่ (Pre-Flight QA)</h2>
-          <p class="module-desc">ตรวจสอบทุกองค์ประกอบให้ครบถ้วนก่อนนำไฟล์เข้าสู่ขั้นตอนการเผยแพร่เชิงพาณิชย์</p>
+          <h2 class="module-heading">
+            <span class="lang-th">เช็กลิสต์การตรวจมาตรฐานก่อนเผยแพร่ (Pre-Flight QA)</span>
+            <span class="lang-en">Pre-Flight Production Quality Assurance Checklist</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">ตรวจสอบทุกองค์ประกอบให้ครบถ้วนก่อนนำไฟล์เข้าสู่ขั้นตอนการเผยแพร่เชิงพาณิชย์</span>
+            <span class="lang-en">Comprehensive 8-point verification pass prior to commercial platform scheduling.</span>
+          </p>
 
           <div class="checklist-card">
             <label class="check-row">
               <input type="checkbox" onchange="toggleCheck(this)">
-              <span>สคริปต์ผ่านการตรวจทานโครงสร้าง 4 ท่อน และ Hook 3 วินาทีแรกมีความกระชับชัดเจน</span>
+              <span>
+                <span class="lang-th">สคริปต์ผ่านการตรวจทานโครงสร้าง 4 ท่อน และ Hook 3 วินาทีแรกมีความกระชับชัดเจน</span>
+                <span class="lang-en">Script verified against 4-stage structure; opening 3-second hook is clear and concise</span>
+              </span>
             </label>
             <label class="check-row">
               <input type="checkbox" onchange="toggleCheck(this)">
-              <span>ภาพตัวละครต้นแบบ (Master Anchor) มีความคมชัดและควบคุมอัตลักษณ์ได้คงที่</span>
+              <span>
+                <span class="lang-th">ภาพตัวละครต้นแบบ (Master Anchor) มีความคมชัดและควบคุมอัตลักษณ์ได้คงที่</span>
+                <span class="lang-en">Master Anchor image locked and facial identity preserved across cuts</span>
+              </span>
             </label>
             <label class="check-row">
               <input type="checkbox" onchange="toggleCheck(this)">
-              <span>วิดีโอจาก Kling AI ทุกคัตมีการเคลื่อนไหวที่นุ่มนวลและไม่พบความผิดเพี้ยนของสรีระ</span>
+              <span>
+                <span class="lang-th">วิดีโอจาก Kling AI ทุกคัตมีการเคลื่อนไหวที่นุ่มนวลและไม่พบความผิดเพี้ยนของสรีระ</span>
+                <span class="lang-en">Kling AI motion intensity tuned (3-4); zero morphological artifacts detected</span>
+              </span>
             </label>
             <label class="check-row">
               <input type="checkbox" onchange="toggleCheck(this)">
-              <span>เสียงพากย์ ElevenLabs มีการเว้นวรรคจังหวะหายใจอย่างเป็นธรรมชาติและออกเสียงชัดเจน</span>
+              <span>
+                <span class="lang-th">เสียงพากย์ ElevenLabs มีการเว้นวรรคจังหวะหายใจอย่างเป็นธรรมชาติและออกเสียงชัดเจน</span>
+                <span class="lang-en">ElevenLabs pacing adjusted with natural breath pauses and crisp Thai phonetics</span>
+              </span>
             </label>
             <label class="check-row">
               <input type="checkbox" onchange="toggleCheck(this)">
-              <span>ดนตรีพื้นหลัง (BGM) ถูกปรับลดระดับเสียงลงที่ -22dB ถึง -25dB เพื่อไม่ให้กลบเสียงพากย์</span>
+              <span>
+                <span class="lang-th">ดนตรีพื้นหลัง (BGM) ถูกปรับลดระดับเสียงลงที่ -22dB ถึง -25dB เพื่อไม่ให้กลบเสียงพากย์</span>
+                <span class="lang-en">Background music ducked to -22dB to -25dB ensuring vocal clarity</span>
+              </span>
             </label>
             <label class="check-row">
               <input type="checkbox" onchange="toggleCheck(this)">
-              <span>ซับไตเติลภาษาไทยจัดวางในตำแหน่งที่ปลอดภัย (ไม่โดนไอคอน UI ของแพลตฟอร์มบัง)</span>
+              <span>
+                <span class="lang-th">ซับไตเติลภาษาไทยจัดวางในตำแหน่งที่ปลอดภัย (ไม่โดนไอคอน UI ของแพลตฟอร์มบัง)</span>
+                <span class="lang-en">Subtitles placed strictly within platform safe zones</span>
+              </span>
             </label>
             <label class="check-row">
               <input type="checkbox" onchange="toggleCheck(this)">
-              <span>ตรวจสอบการปฏิบัติตามลิขสิทธิ์: ไม่มีภาพบุคคลจริง และใช้เพลงปลอดลิขสิทธิ์</span>
+              <span>
+                <span class="lang-th">ตรวจสอบการปฏิบัติตามลิขสิทธิ์: ไม่มีภาพบุคคลจริง และใช้เพลงปลอดลิขสิทธิ์</span>
+                <span class="lang-en">Full copyright clearance confirmed: no unauthorized real likenesses, royalty-free audio</span>
+              </span>
             </label>
             <label class="check-row">
               <input type="checkbox" onchange="toggleCheck(this)">
-              <span>จัดเตรียม Metadata และแฮชแท็ก 3 ระดับพร้อมสำหรับการตั้งเวลาเผยแพร่</span>
+              <span>
+                <span class="lang-th">จัดเตรียม Metadata และแฮชแท็ก 3 ระดับพร้อมสำหรับการตั้งเวลาเผยแพร่</span>
+                <span class="lang-en">3-tier hashtag matrix and search-optimized caption staged for publishing</span>
+              </span>
             </label>
           </div>
         </section>
@@ -1439,7 +2014,8 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
         aivideo<span style="color:var(--color-accent);">.md</span> &bull; Production System v3.2
       </div>
       <div>
-        Curated design specification for AI-driven video engineering. Free and open source.
+        <span class="lang-th">สเปกระบบออกแบบสำหรับวิศวกรรมวิดีโอ AI เชิงพาณิชย์ &bull; สิทธิ์เปิดและใช้งานได้อิสระ</span>
+        <span class="lang-en">Curated design specification for AI-driven video engineering. Free and open source.</span>
       </div>
     </div>
   </footer>
@@ -1455,6 +2031,19 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
       document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
       themeText.textContent = isDark ? 'Light' : 'Dark';
     });
+
+    // Language Switcher Management
+    function setLanguage(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      document.getElementById('btnTh').classList.toggle('active', lang === 'th');
+      document.getElementById('btnEn').classList.toggle('active', lang === 'en');
+      localStorage.setItem('preferred_lang', lang);
+      populateRawMarkdown(lang);
+    }
+
+    // Initialize Language from localStorage if present
+    const savedLang = localStorage.getItem('preferred_lang') || 'th';
+    setLanguage(savedLang);
 
     // Copy Helper
     function copyText(str, btn) {
@@ -1491,17 +2080,18 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
       if (viewName === 'raw-markdown') {
         document.getElementById('view-live-doc').style.display = 'none';
         document.getElementById('view-raw-markdown').style.display = 'block';
-        populateRawMarkdown();
+        const curLang = document.documentElement.getAttribute('data-lang') || 'th';
+        populateRawMarkdown(curLang);
       } else {
         document.getElementById('view-live-doc').style.display = 'block';
         document.getElementById('view-raw-markdown').style.display = 'none';
       }
     }
 
-    function populateRawMarkdown() {
+    function populateRawMarkdown(lang) {
       const el = document.getElementById('raw-markdown-text');
-      if (el.textContent) return;
-      el.textContent = `# Design System Analysis: AI Video Production
+      if (lang === 'en') {
+        el.textContent = `# Design System Analysis: AI Video Production
 High-throughput short-form video generation system.
 
 ## 00. Toolchain Setup
@@ -1534,6 +2124,41 @@ Prompt: Slow push-in camera, subject blinks naturally, subtle breath movement, s
 - YouTube Shorts: RPM $0.06 (~฿2.10 / 1K views)
 - YouTube Long-Form: RPM $5.00 (~฿175.00 / 1K views)
 `;
+      } else {
+        el.textContent = `# การวิเคราะห์ระบบออกแบบ: การผลิตวิดีโอ AI เชิงพาณิชย์
+ระบบการผลิตวิดีโอสั้นอัตโนมัติความเร็วสูง
+
+## 00. โครงสร้างเครื่องมือพื้นฐาน (Toolchain)
+- ChatGPT / Claude: วางโครงเรื่อง & เขียนสคริปต์แยกคัต
+- Midjourney / Flux: ภาพต้นแบบตัวละคร Master Anchor (--cref, 35mm film)
+- Kling AI / Hailuo: สังเคราะห์ภาพเป็นวิดีโอ (ความยาว 5 วินาที, Motion: 3-4)
+- ElevenLabs + CapCut: เสียงพากย์ไทย (Multilingual v2) + ตัดต่อสัดส่วน 9:16
+
+## 01. สถาปัตยกรรมสคริปต์ 4 ท่อน
+1. วินาที 0-3 (Hook): หยุดนิ้วคนดูทันที
+2. วินาที 4-8 (Pain): ตอกย้ำปัญหาที่คนดูเผชิญ
+3. วินาที 9-16 (Solution): นำเสนอคุณค่าและผลลัพธ์
+4. วินาที 17-20 (CTA): กระตุ้นการสั่งซื้อ
+
+## 02. การล็อกหน้าตัวละคร
+Prompt: A 24yo Thai woman, natural bare skin texture, shoulder-length bob hair, white linen shirt --ar 9:16 --cref [Image URL] --cw 100
+
+## 03. การควบคุม Motion ใน Kling AI
+Prompt: Slow push-in camera, subject blinks naturally, subtle breath movement, steady 24fps cinematic realistic motion
+
+## 04. การตั้งค่าเสียง ElevenLabs ภาษาไทย
+- Model: Eleven Multilingual v2
+- Stability: 40%
+- Clarity: 75%
+- Style Exaggeration: 20%
+
+## 12. เศรษฐศาสตร์รายได้
+- TikTok Shop Affiliate: RPM $2.50 (~฿87.50 ต่อ 1,000 วิว)
+- Facebook Reels Bonus: RPM $3.50 (~฿122.50 ต่อ 1,000 วิว)
+- YouTube Shorts: RPM $0.06 (~฿2.10 ต่อ 1,000 วิว)
+- YouTube Long-Form: RPM $5.00 (~฿175.00 ต่อ 1,000 วิว)
+`;
+      }
     }
 
     function copyRawMarkdown(btn) {
