@@ -1,0 +1,1791 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Video Mastery: คัมภีร์จับมือทำคลิป AI สร้างเงินล้านทีละขั้นตอน (Step-by-Step Masterclass)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07090e;
+      --bg-surface: #0f141c;
+      --bg-card: #151c27;
+      --bg-card-hover: #1c2636;
+      --panel: #212c3d;
+      --border: #2b394e;
+      --gold: #f59e0b;
+      --gold-light: #fbbf24;
+      --gold-glow: rgba(245, 158, 11, 0.2);
+      --red: #ef4444;
+      --green: #10b981;
+      --green-glow: rgba(16, 185, 129, 0.2);
+      --blue: #38bdf8;
+      --purple: #a855f7;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --font-body: 'IBM Plex Sans Thai', -apple-system, sans-serif;
+      --font-heading: 'Bai Jamjuree', sans-serif;
+      --font-mono: 'Fira Code', monospace;
+    }
+
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-card: #f1f5f9;
+      --bg-card-hover: #e2e8f0;
+      --panel: #e2e8f0;
+      --border: #cbd5e1;
+      --gold: #d97706;
+      --gold-light: #b45309;
+      --gold-glow: rgba(217, 119, 6, 0.12);
+      --green: #059669;
+      --green-glow: rgba(5, 150, 105, 0.12);
+      --blue: #0284c7;
+      --purple: #7c3aed;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --text-dim: #94a3b8;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background-color: var(--bg);
+      color: var(--text-main);
+      font-family: var(--font-body);
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      transition: background-color 0.2s, color 0.2s;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Sticky Header */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(7, 9, 14, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    [data-theme="light"] header {
+      background: rgba(248, 250, 252, 0.94);
+    }
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+    }
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #f59e0b, #ef4444);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: #000;
+      font-family: var(--font-heading);
+      font-size: 16px;
+      box-shadow: 0 4px 14px rgba(245, 158, 11, 0.35);
+    }
+    .brand-text h1 {
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .brand-text span {
+      font-size: 12px;
+      color: var(--gold-light);
+      font-weight: 500;
+    }
+    .theme-btn {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-main);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 13px;
+      font-family: var(--font-body);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Subnav Nav */
+    .nav-bar {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding: 8px 0 12px;
+      scrollbar-width: thin;
+    }
+    .nav-btn {
+      white-space: nowrap;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 13px;
+      font-family: var(--font-heading);
+      font-weight: 500;
+      transition: all 0.15s;
+    }
+    .nav-btn:hover, .nav-btn.active {
+      background: var(--gold-glow);
+      border-color: var(--gold);
+      color: var(--gold-light);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 44px 0 32px;
+      border-bottom: 1px solid var(--border);
+      background: radial-gradient(circle at 85% 15%, rgba(245, 158, 11, 0.12) 0%, transparent 60%);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: 20px;
+      background: var(--gold-glow);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      font-size: 12px;
+      font-family: var(--font-heading);
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
+    .hero h2 {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 800;
+      line-height: 1.3;
+      margin-bottom: 14px;
+    }
+    .hero h2 span {
+      background: linear-gradient(90deg, #f59e0b, #ef4444);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 16.5px;
+      color: var(--text-muted);
+      max-width: 860px;
+      margin-bottom: 24px;
+    }
+
+    /* Step Card (The Core Component) */
+    .step-section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .step-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      margin-bottom: 24px;
+    }
+    .step-circle {
+      width: 54px;
+      height: 54px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--panel), var(--bg-card));
+      border: 2px solid var(--gold);
+      color: var(--gold-light);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      box-shadow: 0 4px 14px var(--gold-glow);
+    }
+    .step-titles {
+      flex: 1;
+    }
+    .step-tag {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--gold);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 4px;
+      display: block;
+    }
+    .step-title {
+      font-family: var(--font-heading);
+      font-size: 26px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+    .step-desc {
+      font-size: 15px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* Grids & Cards */
+    .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 20px; }
+    .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    }
+    .card.highlight {
+      border-color: var(--gold);
+      background: linear-gradient(180deg, var(--bg-card) 0%, rgba(245, 158, 11, 0.04) 100%);
+    }
+
+    /* Action Box / UI Simulation */
+    .action-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+    .action-box-title {
+      font-family: var(--font-heading);
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--gold-light);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* Instruction List */
+    .instruction-steps {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .instruction-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      font-size: 14.5px;
+    }
+    .item-bullet {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--panel);
+      color: var(--gold-light);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* Code Box & Prompt Display */
+    .code-container {
+      background: #080b11;
+      border: 1px solid #232d3d;
+      border-radius: 10px;
+      margin: 12px 0;
+      overflow: hidden;
+    }
+    .code-bar {
+      background: #121824;
+      padding: 8px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #232d3d;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--text-dim);
+    }
+    .code-text {
+      padding: 14px 16px;
+      font-family: var(--font-mono);
+      font-size: 13px;
+      line-height: 1.65;
+      color: #7ee787;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .btn-copy {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-family: var(--font-mono);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+    .btn-copy:hover {
+      color: var(--text-main);
+      border-color: var(--gold);
+      background: var(--bg-card-hover);
+    }
+
+    /* Interactive Project Tabs */
+    .project-tabs {
+      display: flex;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+    }
+    .p-tab-btn {
+      padding: 10px 20px;
+      background: none;
+      border: none;
+      border-bottom: 3px solid transparent;
+      color: var(--text-muted);
+      font-family: var(--font-heading);
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .p-tab-btn:hover { color: var(--text-main); }
+    .p-tab-btn.active {
+      border-bottom-color: var(--gold);
+      color: var(--gold-light);
+    }
+    .p-tab-content { display: none; }
+    .p-tab-content.active { display: block; }
+
+    /* Storyboard Table */
+    .sb-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: var(--bg-card);
+      margin: 16px 0;
+    }
+    table.sb-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 13.5px;
+    }
+    table.sb-table th, table.sb-table td {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+    table.sb-table th {
+      background: var(--panel);
+      font-family: var(--font-heading);
+      font-weight: 600;
+      color: var(--gold-light);
+      font-size: 12.5px;
+      text-transform: uppercase;
+    }
+    table.sb-table tr:last-child td { border-bottom: none; }
+
+    /* Interactive Checklist */
+    .checklist-wrap {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .check-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14.5px;
+      cursor: pointer;
+    }
+    .check-label input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--green);
+      cursor: pointer;
+    }
+
+    /* Callout & Tips */
+    .callout {
+      border-left: 4px solid var(--gold);
+      background: var(--bg-surface);
+      padding: 14px 18px;
+      border-radius: 0 10px 10px 0;
+      margin: 14px 0;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .callout b { color: var(--text-main); }
+    .callout.danger { border-left-color: var(--red); }
+    .callout.success { border-left-color: var(--green); }
+
+    /* Footer */
+    footer {
+      padding: 48px 0;
+      background: var(--bg-surface);
+      border-top: 1px solid var(--border);
+      color: var(--text-muted);
+      font-size: 14px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body data-theme="dark">
+
+  <!-- Header -->
+  <header>
+    <div class="container header-inner">
+      <a href="#" class="brand-wrap">
+        <div class="brand-icon">🎬</div>
+        <div class="brand-text">
+          <h1>AI Video Mastery: จับมือทำสร้างเงินล้าน</h1>
+          <span>Step-by-Step Practical Masterclass (End-to-End Walkthrough)</span>
+        </div>
+      </a>
+      <button class="theme-btn" id="themeBtn">
+        <span id="tIcon">☀️</span> <span id="tText">โหมดสว่าง</span>
+      </button>
+    </div>
+    <div class="container">
+      <nav class="nav-bar">
+        <a href="#sec-prep" class="nav-btn active">00. เครื่องมือ &amp; ลิงก์ที่ต้องเปิด</a>
+        <a href="#sec-step1" class="nav-btn">01. เขียนสคริปต์ 4 ท่อน</a>
+        <a href="#sec-step2" class="nav-btn">02. เจนภาพ &amp; ล็อกหน้าตัวละคร</a>
+        <a href="#sec-step3" class="nav-btn">03. เสกภาพให้ขยับ (Kling / Hailuo)</a>
+        <a href="#sec-step4" class="nav-btn">04. เสียงพากย์ไทย (ElevenLabs)</a>
+        <a href="#sec-step5" class="nav-btn">05. ประกอบร่างใน CapCut</a>
+        <a href="#sec-step6" class="nav-btn">06. ปักตะกร้า &amp; รับเงิน</a>
+        <a href="#sec-step7" class="nav-btn">07. Hashtag &amp; SEO</a>
+        <a href="#sec-step8" class="nav-btn">08. อ่าน Analytics</a>
+        <a href="#sec-step9" class="nav-btn">09. A/B Testing</a>
+        <a href="#sec-step10" class="nav-btn">10. คลังเสียง &amp; เพลง</a>
+        <a href="#sec-step11" class="nav-btn">11. Batch Production</a>
+        <a href="#sec-step12" class="nav-btn">12. คณิตศาสตร์เงิน</a>
+        <a href="#sec-step13" class="nav-btn">13. เทคนิคขั้นสูง</a>
+        <a href="#sec-step14" class="nav-btn">14. กฎหมาย</a>
+        <a href="#sec-step15" class="nav-btn">15. Portfolio</a>
+        <a href="#sec-bonus" class="nav-btn">🚀 AI Tools 2026</a>
+        <a href="#sec-project-a" class="nav-btn">⭐ เวิร์กช็อปจริง: เซรั่ม UGC</a>
+        <a href="#sec-project-b" class="nav-btn">🧟 เวิร์กช็อปจริง: หนังผี 6 คัต</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <div class="hero">
+    <div class="container">
+      <div class="hero-badge">🚀 จับมือทำทีละคลิก · เริ่มจากศูนย์จนรับเงินจริง</div>
+      <h2>เรียนทำวิดีโอ AI แบบ <span>"จับมือทำจริงทุกขั้นตอน"</span></h2>
+      <p>
+        คู่มือนี้ออกแบบมาเพื่อให้คุณเปิดทำตามได้แบบหน้าจอต่อหน้าจอ ไม่ใช้ศัพท์เทคนิคยากๆ บอกชัดเจนว่าต้องคลิกปุ่มไหน พิมพ์ Prompt อะไร ปรับกี่เปอร์เซ็นต์ และนำไปโพสต์สร้างรายได้จริงได้อย่างไร
+      </p>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- STEP 00: การเตรียมเครื่องมือ -->
+    <section id="sec-prep" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">00</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 00 · PREPARATION</span>
+          <h3 class="step-title">เปิด 4 แถบบนเบราว์เซอร์ให้พร้อม (ฟรี ไม่ต้องเสียเงินก้อน)</h3>
+          <p class="step-desc">ก่อนเริ่ม ให้เปิดเว็บไซต์เหล่านี้ค้างไว้บนคอมพิวเตอร์ของคุณ</p>
+        </div>
+      </div>
+
+      <div class="grid-4">
+        <div class="card">
+          <span class="step-tag" style="color:var(--blue);">1. สมองคิดบท</span>
+          <h4 style="font-family:var(--font-heading); margin-bottom:8px;">ChatGPT / Claude</h4>
+          <p style="font-size:13.5px;">ใช้แต่งบทสนทนา คิด Hook และแปลงไอเดียเป็นตาราง Storyboard ภาษาอังกฤษ</p>
+          <a href="https://chatgpt.com" target="_blank" style="color:var(--gold-light); font-size:12.5px; text-decoration:none; display:inline-block; margin-top:10px;">👉 เปิด chatgpt.com</a>
+        </div>
+
+        <div class="card">
+          <span class="step-tag" style="color:var(--purple);">2. โรงงานเจนภาพ</span>
+          <h4 style="font-family:var(--font-heading); margin-bottom:8px;">Midjourney / Flux</h4>
+          <p style="font-size:13.5px;">ใช้สร้างภาพนิ่งตัวละครตั้งต้น (Character Anchor) และภาพฉากคมชัดระดับ 4K</p>
+          <a href="https://midjourney.com" target="_blank" style="color:var(--gold-light); font-size:12.5px; text-decoration:none; display:inline-block; margin-top:10px;">👉 เปิด midjourney.com</a>
+        </div>
+
+        <div class="card">
+          <span class="step-tag" style="color:var(--gold);">3. โรงงานทำวิดีโอ</span>
+          <h4 style="font-family:var(--font-heading); margin-bottom:8px;">Kling AI / Hailuo</h4>
+          <p style="font-size:13.5px;">ใช้ฟังก์ชัน <b>Image-to-Video</b> เสกภาพนิ่งให้เคลื่อนไหวได้อย่างสมจริงและลื่นไหล</p>
+          <a href="https://klingai.com" target="_blank" style="color:var(--gold-light); font-size:12.5px; text-decoration:none; display:inline-block; margin-top:10px;">👉 เปิด klingai.com</a>
+        </div>
+
+        <div class="card">
+          <span class="step-tag" style="color:var(--green);">4. สตูดิโอเสียง &amp; ตัดต่อ</span>
+          <h4 style="font-family:var(--font-heading); margin-bottom:8px;">ElevenLabs + CapCut</h4>
+          <p style="font-size:13.5px;">ElevenLabs สร้างเสียงพากย์ไทยเสมือนคนจริง + CapCut โปรแกรมตัดต่อฟรี</p>
+          <a href="https://elevenlabs.io" target="_blank" style="color:var(--gold-light); font-size:12.5px; text-decoration:none; display:inline-block; margin-top:10px;">👉 เปิด elevenlabs.io</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 01: เขียนสคริปต์ 4 ท่อน -->
+    <section id="sec-step1" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">01</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 01 · SCRIPTWRITING</span>
+          <h3 class="step-title">เขียนสคริปต์ 4 ท่อน ด้วย Prompt สั่ง AI บรรทัดเดียว</h3>
+          <p class="step-desc">คลิปความยาว 15 - 30 วินาที ต้องแบ่งตามสูตร Hook - Pain - Solution - CTA เสมอ</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="action-box-title">📝 คัดลอก Prompt นี้ไปวางใน ChatGPT หรือ Claude:</div>
+        
+        <div class="code-container">
+          <div class="code-bar">
+            <span>PROMPT สั่งเขียนบทแบบแบ่งคัต</span>
+            <button class="btn-copy" onclick="copyCodeText('c_script_gen')">Copy Prompt</button>
+          </div>
+          <div class="code-text" id="c_script_gen">คุณเป็นผู้กำกับวิดีโอโฆษณาไวรัลระดับมืออาชีพ ช่วยเขียนสคริปต์คลิปสั้นแนวตั้ง (9:16) ความยาว 20 วินาที สำหรับสินค้า "[ใส่ชื่อสินค้าของคุณ เช่น เซรั่มหน้าใสใบบัวบก]"
+โดยแบ่งโครงสร้างตาม 4 ช่วงเวลาดังนี้:
+1. วินาทีที่ 0-3 (Hook): คำพูดและภาพกระแทกใจ หยุดนิ้วคนดูทันที
+2. วินาทีที่ 4-8 (Pain): ปัญหาความทุกข์ที่คนดูเจอ
+3. วินาทีที่ 9-16 (Solution): ทางออกของสินค้า แสดงภาพผลลัพธ์และความน่าใช้
+4. วินาทีที่ 17-20 (CTA): สั่งให้กดซื้อที่ตะกร้าด่วน
+
+ขอผลลัพธ์เป็น "ตาราง Storyboard 4 คัต" ระบุ:
+- เวลา (วินาที)
+- สคริปต์เสียงพูดภาษาไทย (สั้น กระชับ มีพลัง)
+- คำอธิบายภาพภาษาไทย
+- Prompt ภาษาอังกฤษสำหรับนำไปเจนภาพใน Midjourney (สไตล์ 35mm film, photorealistic, 24fps)</div>
+        </div>
+
+        <div class="callout success">
+          💡 <b>ทำไมต้องขอ Prompt อังกฤษ?</b> เพราะ AI สร้างวิดีโอ (Kling, Midjourney, Hailuo) เข้าใจภาษาอังกฤษได้ละเอียดและแม่นยำกว่าภาษาไทยมาก การให้ ChatGPT แปลงเป็น Prompt อังกฤษให้เลยจะช่วยให้งานเป๊ะขึ้น 10 เท่าครับ
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 02: เจนภาพ & ล็อกหน้าตัวละคร -->
+    <section id="sec-step2" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">02</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 02 · CHARACTER LOCK</span>
+          <h3 class="step-title">สร้างภาพตั้งต้น &amp; ล็อกหน้าตัวละคร (Character Consistency)</h3>
+          <p class="step-desc">วิธีทำให้หน้าตานายแบบ/นางแบบเหมือนเดิมทุกคัต ไม่กลายเป็นคนละคน</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="instruction-steps">
+          <div class="instruction-item">
+            <div class="item-bullet">1</div>
+            <div>
+              <b>เจนภาพตัวละครต้นแบบ (Master Image):</b><br>
+              เข้าไปที่ Midjourney หรือ Flux แล้วใส่ Prompt ระบุจุดสังเกตเฉพาะเจาะจง เช่น ทรงผม สีเสื้อ และรอยตำหนิ
+              
+              <div class="code-container">
+                <div class="code-bar">
+                  <span>ตัวอย่าง PROMPT ล็อกตัวละคร</span>
+                  <button class="btn-copy" onclick="copyCodeText('c_char_lock')">Copy Prompt</button>
+                </div>
+                <div class="code-text" id="c_char_lock">A beautiful 24-year-old Thai woman, bare natural skin with subtle pores, natural black shoulder-length bob hair, wearing a white oversized linen shirt, gentle confident smile, sitting in a bright modern aesthetic bedroom, soft morning window light, 85mm portrait lens, photorealistic 24fps, fine film grain, NO plastic skin, NO AI blur --ar 9:16</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">2</div>
+            <div>
+              <b>บันทึกภาพตัวหลักไว้ในเครื่อง:</b><br>
+              เลือกรูปที่คุณชอบที่สุด 1 รูป (กด Upscale) แล้วคลิกขวา Save รูปภาพนั้นลงในเครื่อง คอมพิวเตอร์ของคุณ ตั้งชื่อว่า `master_face.png`
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">3</div>
+            <div>
+              <b>วิธีเปลี่ยนท่าทางแต่หน้าเดิม (Image-to-Image):</b><br>
+              เมื่อต้องการภาพในคัตที่ 2 (เช่น ถือขวดเซรั่ม) ให้ใส่ภาพ `master_face.png` กลับเข้าไปเป็น **Image Reference (หรือพิมพ์ URL รูป)** แล้วต่อท้ายด้วยคำสั่งแอ็กชันใหม่ เช่น <i>"holding a glass dropper bottle near her cheek, looking at the camera"</i> หน้าตาจะคงเดิม 90%+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 03: แปลงภาพนิ่งเป็นวิดีโอ (Kling / Hailuo) -->
+    <section id="sec-step3" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">03</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 03 · ANIMATION</span>
+          <h3 class="step-title">เสกภาพให้ขยับด้วย Kling AI (ปุ่มไหนกดอะไร ปรับค่าเท่าไหร่)</h3>
+          <p class="step-desc">เปลี่ยนภาพนิ่งให้เคลื่อนไหวเป็นวิดีโอคลิป 5 วินาทีแบบไม่กระตุก ไม่เบี้ยว</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="instruction-steps">
+          <div class="instruction-item">
+            <div class="item-bullet">1</div>
+            <div>
+              เปิดเว็บ <b>klingai.com</b> $\rightarrow$ กดไปที่เมนู <b>"AI Video"</b> ด้านซ้ายมือ
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">2</div>
+            <div>
+              เลือกโหมด <b>"Image to Video"</b> (ห้ามเลือก Text to Video เด็ดขาดถ้าต้องการคุมหน้าตัวละคร)
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">3</div>
+            <div>
+              คลิกอัปโหลดรูปภาพตัวละครที่คุณเจนจาก Step 2 ใส่เข้าไปในช่อง <b>Image Input (Start Frame)</b>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">4</div>
+            <div>
+              <b>ช่อง Text Prompt พิมพ์คำสั่งขยับเล็กน้อย (Subtle Motion):</b>
+              <div class="code-container">
+                <div class="code-bar">
+                  <span>ตัวอย่าง Motion Prompt ใน Kling AI</span>
+                  <button class="btn-copy" onclick="copyCodeText('c_motion_prompt')">Copy Prompt</button>
+                </div>
+                <div class="code-text" id="c_motion_prompt">Slow push-in camera, the woman blinks naturally, gently smiles, subtle breathing, soft hair movement in breeze, 24fps cinematic realistic motion, NO morphing, NO sudden jump</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">5</div>
+            <div>
+              <b>การตั้งค่ากล่องด้านล่าง (สำคัญมาก!):</b>
+              <ul style="margin-left:20px; margin-top:6px; color:var(--text-muted); font-size:14px;">
+                <li><b>Duration (ความยาว):</b> เลือก <b>5s</b> (5 วินาทีพอดีสำหรับแต่ละคัต)</li>
+                <li><b>Creativity / Motion Intensity:</b> ตั้งค่าไว้ที่ <b>3 ถึง 4</b> (ห้ามเกิน 6 เพราะถ้าตั้งสูงเกินไป แขนจะงอก หรือหน้าจะเบี้ยว)</li>
+                <li><b>Mode:</b> ถ้าใช้ฟรีเลือก <i>Standard</i> ถ้าเสียเงินเลือก <i>Professional</i></li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">6</div>
+            <div>
+              กดปุ่ม <b>"Generate"</b> รอประมาณ 2–3 นาที เมื่อเสร็จแล้วกดปุ่ม **Download (MP4)** เซฟลงเครื่อง
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 04: ทำเสียงพากย์ด้วย ElevenLabs -->
+    <section id="sec-step4" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">04</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 04 · THAI VOICEOVER</span>
+          <h3 class="step-title">สร้างเสียงพากย์ไทยระดับมนุษย์ด้วย ElevenLabs</h3>
+          <p class="step-desc">ปรับจังหวะหายใจและน้ำเสียงให้เหมือนนักพากย์โฆษณา ไม่แข็งทื่อเหมือนสิริ</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="instruction-steps">
+          <div class="instruction-item">
+            <div class="item-bullet">1</div>
+            <div>
+              เข้าไปที่ <b>elevenlabs.io</b> $\rightarrow$ กดเมนู <b>"Speech Synthesis"</b>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">2</div>
+            <div>
+              <b>เลือกโมเดล:</b> ต้องเลือกเป็น <b>"Eleven Multilingual v2"</b> เท่านั้น (เพราะเป็นโมเดลที่รองรับภาษาไทยได้เนียนที่สุด)
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">3</div>
+            <div>
+              <b>เลือกเสียง (Voice):</b>
+              <ul style="margin-left:20px; margin-top:4px; font-size:14px; color:var(--text-muted);">
+                <li>ถ้าเป็นคลิปขายสกินแคร์ / สินค้าผู้หญิง แนะนำเสียง: <b>Sarah</b> หรือ <b>Lily</b> (ใส นุ่ม เป็นมิตร)</li>
+                <li>ถ้าเป็นคลิปเล่าเรื่องผี / ดราม่า / การเงิน แนะนำเสียง: <b>George</b> หรือ <b>Adam</b> (ทุ้ม น่าเชื่อถือ มีอำนาจ)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">4</div>
+            <div>
+              <b>ปรับ Slider การตั้งค่า (สูตรลับภาษาไทย):</b>
+              <div style="background:var(--bg-card); padding:12px; border-radius:8px; border:1px solid var(--border); margin-top:8px; font-family:var(--font-mono); font-size:13px;">
+                🔹 Stability: <b>40%</b> (ลดลงมาเพื่อให้น้ำเสียงมีขึ้นลง มีลมหายใจ)<br>
+                🔹 Clarity + Similarity: <b>75%</b> (ชัดเจน วรรณยุกต์ไทยไม่เพี้ยน)<br>
+                🔹 Style Exaggeration: <b>20%</b> (มีอารมณ์ตื่นเต้นตามสคริปต์)
+              </div>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">5</div>
+            <div>
+              <b>เทคนิคการพิมพ์สคริปต์ลงในช่องข้อความ:</b>
+              <p style="font-size:13.5px; color:var(--text-muted); margin-top:4px;">
+                ถ้าอยากให้ AI เว้นจังหวะหายใจ ให้พิมพ์ **เครื่องหมายจุลภาค (,) หรือ เคาะวรรค 2 ครั้ง** ห้ามพิมพ์ประโยคยาวติดกันเป็นพืด!
+              </p>
+              <div class="code-container">
+                <div class="code-bar">
+                  <span>ตัวอย่างการเคาะวรรคให้เสียงพากย์มีจังหวะหายใจ</span>
+                  <button class="btn-copy" onclick="copyCodeText('c_voice_sample')">Copy</button>
+                </div>
+                <div class="code-text" id="c_voice_sample">หยุดฟังสักนิด... ถ้าคุณเป็นคนนึง ที่ลองมาสารพัดวิธี, แต่หน้าก็ยังไม่ใสสักที.
+สูตรนี้แหละค่ะ, ที่ช่วยกู้ผิวโทรม ให้กลับมาฉ่ำวาว ใน 7 วัน.
+ตอนนี้มีโปรลดครึ่งราคา, กดสั่งที่ตะกร้าซ้ายมือ ได้เลยนะคะ!</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">6</div>
+            <div>
+              กด <b>"Generate Speech"</b> ฟังดูผลงาน ถ้าถูกใจกดปุ่ม <b>Download (MP3)</b> เซฟไว้ในโฟลเดอร์งาน
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 05: ประกอบร่างใน CapCut -->
+    <section id="sec-step5" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">05</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 05 · CAPCUT EDITING</span>
+          <h3 class="step-title">ประกอบร่างใน CapCut (ขั้นตอนตัดต่อจบงานใน 10 นาที)</h3>
+          <p class="step-desc">นำไฟล์วิดีโอ 4 คลิป + ไฟล์เสียงพากย์ มารวมกันเป็นคลิปไวรัลสมบูรณ์</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="instruction-steps">
+          <div class="instruction-item">
+            <div class="item-bullet">1</div>
+            <div>
+              เปิดโปรแกรม <b>CapCut</b> (บนคอมพิวเตอร์ หรือ บนมือถือ) $\rightarrow$ กด **New Project**
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">2</div>
+            <div>
+              <b>ตั้งค่าสัดส่วน (Ratio):</b> กดที่เมนู *Ratio* แล้วเลือก **9:16 (แนวตั้ง)**
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">3</div>
+            <div>
+              <b>ลากไฟล์เสียงพากย์ MP3 ลงมาเป็นอันดับแรก:</b> วางไว้ที่แทร็กเสียง (Track ล่าง) เพื่อใช้ความยาวเสียงเป็นตัวคุมความยาวรวมของคลิป
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">4</div>
+            <div>
+              <b>ลากคลิปวิดีโอ AI ช็อตที่ 1, 2, 3, 4 ลงมาในแทร็กภาพ:</b>
+              ตัดหัว-ตัดท้ายคลิป (Trim) ให้ภาพเปลี่ยนไปตามประโยคพูดของเสียงพากย์ (เฉลี่ยช็อตละ 3–4 วินาที)
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">5</div>
+            <div>
+              <b>สร้างซับไตเติลอัตโนมัติ (Auto Captions):</b>
+              <p style="font-size:13.5px; color:var(--text-muted);">
+                ไปที่เมนู <b>Text > Auto captions</b> $\rightarrow$ เลือกภาษา <b>Thai</b> $\rightarrow$ กด <b>Generate</b>
+              </p>
+              <p style="font-size:13.5px; color:var(--text-muted); margin-top:4px;">
+                💡 <b>จัดฟอนต์ให้ดึงดูด:</b> เลือกฟอนต์ <i>Kanit</i> หรือ <i>Noto Sans Thai</i> ปรับตัวหนา (Bold) เลือกสไตล์ข้อความสีเหลืองขอบดำ หรือสีขาวขอบดำ ปรับขนาดให้อ่านง่าย แล้ววางไว้กลางจอค่อนไปทางล่าง
+              </p>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">6</div>
+            <div>
+              <b>ใส่เสียง Sound Effect &amp; เพลง BGM:</b>
+              <ul style="margin-left:20px; margin-top:4px; font-size:14px; color:var(--text-muted);">
+                <li>หาเสียง **Whoosh (ฟิ้ว)** หรือ **Pop** ใส่ในจังหวะที่ซับไตเติลหรือภาพเปลี่ยนซีน</li>
+                <li>ใส่เพลงคลอเบาๆ แล้วปรับลดระดับเสียงของดนตรี (BGM Volume) ลงไปที่ **-22dB ถึง -25dB** เพื่อไม่ให้กลบเสียงคนพูด</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="instruction-item">
+            <div class="item-bullet">7</div>
+            <div>
+              กดปุ่ม <b>"Export"</b> ด้านขวาบน $\rightarrow$ ตั้งความละเอียด **1080p**, เฟรมเรต **30fps** หรือ **60fps** $\rightarrow$ กด Export ได้ไฟล์คลิปสมบูรณ์พร้อมอัปโหลดทันที!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 06: ปักตะกร้า & รับเงิน -->
+    <section id="sec-step6" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">06</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 06 · MONETIZATION</span>
+          <h3 class="step-title">การโพสต์ปักตะกร้า TikTok Affiliate &amp; รับเงิน Facebook Reels</h3>
+          <p class="step-desc">วิธีนำคลิปไปอัปโหลดเพื่อเริ่มสร้างรายได้จริงเข้ากระเป๋า</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card highlight">
+          <span class="step-tag" style="color:var(--gold);">สายที่ 1: TikTok Shop Affiliate</span>
+          <h4 style="font-family:var(--font-heading); margin-bottom:10px;">ขั้นตอนการปักตะกร้าสร้างค่าคอมมิชชัน:</h4>
+          <ol style="margin-left:20px; font-size:14px; color:var(--text-muted); display:flex; flex-direction:column; gap:8px;">
+            <li>เปิดแอป TikTok กดปุ่มเครื่องหมาย <b>+</b> แล้วเลือกอัปโหลดคลิปที่ตัดเสร็จจาก CapCut</li>
+            <li>พิมพ์แคปชันที่มีคีย์เวิร์ด และแฮชแท็ก เช่น `#รีวิวบิวตี้ #กู้ผิวโทรม #หน้าใส #ใช้ดีบอกต่อ`</li>
+            <li>กดที่ปุ่ม <b>"เพิ่มลิงก์ (Add link)" $\rightarrow$ เลือก "สินค้า (Product)"</b></li>
+            <li>ค้นหาสินค้าที่คุณต้องการเป็นนายหน้า (Affiliate) แล้วกด **เพิ่ม (Add)** สินค้านั้นเข้าคลิป</li>
+            <li>กด <b>โพสต์ (Post)</b> ทันที! เมื่อมีคนดูคลิปแล้วกดสั่งซื้อผ่านตะกร้าสีเหลือง คุณจะได้รับเงินค่าคอม 10% - 30% โอนเข้าบัญชีธนาคารอัตโนมัติ</li>
+          </ol>
+        </div>
+
+        <div class="card highlight">
+          <span class="step-tag" style="color:var(--blue);">สายที่ 2: Facebook Reels &amp; Shorts</span>
+          <h4 style="font-family:var(--font-heading); margin-bottom:10px;">ขั้นตอนการกินยอดวิว (Performance Bonus):</h4>
+          <ol style="margin-left:20px; font-size:14px; color:var(--text-muted); display:flex; flex-direction:column; gap:8px;">
+            <li>สร้างเพจ Facebook Page หรือช่อง YouTube สไตล์เรื่องเล่า / หนังสั้น / สาระน่ารู้</li>
+            <li>โพสต์คลิป Reels วันละ 2 – 3 คลิป อย่างสม่ำเสมอ (เวลาทอง: 11.30 น. และ 19.30 น.)</li>
+            <li>ตั้งชื่อพาดหัวแบบสร้างความสงสัย (Curiosity Gap) เช่น *"อย่าเพิ่งดูคลิปนี้คนเดียวตอนกลางคืน..."*</li>
+            <li>เมื่อเพจมียอดวิวและผู้ติดตามถึงเกณฑ์ Facebook จะส่งคำเชิญรับเงินโบนัส **Performance Bonus** และ **โฆษณาในสตรีม** จ่ายเป็นเงินดอลลาร์เข้าบัญชีทุกเดือน</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 07: Hashtag & SEO -->
+    <section id="sec-step7" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">07</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 07 · HASHTAG &amp; SEO</span>
+          <h3 class="step-title">🎯 สูตร Hashtag 3 ชั้น + SEO ให้คลิปติดเทรนด์</h3>
+          <p class="step-desc">ใส่ Hashtag ผิดวิธีเท่ากับโยนคลิปลงทะเล ใส่ถูกวิธีคลิปจะถูกดันขึ้นหน้า For You ทันที</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="action-box-title">🏗️ สูตร Hashtag 3 ชั้น (ใช้ได้ทุกแพลตฟอร์ม)</div>
+        <div class="grid-3">
+          <div class="card">
+            <span class="step-tag" style="color:var(--red);">ชั้นที่ 1 · BROAD (1-2 อัน)</span>
+            <h4 style="font-family:var(--font-heading); margin:6px 0;">แฮชแท็กยอดวิวสูง 1M+</h4>
+            <p style="font-size:13px; color:var(--text-muted);">ดึงคนดูจำนวนมาก แต่แข่งสูง ใช้แค่ 1-2 อัน</p>
+            <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787; margin-top:8px;">#fyp #foryou #viral #tiktokthailand</div>
+          </div>
+          <div class="card">
+            <span class="step-tag" style="color:var(--gold);">ชั้นที่ 2 · NICHE (3-4 อัน)</span>
+            <h4 style="font-family:var(--font-heading); margin:6px 0;">แฮชแท็กเฉพาะกลุ่ม 100K-1M</h4>
+            <p style="font-size:13px; color:var(--text-muted);">ตรงกลุ่มเป้าหมาย แข่งปานกลาง เป็นตัวหลัก</p>
+            <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787; margin-top:8px;">#รีวิวสกินแคร์ #หน้าใสไม่ใช้ฟิลเตอร์ #คลิปสั้นทำเงิน</div>
+          </div>
+          <div class="card">
+            <span class="step-tag" style="color:var(--green);">ชั้นที่ 3 · MICRO (2-3 อัน)</span>
+            <h4 style="font-family:var(--font-heading); margin:6px 0;">แฮชแท็กเฉพาะทาง ต่ำกว่า 100K</h4>
+            <p style="font-size:13px; color:var(--text-muted);">แข่งน้อยมาก โอกาสติด Top สูง ช่วยให้ Algorithm จับประเภทคลิปถูก</p>
+            <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787; margin-top:8px;">#เซรั่มใบบัวบก #กู้ผิวโทรม7วัน #AIวิดีโอไทย</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">📦 ชุด Hashtag สำเร็จรูป 5 กลุ่ม (คัดลอกไปวางได้เลย)</div>
+
+        <div class="sb-table-wrap">
+          <table class="sb-table">
+            <thead><tr><th style="width:120px;">ประเภทคลิป</th><th>ชุด Hashtag แนะนำ (คัดลอกทั้งบรรทัด)</th></tr></thead>
+            <tbody>
+              <tr><td><b>สกินแคร์ / บิวตี้</b></td><td><div id="ht_skincare" style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">#fyp #skincarethailand #รีวิวบิวตี้ #หน้าใส #เซรั่มหน้าใส #กู้ผิวโทรม #ใช้ดีบอกต่อ #สกินแคร์ถูกและดี</div><button class="btn-copy" onclick="copyCodeText('ht_skincare')" style="margin-top:6px;">Copy</button></td></tr>
+              <tr><td><b>หนังสั้น / ดราม่า</b></td><td><div id="ht_drama" style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">#fyp #หนังสั้น #ละครสั้น #เรื่องเล่าสยองขวัญ #คลิปสั้นน่าดู #ดราม่า #หลอน #ระทึกขวัญ</div><button class="btn-copy" onclick="copyCodeText('ht_drama')" style="margin-top:6px;">Copy</button></td></tr>
+              <tr><td><b>การเงิน / ลงทุน</b></td><td><div id="ht_finance" style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">#fyp #การเงิน #ลงทุน #หุ้น #รวยด้วยตัวเอง #ออมเงิน #เกษียณเร็ว #FinanceTH</div><button class="btn-copy" onclick="copyCodeText('ht_finance')" style="margin-top:6px;">Copy</button></td></tr>
+              <tr><td><b>อาหาร / ร้านอาหาร</b></td><td><div id="ht_food" style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">#fyp #กินเที่ยว #รีวิวอาหาร #ร้านอร่อย #streetfoodthailand #ของกินห้ามพลาด #ตะลุยกิน</div><button class="btn-copy" onclick="copyCodeText('ht_food')" style="margin-top:6px;">Copy</button></td></tr>
+              <tr><td><b>สัตว์เลี้ยง</b></td><td><div id="ht_pet" style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">#fyp #แมว #หมา #สัตว์เลี้ยงน่ารัก #ทาสแมว #dogthailand #cutecat #petsoftiktok</div><button class="btn-copy" onclick="copyCodeText('ht_pet')" style="margin-top:6px;">Copy</button></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">🤖 Prompt สั่ง ChatGPT คิด Hashtag อัตโนมัติ</div>
+        <div class="code-container">
+          <div class="code-bar">
+            <span>PROMPT คิด Hashtag 3 ชั้น</span>
+            <button class="btn-copy" onclick="copyCodeText('c_hashtag_gen')">Copy Prompt</button>
+          </div>
+          <div class="code-text" id="c_hashtag_gen">คุณเป็นผู้เชี่ยวชาญ TikTok SEO ช่วยคิดชุด Hashtag สำหรับคลิปสั้นแนวตั้ง 9:16 เรื่อง "[ใส่หัวข้อคลิปของคุณ]"
+โดยแบ่งเป็น 3 ชั้น:
+1. Broad Hashtag (ยอดวิว 1M+): 2 อัน
+2. Niche Hashtag (ยอดวิว 100K-1M): 4 อัน
+3. Micro Hashtag (ยอดวิวต่ำกว่า 100K): 3 อัน
+
+ขอทั้งภาษาไทยและภาษาอังกฤษ รวมทั้งหมดไม่เกิน 9 อัน
+ขอ Caption ด้วย 2 บรรทัด: บรรทัดแรกเป็น Hook สร้างความสงสัย, บรรทัดที่สองเป็น CTA</div>
+        </div>
+        <div class="callout success" style="margin-top:12px;">
+          💡 <b>เคล็ดลับ SEO สำคัญ:</b> ใน TikTok ให้ใส่คำค้นหาสำคัญใน <b>3 บรรทัดแรก</b> ของ Caption เพราะ Algorithm จะอ่านคำเหล่านั้นเพื่อจัดหมวดหมู่คลิป ใน YouTube Shorts ให้ใส่คำค้นหาใน <b>Title</b> และ <b>Description</b> ด้วย
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 08: Analytics Dashboard -->
+    <section id="sec-step8" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">08</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 08 · ANALYTICS</span>
+          <h3 class="step-title">📊 อ่าน Analytics ให้เป็น: รู้ว่าคลิปไหนดี คลิปไหนต้องแก้</h3>
+          <p class="step-desc">ไม่ต้องเดาสุ่ม ตัวเลข 5 ตัวนี้จะบอกคุณทุกอย่าง</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="action-box-title">📈 5 ตัวเลข KPI ที่ต้องดูทุกวัน</div>
+        <div class="sb-table-wrap">
+          <table class="sb-table">
+            <thead><tr><th style="width:180px;">ตัวเลข (KPI)</th><th style="width:120px;">Benchmark ผ่าน</th><th style="width:120px;">ระดับไวรัล</th><th>ความหมาย &amp; วิธีแก้ถ้าต่ำ</th></tr></thead>
+            <tbody>
+              <tr><td><b>⏱️ Average Watch Time %</b></td><td style="color:var(--green);"><b>&gt; 50%</b></td><td style="color:var(--gold);"><b>&gt; 70%</b></td><td>คนดูคลิปจนจบกี่ % ถ้าต่ำ = Hook อ่อน ต้องเปลี่ยน 3 วินาทีแรก</td></tr>
+              <tr><td><b>🔄 Retention Curve</b></td><td style="color:var(--green);">เส้นราบ/ค่อยๆ ลง</td><td style="color:var(--gold);">เส้นแบน 80%+</td><td>กราฟเส้นแสดงว่าคนหลุดตรงวินาทีไหน ถ้าตกหัวทิ่มวินาที 3 = Hook พัง ถ้าตกกลางคลิป = เนื้อหาน่าเบื่อ</td></tr>
+              <tr><td><b>👤 Profile Visit Rate</b></td><td style="color:var(--green);"><b>&gt; 3%</b></td><td style="color:var(--gold);"><b>&gt; 7%</b></td><td>คนดูแล้วกดเข้าโปรไฟล์กี่ % ถ้าสูง = คนสนใจตัวตนคุณ เหมาะทำ Personal Brand</td></tr>
+              <tr><td><b>📤 Share Rate</b></td><td style="color:var(--green);"><b>&gt; 1%</b></td><td style="color:var(--gold);"><b>&gt; 3%</b></td><td>คนแชร์คลิปกี่ % ถ้าสูง = Algorithm จะดันขึ้น For You แรงมาก</td></tr>
+              <tr><td><b>🛒 Conversion Rate (ถ้าปักตะกร้า)</b></td><td style="color:var(--green);"><b>&gt; 1%</b></td><td style="color:var(--gold);"><b>&gt; 3%</b></td><td>คนกดซื้อจากตะกร้ากี่ % ถ้าต่ำ = สินค้าไม่ตรงกลุ่ม หรือ CTA อ่อน</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">📱 วิธีเปิดดู Analytics บนแต่ละแพลตฟอร์ม</div>
+        <div class="instruction-steps">
+          <div class="instruction-item">
+            <div class="item-bullet">T</div>
+            <div>
+              <b>TikTok:</b> เปิดแอป → กดไปที่โปรไฟล์ → แตะเมนู <b>☰ (3 ขีด)</b> มุมขวาบน → <b>Creator tools</b> → <b>Analytics</b> → เลือกดู Tab <b>"Content"</b> แล้วเลือกคลิปที่ต้องการวิเคราะห์
+            </div>
+          </div>
+          <div class="instruction-item">
+            <div class="item-bullet">F</div>
+            <div>
+              <b>Facebook:</b> เปิด <b>Meta Business Suite</b> (business.facebook.com) → เลือกเพจ → กด <b>"Insights"</b> → <b>"Content"</b> → เลือก Reels ที่ต้องการ → ดู Retention Graph และ Engagement
+            </div>
+          </div>
+          <div class="instruction-item">
+            <div class="item-bullet">Y</div>
+            <div>
+              <b>YouTube:</b> เปิด <b>YouTube Studio</b> (studio.youtube.com) → <b>"Analytics"</b> → Tab <b>"Content"</b> → เลือก Short → ดู <b>Audience Retention</b> และ <b>Traffic Sources</b>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout" style="margin-top:16px;">
+        💡 <b>กฎ 3-7-30:</b> คลิปที่โพสต์ไป <b>3 ชั่วโมง</b>แรก ถ้ายอดวิวพุ่ง = Algorithm กำลังดัน รีบโพสต์คลิปต่อ! ถ้า <b>7 วัน</b>ผ่านไปยังไม่ถึง 1,000 วิว = ลองเปลี่ยน Hook แล้วโพสต์ใหม่ และวิเคราะห์ข้อมูลรวมทุก <b>30 วัน</b>เพื่อดูภาพรวมแนวโน้ม
+      </div>
+    </section>
+
+    <!-- STEP 09: A/B Testing -->
+    <section id="sec-step9" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">09</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 09 · A/B TESTING</span>
+          <h3 class="step-title">🧪 ทดสอบ Hook &amp; Thumbnail: หา "สูตรลับ" ของช่องคุณ</h3>
+          <p class="step-desc">ยิงคลิปเดียวกัน 2 เวอร์ชัน เปลี่ยนแค่ 3 วินาทีแรก แล้วดูว่าอันไหนชนะ</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="action-box-title">🎣 สูตร 5 Hook ที่พิสูจน์แล้วว่าดีที่สุด (เลือกไปใช้ได้เลย)</div>
+        <div class="sb-table-wrap">
+          <table class="sb-table">
+            <thead><tr><th style="width:150px;">ประเภท Hook</th><th style="width:280px;">ตัวอย่างภาษาไทย</th><th>ทำไมมันเวิร์ก</th></tr></thead>
+            <tbody>
+              <tr><td><b>❓ Question Hook</b></td><td>"เคยสงสัยไหมว่าทำไมผิวบางคนใส... ไม่ว่าจะทำอะไร?"</td><td>สมองมนุษย์ถูกโปรแกรมมาให้ต้องหาคำตอบ จึงดูต่อ</td></tr>
+              <tr><td><b>😱 Shock Hook</b></td><td>"อย่าทาครีมยี่ห้อนี้เด็ดขาด! ถ้าคุณไม่อยากเป็นแบบนี้..."</td><td>กระตุ้น Fear of Missing Out (FOMO) ทำให้ต้องดูให้จบ</td></tr>
+              <tr><td><b>🔢 Number Hook</b></td><td>"3 สิ่งที่คนรวยทำทุกเช้า... ข้อ 3 คนส่วนใหญ่ไม่เคยรู้"</td><td>ตัวเลขเฉพาะเจาะจงทำให้รู้สึกว่า "ข้อมูลจริง" น่าเชื่อถือ</td></tr>
+              <tr><td><b>🏆 Challenge Hook</b></td><td>"ลองทำตามนี้ 7 วัน... แล้วผิวคุณจะเปลี่ยน"</td><td>กระตุ้นให้อยากพิสูจน์ตัวเอง สร้าง Engagement สูง</td></tr>
+              <tr><td><b>📖 Story Hook</b></td><td>"คืนนั้นตี 3... เสียงเคาะประตูดังขึ้น 3 ครั้ง"</td><td>เปิดเรื่องแบบหนังทำให้อยากรู้ตอนจบ Retention สูงมาก</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">📋 Template บันทึกผล A/B Test (จดทุกครั้งที่ทดสอบ)</div>
+        <div class="sb-table-wrap">
+          <table class="sb-table">
+            <thead><tr><th>รายการ</th><th style="width:200px;">คลิป A (ต้นฉบับ)</th><th style="width:200px;">คลิป B (เปลี่ยน Hook)</th></tr></thead>
+            <tbody>
+              <tr><td>Hook ที่ใช้</td><td style="color:var(--text-dim);">[จดว่าใช้ Hook แบบไหน]</td><td style="color:var(--text-dim);">[จดว่าเปลี่ยนเป็นอะไร]</td></tr>
+              <tr><td>ยอดวิว 24 ชม.แรก</td><td style="color:var(--text-dim);">____ วิว</td><td style="color:var(--text-dim);">____ วิว</td></tr>
+              <tr><td>Watch Time %</td><td style="color:var(--text-dim);">____%</td><td style="color:var(--text-dim);">____%</td></tr>
+              <tr><td>Share Rate</td><td style="color:var(--text-dim);">____%</td><td style="color:var(--text-dim);">____%</td></tr>
+              <tr><td><b>ผู้ชนะ</b></td><td colspan="2" style="color:var(--gold); text-align:center;"><b>[คลิป A หรือ B?] → ใช้ Hook แบบนี้ต่อไป!</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout success" style="margin-top:12px;">
+          💡 <b>วิธี A/B Test แบบง่าย:</b> โพสต์คลิป A ก่อน → รอ 24 ชั่วโมง จดผล → ลบคลิป A (หรือเก็บไว้ก็ได้) → โพสต์คลิป B ที่เปลี่ยนแค่ 3 วินาทีแรก → รอ 24 ชั่วโมง เปรียบเทียบ → ใช้ Hook ที่ชนะเป็นสูตรประจำช่อง
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 10: คลังเสียง & เพลง -->
+    <section id="sec-step10" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">10</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 10 · MUSIC &amp; SFX</span>
+          <h3 class="step-title">🎵 คลังเสียง &amp; เพลงฟรีไม่ติดลิขสิทธิ์</h3>
+          <p class="step-desc">เพลงและ Sound Effect ที่ใช้ได้ฟรี + วิธีสร้างเพลงเอง ด้วย Suno AI</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="action-box-title">🎶 6 แหล่งเพลง &amp; เสียงฟรี (Royalty-Free)</div>
+        <div class="sb-table-wrap">
+          <table class="sb-table">
+            <thead><tr><th style="width:160px;">แหล่ง</th><th style="width:100px;">ราคา</th><th>จุดเด่น</th><th style="width:180px;">ลิงก์</th></tr></thead>
+            <tbody>
+              <tr><td><b>CapCut Built-in</b></td><td style="color:var(--green);">ฟรี</td><td>มี BGM และ SFX พร้อมใช้ในโปรแกรมเลย ไม่ต้องโหลดจากที่ไหน</td><td>อยู่ในแอป CapCut</td></tr>
+              <tr><td><b>Pixabay Music</b></td><td style="color:var(--green);">ฟรี</td><td>เพลงคุณภาพสูง ใช้เชิงพาณิชย์ได้ ไม่ต้องให้เครดิต</td><td><a href="https://pixabay.com/music" target="_blank" style="color:var(--gold-light); font-size:12px;">pixabay.com/music</a></td></tr>
+              <tr><td><b>Freesound</b></td><td style="color:var(--green);">ฟรี</td><td>SFX มากกว่า 500,000 เสียง (Whoosh, Pop, Thunder, ฯลฯ)</td><td><a href="https://freesound.org" target="_blank" style="color:var(--gold-light); font-size:12px;">freesound.org</a></td></tr>
+              <tr><td><b>Uppbeat</b></td><td style="color:var(--green);">ฟรี (จำกัด)</td><td>เพลงแยกหมวดอารมณ์ (Happy, Sad, Epic) ดาวน์โหลดฟรี 3 เพลง/เดือน</td><td><a href="https://uppbeat.io" target="_blank" style="color:var(--gold-light); font-size:12px;">uppbeat.io</a></td></tr>
+              <tr><td><b>YouTube Audio Library</b></td><td style="color:var(--green);">ฟรี</td><td>เพลงและ SFX จาก Google ใช้ใน YouTube ได้ไม่ติดลิขสิทธิ์</td><td><a href="https://studio.youtube.com" target="_blank" style="color:var(--gold-light); font-size:12px;">studio.youtube.com → Audio Library</a></td></tr>
+              <tr><td><b>🌟 Suno AI</b></td><td>ฟรี 10 เพลง/วัน</td><td>สร้างเพลงต้นฉบับด้วย AI! พิมพ์ Prompt แล้วได้เพลงเต็มเพลง 30 วินาที</td><td><a href="https://suno.ai" target="_blank" style="color:var(--gold-light); font-size:12px;">suno.ai</a></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">🤖 วิธีสร้างเพลง BGM ด้วย Suno AI (Step-by-Step)</div>
+        <div class="instruction-steps">
+          <div class="instruction-item"><div class="item-bullet">1</div><div>เปิดเว็บ <b>suno.ai</b> → สมัครบัญชีฟรี (ใช้ Google Login ได้)</div></div>
+          <div class="instruction-item"><div class="item-bullet">2</div><div>กดปุ่ม <b>"Create"</b> → เลือก <b>"Custom Mode"</b></div></div>
+          <div class="instruction-item">
+            <div class="item-bullet">3</div>
+            <div>
+              <b>ใส่ Prompt บอก Suno AI ว่าอยากได้เพลงแบบไหน:</b>
+              <div class="code-container">
+                <div class="code-bar"><span>Prompt สร้างเพลง BGM สำหรับคลิปขายของ</span><button class="btn-copy" onclick="copyCodeText('c_suno_bgm')">Copy</button></div>
+                <div class="code-text" id="c_suno_bgm">Style: upbeat lo-fi chill pop, soft piano, gentle bass
+Mood: positive, warm, inviting, feel-good
+Tempo: 95 BPM
+Duration: 30 seconds
+No vocals, instrumental only</div>
+              </div>
+            </div>
+          </div>
+          <div class="instruction-item"><div class="item-bullet">4</div><div>กด <b>"Generate"</b> → รอ 30 วินาที → ฟังผลงาน → ถ้าชอบกด <b>Download (MP3)</b></div></div>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">💥 10 Sound Effect ยอดนิยม ที่ต้องมีในคลังส่วนตัว</div>
+        <div class="grid-2">
+          <div class="card">
+            <ol style="font-size:13.5px; color:var(--text-muted); margin-left:16px; display:flex; flex-direction:column; gap:4px;">
+              <li><b>Whoosh (ฟิ้ว)</b> — ใส่ตอนเปลี่ยนซีน</li>
+              <li><b>Pop / Click</b> — ใส่ตอนซับไตเติลขึ้น</li>
+              <li><b>Bass Drop</b> — ใส่ตอนเฉลยสินค้า</li>
+              <li><b>Heartbeat (ตุ้บตุ้บ)</b> — คลิปผี/ระทึก</li>
+              <li><b>Glass Shatter</b> — ใส่ตอน Plot Twist</li>
+            </ol>
+          </div>
+          <div class="card">
+            <ol start="6" style="font-size:13.5px; color:var(--text-muted); margin-left:16px; display:flex; flex-direction:column; gap:4px;">
+              <li><b>Thunder (ฟ้าร้อง)</b> — เปิดซีนดราม่า</li>
+              <li><b>Tension Riser</b> — สร้างความตื่นเต้น</li>
+              <li><b>Reverse Cymbal</b> — นำเข้า Climax</li>
+              <li><b>Clock Tick</b> — สร้าง Urgency ขายของ</li>
+              <li><b>Notification Ding</b> — เน้นข้อความ CTA</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout danger" style="margin-top:16px;">
+        ⚠️ <b>คำเตือนสำคัญ:</b> เพลง Trending ที่ใช้ใน TikTok ได้ <b>ห้ามนำไปใช้ใน YouTube หรือ Facebook</b> โดยตรง เพราะอาจโดน Copyright Strike ทันที! ให้ใช้เพลงจากแหล่ง Royalty-Free ข้างบนเท่านั้นถ้าจะโพสต์ข้ามแพลตฟอร์ม
+      </div>
+    </section>
+
+    <!-- STEP 11: Batch Production -->
+    <section id="sec-step11" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">11</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 11 · BATCH PRODUCTION</span>
+          <h3 class="step-title">⚡ สเกลจาก 1 คลิป/วัน → 5 คลิป/วัน (Batch Mode)</h3>
+          <p class="step-desc">ระบบผลิตคลิปแบบโรงงาน ทำงาน 5 วันได้คลิป 25 ชิ้นพร้อมตั้งเวลาโพสต์ล่วงหน้า</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="action-box-title">🏭 ตาราง Workflow สัปดาห์ (Batch 5 คลิปต่อสัปดาห์)</div>
+        <div class="sb-table-wrap">
+          <table class="sb-table">
+            <thead><tr><th style="width:110px;">วัน</th><th style="width:140px;">งาน</th><th>รายละเอียด</th><th style="width:80px;">เวลา</th></tr></thead>
+            <tbody>
+              <tr><td><b>จันทร์</b></td><td>📝 เขียนบท 5 เรื่อง</td><td>ใช้ ChatGPT คิดบท 5 เรื่องพร้อมกัน → ได้ Storyboard 5 ชุด + Prompt อังกฤษ 20 ช็อต</td><td>2 ชม.</td></tr>
+              <tr><td><b>อังคาร</b></td><td>🖼️ เจนภาพ 20 ช็อต</td><td>เปิด Midjourney/Flux เจนภาพครบ 20 ช็อตรวด (4 ช็อต x 5 คลิป) ใช้ Master Image เดิม</td><td>3 ชม.</td></tr>
+              <tr><td><b>พุธ</b></td><td>🎬 แปลงวิดีโอ 20 คลิป</td><td>ส่งภาพเข้า Kling AI ทำ Image-to-Video 5 วินาทีรวด (ทำพร้อมกันได้ 4 งาน)</td><td>3 ชม.</td></tr>
+              <tr><td><b>พฤหัส</b></td><td>🎙️ เสียง + ✂️ ตัดต่อ</td><td>ทำเสียงพากย์ ElevenLabs 5 ไฟล์ → เปิด CapCut ตัดต่อ 5 คลิปรวด</td><td>4 ชม.</td></tr>
+              <tr><td><b>ศุกร์</b></td><td>📤 ตั้งเวลาโพสต์</td><td>ใช้ TikTok Studio / Meta Business Suite ตั้งเวลาโพสต์ล่วงหน้า 7 วัน</td><td>1 ชม.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">🤖 Prompt สั่ง ChatGPT คิดบท 5 เรื่องพร้อมกัน</div>
+        <div class="code-container">
+          <div class="code-bar"><span>PROMPT Batch คิดบท 5 คลิป</span><button class="btn-copy" onclick="copyCodeText('c_batch_script')">Copy Prompt</button></div>
+          <div class="code-text" id="c_batch_script">คุณเป็นผู้กำกับวิดีโอโฆษณาไวรัลที่เก่งที่สุด ช่วยคิดสคริปต์คลิปสั้น 9:16 ความยาว 20 วินาที จำนวน 5 เรื่อง สำหรับสินค้า "[ใส่ชื่อสินค้า]"
+
+แต่ละเรื่องต้อง:
+- ใช้ Hook คนละแบบกัน (Question / Shock / Number / Challenge / Story)
+- แบ่ง 4 ช่วง: Hook (0-3 วิ), Pain (4-8 วิ), Solution (9-16 วิ), CTA (17-20 วิ)
+- มีสคริปต์เสียงพูดภาษาไทยสั้นกระชับ
+- มี Prompt เจนภาพภาษาอังกฤษสำหรับ Midjourney (photorealistic, 35mm film, --ar 9:16)
+- มีคำสั่ง Motion สำหรับ Kling AI
+
+ส่งผลลัพธ์เป็น 5 ตาราง Storyboard แยกชัดเจน</div>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">📅 Content Calendar สำเร็จรูป 7 วัน (เวลาทอง)</div>
+        <div class="sb-table-wrap">
+          <table class="sb-table">
+            <thead><tr><th>วัน</th><th>เวลาโพสต์ที่ 1</th><th>เวลาโพสต์ที่ 2</th><th>ประเภทคลิป</th></tr></thead>
+            <tbody>
+              <tr><td><b>จันทร์</b></td><td>11:30 น.</td><td>19:30 น.</td><td>คลิปขายของ (UGC)</td></tr>
+              <tr><td><b>อังคาร</b></td><td>12:00 น.</td><td>20:00 น.</td><td>คลิปเล่าเรื่อง / สาระ</td></tr>
+              <tr><td><b>พุธ</b></td><td>11:30 น.</td><td>19:30 น.</td><td>คลิปขายของ (UGC)</td></tr>
+              <tr><td><b>พฤหัส</b></td><td>12:00 น.</td><td>21:00 น.</td><td>คลิปดราม่า / หนังสั้น</td></tr>
+              <tr><td><b>ศุกร์</b></td><td>11:30 น.</td><td>20:00 น.</td><td>คลิปขายของ (UGC)</td></tr>
+              <tr><td><b>เสาร์</b></td><td>10:00 น.</td><td>21:00 น.</td><td>คลิปไวรัล / ทดลอง Hook ใหม่</td></tr>
+              <tr><td><b>อาทิตย์</b></td><td>10:00 น.</td><td>20:00 น.</td><td>คลิปเล่าเรื่อง / Behind the scenes</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout success" style="margin-top:12px;">
+          💡 <b>เวลาทอง TikTok ไทย:</b> 11:30-13:00 น. (พักเที่ยง) และ 19:00-22:00 น. (หลังเลิกงาน) คือช่วงที่คนไทยเล่น TikTok มากที่สุด ให้ตั้งเวลาโพสต์ไว้ <b>ก่อนช่วงเวลาทอง 30 นาที</b> เพื่อให้ Algorithm มีเวลากระจายคลิป
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 12: คณิตศาสตร์การเงิน -->
+    <section id="sec-step12" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">12</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 12 · REVENUE MATH</span>
+          <h3 class="step-title">💰 คณิตศาสตร์การเงิน: ต้องมียอดวิวเท่าไหร่ถึงจะรวย</h3>
+          <p class="step-desc">ตัวเลขจริง RPM แต่ละแพลตฟอร์ม + เครื่องคำนวณรายได้</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="action-box-title">📖 คำศัพท์สำคัญที่ต้องรู้</div>
+        <div class="grid-2">
+          <div class="card">
+            <h4 style="font-family:var(--font-heading); color:var(--gold-light); margin-bottom:6px;">CPM (Cost Per Mille)</h4>
+            <p style="font-size:13.5px; color:var(--text-muted);">ราคาที่ผู้ลงโฆษณาจ่ายต่อการแสดงผล 1,000 ครั้ง ยิ่ง CPM สูง = เงินที่คุณได้ต่อวิวยิ่งเยอะ</p>
+          </div>
+          <div class="card">
+            <h4 style="font-family:var(--font-heading); color:var(--gold-light); margin-bottom:6px;">RPM (Revenue Per Mille)</h4>
+            <p style="font-size:13.5px; color:var(--text-muted);">เงินที่ <b>คุณ</b> ได้จริงต่อการดู 1,000 ครั้ง (หลังหักส่วนแบ่งแพลตฟอร์มแล้ว)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">📊 ตาราง RPM เฉลี่ยแต่ละแพลตฟอร์ม (ข้อมูล 2025-2026)</div>
+        <div class="sb-table-wrap">
+          <table class="sb-table">
+            <thead><tr><th style="width:180px;">แพลตฟอร์ม</th><th style="width:160px;">RPM เฉลี่ย (USD/1K วิว)</th><th style="width:160px;">RPM เฉลี่ย (บาท/1K วิว)</th><th>หมายเหตุ</th></tr></thead>
+            <tbody>
+              <tr><td><b>TikTok Creator Fund</b></td><td>$0.02 - $0.04</td><td>~0.70 - 1.40 ฿</td><td>น้อยมาก ไม่แนะนำพึ่งพาทางนี้ ให้เน้น Affiliate แทน</td></tr>
+              <tr><td><b>TikTok Affiliate (ตะกร้า)</b></td><td>$0.50 - $5.00+</td><td>~17 - 175 ฿</td><td>ขึ้นอยู่กับสินค้า ค่าคอมเฉลี่ย 10-30% ต่อชิ้น</td></tr>
+              <tr><td><b>Facebook Reels Bonus</b></td><td>$1.00 - $8.00</td><td>~35 - 280 ฿</td><td>Performance Bonus จ่ายเป็นก้อนรายเดือน ตามเงื่อนไข</td></tr>
+              <tr><td><b>YouTube Shorts</b></td><td>$0.04 - $0.08</td><td>~1.40 - 2.80 ฿</td><td>ต้องมี 1,000 Subscribers + 10M Shorts views ใน 90 วัน</td></tr>
+              <tr><td><b>YouTube Long-form (8 นาที+)</b></td><td>$2.00 - $12.00</td><td>~70 - 420 ฿</td><td>RPM สูงสุด! ถ้าทำวิดีโอยาวได้ ควรทำ</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">🧮 เครื่องคำนวณรายได้ (กรอกตัวเลขแล้วกด คำนวณ)</div>
+        <div class="card highlight" style="margin-top:8px;">
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+            <div>
+              <label style="font-size:13px; color:var(--text-muted); display:block; margin-bottom:4px;">ยอดวิวต่อเดือน (รวมทุกคลิป)</label>
+              <input type="number" id="calc_views" value="100000" min="0" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--border); background:var(--bg-surface); color:var(--text-main); font-family:var(--font-mono); font-size:15px;">
+            </div>
+            <div>
+              <label style="font-size:13px; color:var(--text-muted); display:block; margin-bottom:4px;">เลือกแพลตฟอร์มหลัก</label>
+              <select id="calc_platform" style="width:100%; padding:10px 14px; border-radius:8px; border:1px solid var(--border); background:var(--bg-surface); color:var(--text-main); font-family:var(--font-body); font-size:14px;">
+                <option value="tiktok_fund">TikTok Creator Fund ($0.03/1K)</option>
+                <option value="tiktok_aff" selected>TikTok Affiliate ตะกร้า ($2.00/1K)</option>
+                <option value="fb_reels">Facebook Reels Bonus ($4.00/1K)</option>
+                <option value="yt_shorts">YouTube Shorts ($0.06/1K)</option>
+                <option value="yt_long">YouTube Long-form ($6.00/1K)</option>
+              </select>
+            </div>
+          </div>
+          <button onclick="calcRevenue()" style="width:100%; padding:12px; border-radius:10px; background:linear-gradient(135deg, #f59e0b, #ef4444); border:none; color:#000; font-family:var(--font-heading); font-weight:700; font-size:16px; cursor:pointer;">🧮 คำนวณรายได้</button>
+          <div id="calc_result" style="margin-top:16px; padding:16px; background:var(--bg-surface); border-radius:10px; border:1px solid var(--border); display:none;">
+            <div style="font-family:var(--font-heading); font-size:14px; color:var(--text-muted);">รายได้โดยประมาณต่อเดือน:</div>
+            <div id="calc_amount" style="font-family:var(--font-heading); font-size:36px; font-weight:800; color:var(--gold-light); margin:6px 0;"></div>
+            <div id="calc_detail" style="font-size:13px; color:var(--text-dim);"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">🎯 ถ้าอยากได้ 30,000 บาท/เดือน ต้องมียอดวิวเท่าไหร่?</div>
+        <div class="sb-table-wrap">
+          <table class="sb-table">
+            <thead><tr><th>แพลตฟอร์ม</th><th>ยอดวิวที่ต้องการ/เดือน</th><th>เท่ากับวิวต่อวัน</th><th>ความเป็นไปได้</th></tr></thead>
+            <tbody>
+              <tr><td><b>TikTok Creator Fund</b></td><td style="color:var(--red);">~30,000,000 วิว 😱</td><td>~1,000,000/วัน</td><td style="color:var(--red);">❌ เกือบเป็นไปไม่ได้ อย่าพึ่งพาทางนี้</td></tr>
+              <tr><td><b>TikTok Affiliate ตะกร้า</b></td><td style="color:var(--green);">~500,000 วิว</td><td>~17,000/วัน</td><td style="color:var(--green);">✅ ทำได้! โพสต์ 2-3 คลิป/วัน</td></tr>
+              <tr><td><b>Facebook Reels Bonus</b></td><td style="color:var(--green);">~250,000 วิว</td><td>~8,300/วัน</td><td style="color:var(--green);">✅ ทำได้ง่าย! คลิปดราม่าไวรัลไว</td></tr>
+              <tr><td><b>YouTube Shorts</b></td><td style="color:var(--gold);">~15,000,000 วิว</td><td>~500,000/วัน</td><td style="color:var(--gold);">⚠️ ยาก แต่ทำได้ถ้ามีคลิปไวรัล</td></tr>
+              <tr><td><b>YouTube Long-form</b></td><td style="color:var(--green);">~150,000 วิว</td><td>~5,000/วัน</td><td style="color:var(--green);">✅ คุ้มค่าที่สุด! แต่ต้องทำวิดีโอ 8 นาที+</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout success" style="margin-top:12px;">
+          💡 <b>กลยุทธ์ที่ดีที่สุด:</b> อย่าพึ่งพาแพลตฟอร์มเดียว! ให้ <b>โพสต์ข้ามแพลตฟอร์ม</b> (TikTok + Facebook + YouTube) คลิปเดียวกันลง 3 ที่ = รายได้ 3 ทาง + ใช้ TikTok Affiliate เป็นรายได้หลัก เพราะ RPM สูงสุด
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 13: เทคนิคขั้นสูง -->
+    <section id="sec-step13" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">13</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 13 · ADVANCED TECHNIQUES</span>
+          <h3 class="step-title">🎬 เทคนิคขั้นสูง: Green Screen, Lip-Sync, Multi-Scene</h3>
+          <p class="step-desc">ยกระดับคลิปให้ดูเหมือนถ่ายทำจริง ไม่มีใครรู้ว่าเป็น AI</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="action-box-title">🟩 เทคนิคที่ 1: Green Screen ลบพื้นหลัง + แทนที่ด้วยฉาก AI</div>
+        <div class="instruction-steps">
+          <div class="instruction-item"><div class="item-bullet">1</div><div>เปิด <b>CapCut</b> → ลากวิดีโอ AI ลงใน Timeline</div></div>
+          <div class="instruction-item"><div class="item-bullet">2</div><div>คลิกที่คลิปวิดีโอ → ไปที่เมนู <b>"Remove BG"</b> (หรือ "ลบพื้นหลัง") → เลือก <b>"Auto Removal"</b></div></div>
+          <div class="instruction-item"><div class="item-bullet">3</div><div>CapCut จะตัดตัวละครออกจากพื้นหลังอัตโนมัติ (ใช้เวลา 5-10 วินาที)</div></div>
+          <div class="instruction-item"><div class="item-bullet">4</div><div>ลาก <b>ภาพฉากใหม่</b> (เจนจาก Midjourney) มาวางไว้ <b>ใต้</b> Track ของตัวละคร → ตัวละครจะลอยอยู่บนฉากใหม่!</div></div>
+        </div>
+        <div class="callout" style="margin-top:10px;">
+          💡 <b>ใช้ทำอะไรได้?</b> เปลี่ยนฉากจากห้องนอนธรรมดาเป็นป่าลึกลับ สตูดิโอหรูหรา หรือแม้แต่ดาวอังคาร — ทั้งหมดฟรีใน CapCut!
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">👄 เทคนิคที่ 2: Lip-Sync ปากขยับตรงคำพูด (HeyGen)</div>
+        <div class="instruction-steps">
+          <div class="instruction-item"><div class="item-bullet">1</div><div>เปิดเว็บ <b>heygen.com</b> → สมัครบัญชี (ทดลองฟรี 1 คลิป)</div></div>
+          <div class="instruction-item"><div class="item-bullet">2</div><div>กด <b>"Video Translate"</b> หรือ <b>"Create Avatar"</b> → อัปโหลดวิดีโอ AI ของคุณ</div></div>
+          <div class="instruction-item"><div class="item-bullet">3</div><div>อัปโหลดไฟล์เสียงพากย์ไทย (MP3 จาก ElevenLabs) → HeyGen จะทำให้ <b>ปากของตัวละครขยับตรงกับเสียงพูด</b></div></div>
+          <div class="instruction-item"><div class="item-bullet">4</div><div>กด <b>"Generate"</b> → รอ 2-5 นาที → ดาวน์โหลดวิดีโอที่ปากขยับตรงคำ</div></div>
+        </div>
+        <div class="callout danger" style="margin-top:10px;">
+          ⚠️ <b>ข้อควรรู้:</b> HeyGen ราคาประมาณ $29/เดือน (Plan Creator) มีแพ็กทดลองฟรี 1 คลิป ถ้างบจำกัดให้ใช้วิธีตัดฉากเร็วๆ (2-3 วินาทีต่อคัต) แทน คนดูจะไม่ทันสังเกตว่าปากไม่ขยับ
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">📹 เทคนิคที่ 3: Camera Motion สำหรับ Kling AI</div>
+        <div class="sb-table-wrap">
+          <table class="sb-table">
+            <thead><tr><th style="width:150px;">ชื่อมุมกล้อง</th><th>Prompt สำหรับ Kling AI (คัดลอกไปใช้ได้)</th><th style="width:180px;">เหมาะกับซีน</th></tr></thead>
+            <tbody>
+              <tr><td><b>Dolly Zoom In</b></td><td style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Slow dolly zoom in towards subject face, shallow depth of field, cinematic 24fps</td><td>เปิดเผยตัวละคร, สร้าง Impact</td></tr>
+              <tr><td><b>Slow Pan Left/Right</b></td><td style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Smooth horizontal pan from left to right, revealing scene details, steady camera</td><td>แสดงสินค้าหลายชิ้น, ฉากกว้าง</td></tr>
+              <tr><td><b>Orbit Around</b></td><td style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Camera slowly orbits around the subject 90 degrees, dramatic lighting</td><td>แสดงสินค้า 360 องศา</td></tr>
+              <tr><td><b>Crane Shot (ยกสูง)</b></td><td style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Camera rises upward revealing wider environment, birds eye view transition</td><td>ปิดท้ายคลิป, Dramatic ending</td></tr>
+              <tr><td><b>Handheld Shake</b></td><td style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Realistic handheld camera shake, urgent movement, documentary style</td><td>คลิปผี/ระทึก, สารคดี</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">🔗 เทคนิคที่ 4: ต่อคลิปยาว 60 วินาที (Video Extend)</div>
+        <div class="instruction-steps">
+          <div class="instruction-item"><div class="item-bullet">1</div><div>ใน Kling AI หลังจากได้คลิป 5 วินาทีแล้ว กดปุ่ม <b>"Extend"</b> (ต่อคลิป)</div></div>
+          <div class="instruction-item"><div class="item-bullet">2</div><div>พิมพ์ Prompt ว่าต้องการให้เหตุการณ์ต่อไปเป็นอะไร เช่น <i>"Camera pulls back to reveal the full room"</i></div></div>
+          <div class="instruction-item"><div class="item-bullet">3</div><div>ทำซ้ำ 3-4 รอบ จะได้คลิปยาว 20-25 วินาที จากคัตเดียว (ไม่ต้องตัดต่อเพิ่ม!)</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 14: กฎหมาย & ลิขสิทธิ์ -->
+    <section id="sec-step14" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">14</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 14 · LEGAL &amp; COPYRIGHT</span>
+          <h3 class="step-title">📋 กฎหมาย &amp; ลิขสิทธิ์ AI Content: สิ่งที่ต้องรู้ก่อนโพสต์</h3>
+          <p class="step-desc">ทำตรงนี้ผิดอาจโดนปิดบัญชีหรือถูกฟ้อง ทำถูกจะปลอดภัย 100%</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div class="card" style="border-color:var(--green);">
+          <h4 style="font-family:var(--font-heading); color:var(--green); margin-bottom:10px;">✅ สิ่งที่ทำได้ (Safe Zone)</h4>
+          <ul style="margin-left:16px; font-size:14px; color:var(--text-muted); display:flex; flex-direction:column; gap:8px;">
+            <li>สร้าง <b>ตัวละครสมมติ</b> จาก AI (Midjourney, Kling) ได้เต็มที่</li>
+            <li>ใช้เสียง AI จาก ElevenLabs ได้ (ห้ามเลียนเสียงคนดัง)</li>
+            <li>ใช้เพลงจากแหล่ง <b>Royalty-Free</b> ได้ไม่ต้องให้เครดิต</li>
+            <li>ขายสินค้าผ่าน Affiliate โดย <b>ไม่อ้างว่าเป็นรีวิวจากคนจริง</b></li>
+            <li>ใช้เพลง Trending ใน TikTok (ใช้ได้เฉพาะใน TikTok เท่านั้น)</li>
+          </ul>
+        </div>
+
+        <div class="card" style="border-color:var(--red);">
+          <h4 style="font-family:var(--font-heading); color:var(--red); margin-bottom:10px;">❌ สิ่งที่ห้ามทำ (Danger Zone)</h4>
+          <ul style="margin-left:16px; font-size:14px; color:var(--text-muted); display:flex; flex-direction:column; gap:8px;">
+            <li><b>ห้ามใช้ใบหน้าคนจริง</b> โดยไม่ได้รับอนุญาต (Deepfake คนดัง = ผิดกฎหมาย)</li>
+            <li><b>ห้ามสร้างข่าวปลอม</b> หรือเนื้อหาหลอกลวงที่ทำให้คนเข้าใจผิด</li>
+            <li><b>ห้ามนำเพลงลิขสิทธิ์</b> จาก TikTok ไปใช้ใน YouTube/Facebook</li>
+            <li><b>ห้ามอ้างว่ารีวิวจากคนจริง</b> ถ้าเป็นคลิป AI (อาจโดนฟ้องตาม พ.ร.บ.คุ้มครองผู้บริโภค)</li>
+            <li><b>ห้ามสร้างเนื้อหาลามก</b> หรือ Hate Speech ด้วย AI</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">🛡️ Checklist ก่อนโพสต์ (5 ข้อตรวจสอบความปลอดภัย)</div>
+        <div class="checklist-wrap">
+          <label class="check-label"><input type="checkbox"><span>ไม่ได้ใช้ใบหน้าคนจริง/คนดังในคลิป</span></label>
+          <label class="check-label"><input type="checkbox"><span>เพลง BGM มาจากแหล่ง Royalty-Free หรือ Suno AI</span></label>
+          <label class="check-label"><input type="checkbox"><span>ไม่ได้อ้างว่าเป็นรีวิวจากคนจริง ถ้าเป็นคลิป AI</span></label>
+          <label class="check-label"><input type="checkbox"><span>ไม่มีเนื้อหาหลอกลวง ข่าวปลอม หรือ Hate Speech</span></label>
+          <label class="check-label"><input type="checkbox"><span>ถ้าแพลตฟอร์มมี Label "AI-Generated" ให้ติดเอาไว้</span></label>
+        </div>
+      </div>
+    </section>
+
+    <!-- STEP 15: สร้าง Portfolio -->
+    <section id="sec-step15" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">15</div>
+        <div class="step-titles">
+          <span class="step-tag">STEP 15 · PORTFOLIO</span>
+          <h3 class="step-title">🧑‍💼 สร้าง Portfolio ดึงลูกค้าแบรนด์ (รายได้หลักแสน/เดือน)</h3>
+          <p class="step-desc">เปลี่ยนจาก "ครีเอเตอร์กินวิว" เป็น "ฟรีแลนซ์ทำวิดีโอ AI ให้แบรนด์"</p>
+        </div>
+      </div>
+
+      <div class="action-box">
+        <div class="action-box-title">📁 Portfolio 5 หน้าที่ต้องมี (ทำใน Canva ฟรี)</div>
+        <div class="instruction-steps">
+          <div class="instruction-item"><div class="item-bullet">1</div><div><b>หน้าปก (Cover):</b> ชื่อ-นามสกุล + "AI Video Creator" + รูปภาพผลงานเด่น 1 ภาพ</div></div>
+          <div class="instruction-item"><div class="item-bullet">2</div><div><b>ผลงานที่ 1 (Best Work):</b> คลิปที่ยอดวิวสูงสุด → ใส่ Screenshot พร้อมตัวเลข (ยอดวิว, Like, Share)</div></div>
+          <div class="instruction-item"><div class="item-bullet">3</div><div><b>ผลงานที่ 2-3:</b> คลิปสไตล์ต่างกัน (เช่น UGC ขายของ + หนังสั้น) เพื่อแสดงความหลากหลาย</div></div>
+          <div class="instruction-item"><div class="item-bullet">4</div><div><b>ราคา (Pricing):</b> แสดงแพ็กเกจ 3 ระดับ (Basic / Standard / Premium)</div></div>
+          <div class="instruction-item"><div class="item-bullet">5</div><div><b>ช่องทางติดต่อ:</b> Line ID, Email, Facebook Page, เบอร์โทร</div></div>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">💲 ตารางราคาแนะนำ (สำหรับมือใหม่)</div>
+        <div class="sb-table-wrap">
+          <table class="sb-table">
+            <thead><tr><th>แพ็กเกจ</th><th>รายละเอียด</th><th style="width:150px;">ราคาแนะนำ</th></tr></thead>
+            <tbody>
+              <tr><td><b>🥉 Basic</b></td><td>คลิปสั้น 15 วินาที, 4 คัต, เสียงพากย์ AI, ซับไตเติล, BGM</td><td style="color:var(--gold-light); font-family:var(--font-heading); font-size:18px;"><b>1,500 - 3,000 ฿</b></td></tr>
+              <tr><td><b>🥈 Standard</b></td><td>คลิป 30-60 วินาที, 6-8 คัต, Character Consistency, เสียงพากย์ + SFX + BGM</td><td style="color:var(--gold-light); font-family:var(--font-heading); font-size:18px;"><b>5,000 - 8,000 ฿</b></td></tr>
+              <tr><td><b>🥇 Premium</b></td><td>คลิป 60+ วินาที, Lip-Sync, Green Screen, ส่ง Source File, แก้ไขฟรี 2 รอบ</td><td style="color:var(--gold-light); font-family:var(--font-heading); font-size:18px;"><b>10,000 - 20,000 ฿</b></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">🔍 ช่องทางหาลูกค้า 5 ช่องทาง</div>
+        <div class="grid-2">
+          <div class="card">
+            <ol style="margin-left:16px; font-size:14px; color:var(--text-muted); display:flex; flex-direction:column; gap:8px;">
+              <li><b>Fastwork.co</b> — แพลตฟอร์มฟรีแลนซ์ไทย ลงประกาศรับงานทำวิดีโอ AI</li>
+              <li><b>Fiverr / Upwork</b> — แพลตฟอร์มสากล ลูกค้าต่างชาติ ราคาสูงกว่า 3-5 เท่า</li>
+              <li><b>กลุ่ม Facebook</b> — ค้นหา "รับทำวิดีโอ" "หาคนตัดต่อ" "UGC Creator ไทย"</li>
+            </ol>
+          </div>
+          <div class="card">
+            <ol start="4" style="margin-left:16px; font-size:14px; color:var(--text-muted); display:flex; flex-direction:column; gap:8px;">
+              <li><b>DM แบรนด์โดยตรง</b> — ส่งข้อความพร้อม Portfolio ไปที่ IG/FB ของแบรนด์ SME</li>
+              <li><b>TikTok Creator Marketplace</b> — สมัครเป็น Creator ให้แบรนด์มาเลือกจ้างงานเอง</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+      <div class="action-box" style="margin-top:16px;">
+        <div class="action-box-title">✉️ ตัวอย่าง DM แนะนำตัวกับแบรนด์ (คัดลอกไปใช้ได้เลย)</div>
+        <div class="code-container">
+          <div class="code-bar"><span>ข้อความ DM แนะนำตัว</span><button class="btn-copy" onclick="copyCodeText('c_dm_brand')">Copy</button></div>
+          <div class="code-text" id="c_dm_brand">สวัสดีค่ะ/ครับ ทีมแบรนด์ [ชื่อแบรนด์] 🙏
+
+ผม/หนูชื่อ [ชื่อคุณ] เป็น AI Video Creator
+ทำคลิปวิดีโอโฆษณาสั้นด้วยเทคโนโลยี AI คุณภาพระดับ Studio
+
+สิ่งที่ทำได้:
+✅ คลิป UGC ขายของ 15-60 วินาที
+✅ ตัวละคร AI สมจริง ไม่ต้องจ้างนายแบบ/นางแบบ
+✅ เสียงพากย์ไทยเนียนเหมือนคนจริง
+✅ ส่งงานไว 2-3 วัน ราคาเริ่มต้น 1,500 บาท
+
+ดูตัวอย่างผลงาน: [ใส่ลิงก์ Portfolio / TikTok ของคุณ]
+
+ถ้าสนใจแจ้งได้เลยนะคะ/ครับ ยินดีทำตัวอย่างฟรี 1 ชิ้นเพื่อให้ดูคุณภาพงานก่อนค่ะ/ครับ 🎬</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BONUS: AI Tools 2026 -->
+    <section id="sec-bonus" class="step-section">
+      <div class="step-header">
+        <div class="step-circle">🚀</div>
+        <div class="step-titles">
+          <span class="step-tag">BONUS · AI TOOLS 2026</span>
+          <h3 class="step-title">🚀 เครื่องมือ AI ใหม่ที่ควรจับตามอง (อัปเดต 2026)</h3>
+          <p class="step-desc">นอกจาก Midjourney + Kling ยังมีเครื่องมืออีกมากที่ช่วยให้งานเร็วขึ้นและเจ๋งขึ้น</p>
+        </div>
+      </div>
+
+      <div class="sb-table-wrap">
+        <table class="sb-table">
+          <thead><tr><th style="width:140px;">เครื่องมือ</th><th style="width:100px;">ราคา</th><th>จุดเด่น</th><th style="width:160px;">เหมาะกับ</th></tr></thead>
+          <tbody>
+            <tr><td><b>🌟 Runway Gen-4</b></td><td>$12/เดือน</td><td>Text-to-Video คุณภาพสูง, คุมมุมกล้องได้ละเอียด, ตัดต่อในตัว</td><td>คลิปไวรัล / หนังสั้น</td></tr>
+            <tr><td><b>Luma Dream Machine</b></td><td>ฟรี 5 คลิป/วัน</td><td>Image-to-Video เนียนมาก, ใช้ฟรีได้เยอะ, เร็ว</td><td>ทดแทน Kling AI ถ้าเครดิตหมด</td></tr>
+            <tr><td><b>Pika Labs</b></td><td>ฟรี (จำกัด)</td><td>ใส่ Effect พิเศษบนวิดีโอ (ระเบิด, น้ำ, ไฟ), Text-to-Video</td><td>คลิปผี/แอ็กชัน ใส่ VFX</td></tr>
+            <tr><td><b>Topview.ai</b></td><td>$16/เดือน</td><td>สร้างคลิปโฆษณาสมบูรณ์จาก Product Link อัตโนมัติ</td><td>คลิปขายของแบบเร็ว</td></tr>
+            <tr><td><b>🌟 Opus Clip</b></td><td>ฟรี (จำกัด)</td><td>ตัดวิดีโอยาว → คลิปสั้นอัตโนมัติ เลือก Viral Moment ให้เลย</td><td>Repurpose วิดีโอยาว</td></tr>
+            <tr><td><b>Captions App</b></td><td>$10/เดือน</td><td>ใส่ Captions สวยๆ อัตโนมัติ, สไตล์ Hormozi, แก้ไขได้ง่าย</td><td>ซับไตเติลคุณภาพสูง</td></tr>
+            <tr><td><b>Descript</b></td><td>ฟรี (จำกัด)</td><td>ตัดต่อวิดีโอด้วยการแก้ไขข้อความ, ลบ Filler Words อัตโนมัติ</td><td>ตัดต่อแบบไม่ต้องเรียนรู้</td></tr>
+            <tr><td><b>PixVerse</b></td><td>ฟรี (จำกัด)</td><td>Text/Image-to-Video, ใส่ Effect แบบ Pika, UI ง่าย</td><td>มือใหม่ที่อยากทดลอง</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout success" style="margin-top:16px;">
+        💡 <b>คำแนะนำสำหรับมือใหม่:</b> เริ่มจากเครื่องมือ <b>ฟรี</b> ก่อน (Kling AI + ElevenLabs ฟรี + CapCut ฟรี + Luma ฟรี) ทำจนมีรายได้สม่ำเสมอแล้วค่อยอัปเกรดไปใช้เครื่องมือเสียเงิน ห้ามลงทุนก่อนมีรายได้!
+      </div>
+    </section>
+
+    <!-- WORKSHOP โครงการจริง 2 ชิ้นงาน -->
+    <section class="step-section" style="border-bottom:none;">
+      <div class="sec-head">
+        <span class="step-tag">HANDS-ON WORKSHOPS</span>
+        <h3 class="step-title" style="font-size:28px; margin-bottom:8px;">สองพิมพ์เขียวเวิร์กช็อปจริง (ทำตามได้คำต่อคำ)</h3>
+        <p class="step-desc">เลือกหนึ่งโปรเจกต์ด้านล่าง แล้วก๊อปปี้ไปเปิดทำในโปรแกรมได้ทันทีครับ</p>
+      </div>
+
+      <div class="project-tabs" style="margin-top:20px;">
+        <button class="p-tab-btn active" onclick="switchProject('p-ugc', this)">🛒 โปรเจกต์ A: รีวิวสกินแคร์ UGC 20 วินาที (สายขายของ)</button>
+        <button class="p-tab-btn" onclick="switchProject('p-drama', this)">🧟 โปรเจกต์ B: ละครผีดราม่า 15 วินาที 6 คัต (สายยอดวิว)</button>
+      </div>
+
+      <!-- Workshop A -->
+      <div id="p-ugc" class="p-tab-content active">
+        <div class="card highlight">
+          <h4 style="font-family:var(--font-heading); color:var(--gold-light); font-size:18px; margin-bottom:6px;">ตาราง Storyboard คลิปขายสกินแคร์ 20 วินาที (พร้อม Prompt ทุกช็อต)</h4>
+          <p style="font-size:13.5px; color:var(--text-muted);">ใช้ภาพตั้งต้นจาก Midjourney แล้วแปลงเป็นวิดีโอ 5 วินาที 4 ช็อต ใน Kling AI</p>
+
+          <div class="sb-table-wrap">
+            <table class="sb-table">
+              <thead>
+                <tr>
+                  <th style="width:100px;">เวลา (วิ)</th>
+                  <th style="width:180px;">เสียงพากย์ไทย (ElevenLabs)</th>
+                  <th>Prompt เจนภาพ (Midjourney) &amp; คำสั่งขยับ (Kling AI)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>00 - 04 วิ</b><br>(Hook)</td>
+                  <td>"เคยเป็นไหมคะ? พยายามดูแลผิวแทบตาย... แต่หน้าก็ยังหมอง สิวก็ยังเห่อไม่หยุด!"</td>
+                  <td>
+                    <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">A stressed 24yo Thai woman looking in bathroom mirror with tired skin, touching cheek gently, soft morning light, 50mm lens, photoreal 24fps --ar 9:16</div>
+                    <div style="font-size:11.5px; color:var(--text-dim); margin-top:4px;"><b>Kling Motion:</b> Slow zoom in on woman face, blinking eyes with sad expression</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>05 - 09 วิ</b><br>(Pain)</td>
+                  <td>"เสียเงินเปลี่ยนครีมไปตั้งกี่กระปุก, ก็ไม่เห็นผลสักที จนเกือบจะถอดใจแล้ว..."</td>
+                  <td>
+                    <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Close-up of dressing table messy with multiple empty skincare jars, gloomy moody lighting, 35mm film grain --ar 9:16</div>
+                    <div style="font-size:11.5px; color:var(--text-dim); margin-top:4px;"><b>Kling Motion:</b> Slow pan across the skincare bottles on the table</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>10 - 15 วิ</b><br>(Solution)</td>
+                  <td>"จนมาเจอน้องขวดนี้ค่ะ! เนื้อเซรั่มเข้มข้น แตกตัวซึมไว ผิวอิ่มฟูฉ่ำวาวตั้งแต่คืนแรกเลย"</td>
+                  <td>
+                    <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Super macro 100mm lens shot, a clear glowing serum droplet absorbing into smooth skin pores, studio commercial lighting, glistening texture --ar 9:16</div>
+                    <div style="font-size:11.5px; color:var(--text-dim); margin-top:4px;"><b>Kling Motion:</b> Droplet splashes and melts into skin surface smoothly</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>16 - 20 วิ</b><br>(CTA)</td>
+                  <td>"ตอนนี้มีโปรลด 50% วันเดียวเท่านั้น, กดสั่งในตะกร้าเหลืองด้านล่าง ก่อนของจะหมดนะคะ!"</td>
+                  <td>
+                    <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">The same Thai woman with glowing radiant flawless skin, holding the serum bottle happily next to her cheek, smiling at camera, bright bedroom background --ar 9:16</div>
+                    <div style="font-size:11.5px; color:var(--text-dim); margin-top:4px;"><b>Kling Motion:</b> Woman holding bottle, smiling and waving hand gently towards corner</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Workshop B -->
+      <div id="p-drama" class="p-tab-content">
+        <div class="card highlight">
+          <h4 style="font-family:var(--font-heading); color:var(--gold-light); font-size:18px; margin-bottom:6px;">ตาราง Storyboard ละครสั้นดราม่า/ลี้ลับ 15 วินาที (แบบเดียวกับภาพที่คุณส่งมา)</h4>
+          <p style="font-size:13.5px; color:var(--text-muted);">เทคนิค 6 CUTS รวดเร็ว ช็อตสั้น 2.5 วินาที ดึงความสนใจคนดูจนจบไม่มีใครกล้าเลื่อนผ่าน</p>
+
+          <div class="sb-table-wrap">
+            <table class="sb-table">
+              <thead>
+                <tr>
+                  <th style="width:100px;">คัตที่</th>
+                  <th style="width:180px;">เสียงประกอบ / ดนตรี</th>
+                  <th>Prompt เจนภาพ &amp; มุมกล้อง</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><b>CUT 01</b><br>(2.5 วิ)</td>
+                  <td>เสียงกระจกหน้าต่างสั่นสะเทือน + เสียงลมหวีดหวิว</td>
+                  <td>
+                    <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Wide establishing shot, abandoned messy dark apartment room, broken window with stormy wind blowing curtains, dusty floor, 35mm film grain --ar 9:16</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>CUT 02</b><br>(2.5 วิ)</td>
+                  <td>เสียงหายใจหอบถี่ของชายหนุ่ม</td>
+                  <td>
+                    <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Close up of tired Asian male detective with round wire glasses, bloodless pale lips, sweating, looking terrified towards ground --ar 9:16</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>CUT 03</b><br>(2.5 วิ)</td>
+                  <td>เสียงมือครูดกับพื้นปูนกระเบื้อง</td>
+                  <td>
+                    <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Low-angle extreme close-up, trembling hand reaching desperately toward a black handgun on dirty kitchen floor, shallow depth of field --ar 9:16</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>CUT 04</b><br>(2.5 วิ)</td>
+                  <td>เสียงกระซิบข้างหู (Binaural whisper)</td>
+                  <td>
+                    <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Over-the-shoulder shot, a pale ghostly woman in dirty white dress crawling onto the detective's back, crying real tears, hair covering half face --ar 9:16</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>CUT 05</b><br>(2.5 วิ)</td>
+                  <td>ดนตรีหยุดสนิท มีเสียงหัวใจเต้นตึกตัก</td>
+                  <td>
+                    <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Extreme macro close-up of detective's eye behind glasses, pupil dilating in pure horror, tear falling down cheek --ar 9:16</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td><b>CUT 06</b><br>(2.5 วิ)</td>
+                  <td>เสียงปืนดังปัง! แล้วตัดดำทันที (Blackout)</td>
+                  <td>
+                    <div style="font-family:var(--font-mono); font-size:12px; color:#7ee787;">Gun on floor firing a flash of light, smoke rising from barrel, dynamic camera shake, cinematic darkness --ar 9:16</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Checklist ก่อนเริ่มทำ -->
+    <section class="step-section" style="border-bottom:none;">
+      <div class="sec-head">
+        <span class="step-tag">YOUR PRODUCTION CHECKLIST</span>
+        <h3 class="step-title" style="font-size:24px; margin-bottom:8px;">เช็กลิสต์ความพร้อมก่อนลงมือทำคลิปแรก</h3>
+      </div>
+
+      <div class="checklist-wrap">
+        <label class="check-label">
+          <input type="checkbox">
+          <span>เลือกแนวทางได้แล้ว (คลิปขายสกินแคร์ E-com หรือ ละครสั้น Reels)</span>
+        </label>
+        <label class="check-label">
+          <input type="checkbox">
+          <span>มีสคริปต์ 4 ท่อน และ Prompt ภาษาอังกฤษครบทุกคัต</span>
+        </label>
+        <label class="check-label">
+          <input type="checkbox">
+          <span>เซฟรูปภาพตัวละครต้นแบบ Master Image ไว้ในเครื่องแล้ว</span>
+        </label>
+        <label class="check-label">
+          <input type="checkbox">
+          <span>แปลงภาพเป็นวิดีโอใน Kling AI ความยาวคัตละ 5 วินาที Motion ระดับ 3-4</span>
+        </label>
+        <label class="check-label">
+          <input type="checkbox">
+          <span>โหลดเสียงพากย์ไทย MP3 จาก ElevenLabs (Stability 40%, Clarity 75%)</span>
+        </label>
+        <label class="check-label">
+          <input type="checkbox">
+          <span>เปิด CapCut วางเสียงพากย์ ตัดคลิปตามจังหวะ ใส่ Auto-captions ตัวหนาสีเหลืองขอบดำ และดนตรี BGM (-22dB)</span>
+        </label>
+        <label class="check-label">
+          <input type="checkbox">
+          <span>ตรวจสอบลิขสิทธิ์: ไม่ใช้หน้าคนจริง, เพลงมาจากแหล่ง Royalty-Free, ไม่อ้างรีวิวจากคนจริง</span>
+        </label>
+        <label class="check-label">
+          <input type="checkbox">
+          <span>ใส่ Hashtag 3 ชั้น (Broad 2 + Niche 4 + Micro 3) และ Caption ที่มีคำค้นหาสำคัญใน 3 บรรทัดแรก</span>
+        </label>
+        <label class="check-label">
+          <input type="checkbox">
+          <span>ตั้งเวลาโพสต์ในช่วงเวลาทอง (11:30 น. หรือ 19:30 น.) ผ่าน TikTok Studio / Meta Business Suite</span>
+        </label>
+        <label class="check-label">
+          <input type="checkbox">
+          <span>บันทึกผล Analytics หลังโพสต์ 24 ชม.: Watch Time %, Share Rate, Conversion Rate</span>
+        </label>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <h4 style="font-family:var(--font-heading); color:var(--text-main); font-size:16px; margin-bottom:6px;">AI Video Mastery: Practical Step-by-Step Masterclass</h4>
+      <p style="font-size:13px;">เปิดคู่มือนี้ควบคู่ไปกับการทำคลิปบนคอมพิวเตอร์ ทำตามทีละขั้นตอนแล้วเริ่มรับเงินได้ทันทีครับ</p>
+    </div>
+  </footer>
+
+  <script>
+    // Theme Toggle
+    const themeBtn = document.getElementById('themeBtn');
+    const tIcon = document.getElementById('tIcon');
+    const tText = document.getElementById('tText');
+    let isDark = true;
+
+    themeBtn.addEventListener('click', () => {
+      isDark = !isDark;
+      document.body.setAttribute('data-theme', isDark ? 'dark' : 'light');
+      tIcon.textContent = isDark ? '☀️' : '🌙';
+      tText.textContent = isDark ? 'โหมดสว่าง' : 'โหมดมืด';
+    });
+
+    // Copy Helper
+    function copyCodeText(elemId) {
+      const text = document.getElementById(elemId).textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('คัดลอกข้อความ/Prompt ลงคลิปบอร์ดแล้ว! นำไปวางในโปรแกรมได้เลยครับ');
+      });
+    }
+
+    // Revenue Calculator
+    function calcRevenue() {
+      const views = parseInt(document.getElementById('calc_views').value) || 0;
+      const platform = document.getElementById('calc_platform').value;
+      const rates = {
+        'tiktok_fund': { rpm: 0.03, name: 'TikTok Creator Fund' },
+        'tiktok_aff': { rpm: 2.00, name: 'TikTok Affiliate ตะกร้า' },
+        'fb_reels': { rpm: 4.00, name: 'Facebook Reels Bonus' },
+        'yt_shorts': { rpm: 0.06, name: 'YouTube Shorts' },
+        'yt_long': { rpm: 6.00, name: 'YouTube Long-form' }
+      };
+      const r = rates[platform];
+      const usd = (views / 1000) * r.rpm;
+      const thb = usd * 35;
+      const resultDiv = document.getElementById('calc_result');
+      resultDiv.style.display = 'block';
+      document.getElementById('calc_amount').textContent = '฿' + Math.round(thb).toLocaleString() + ' /เดือน';
+      document.getElementById('calc_detail').textContent = 
+        '(' + r.name + ' | RPM $' + r.rpm + '/1K วิว | ~$' + Math.round(usd).toLocaleString() + ' USD | อัตราแลกเปลี่ยน 1 USD = 35 THB)';
+    }
+    function switchProject(tabId, btn) {
+      document.querySelectorAll('.p-tab-content').forEach(c => c.classList.remove('active'));
+      document.querySelectorAll('.p-tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>
