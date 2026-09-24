@@ -739,6 +739,391 @@
       flex-wrap: wrap;
       gap: 14px;
     }
+
+    /* --- NEW INTERACTIVE STUDIO ENHANCEMENTS --- */
+    @keyframes sectionPulse {
+      0% { outline: 3px solid var(--color-accent); outline-offset: 4px; box-shadow: 0 0 25px rgba(245, 166, 35, 0.45); }
+      70% { outline: 3px solid var(--color-accent); outline-offset: 4px; box-shadow: 0 0 20px rgba(245, 166, 35, 0.2); }
+      100% { outline: 2px solid transparent; outline-offset: 0; box-shadow: none; }
+    }
+    .highlight-target {
+      animation: sectionPulse 2.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    }
+
+    /* Launchpad Grid */
+    .launchpad-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .launchpad-card {
+      background: var(--color-background);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      transition: all 0.15s ease;
+      text-decoration: none;
+    }
+    .launchpad-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--color-accent);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    }
+    .lp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .lp-title {
+      font-weight: 600;
+      color: var(--color-gray-1000);
+      font-size: 13.5px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .lp-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      background: var(--color-background-200);
+      color: var(--color-accent);
+      border: 1px solid var(--color-border);
+      font-weight: 600;
+    }
+    .lp-desc {
+      font-size: 12px;
+      color: var(--color-gray-800);
+      line-height: 1.45;
+    }
+    .lp-spec {
+      font-size: 11px;
+      color: var(--color-gray-600);
+      line-height: 1.45;
+      font-family: var(--font-mono);
+      background: var(--color-background-100);
+      padding: 6px 8px;
+      border-radius: var(--radius-sm);
+      border-left: 2px solid var(--color-accent);
+    }
+    .lp-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 11.5px;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-top: 2px;
+    }
+
+    /* Prompt Builder Styles */
+    .pb-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    @media (max-width: 860px) {
+      .pb-grid { grid-template-columns: 1fr; }
+    }
+    .pb-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .pb-control-group {
+      background: var(--color-background-100);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+    }
+    .pb-label {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-gray-800);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .pb-select {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--color-border);
+      background: var(--color-background);
+      color: var(--color-gray-1000);
+      font-size: 12.5px;
+      font-family: var(--font-sans);
+      outline: none;
+    }
+    .pb-select:focus {
+      border-color: var(--color-accent);
+    }
+    .pb-output-card {
+      background: var(--code-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 12px;
+    }
+    .pb-output-text {
+      padding: 14px;
+      background: var(--color-background);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      line-height: 1.65;
+      color: #93c5fd;
+      min-height: 130px;
+      word-break: break-word;
+      white-space: pre-wrap;
+    }
+    [data-theme="light"] .pb-output-text {
+      color: #1e40af;
+    }
+    .pb-actions-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .pb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1px solid var(--color-border);
+      transition: all 0.12s;
+    }
+    .pb-btn-primary {
+      background: var(--color-accent);
+      color: #000;
+      border-color: var(--color-accent);
+    }
+    .pb-btn-primary:hover {
+      opacity: 0.9;
+    }
+    .pb-btn-secondary {
+      background: var(--color-background-100);
+      color: var(--color-gray-900);
+    }
+    .pb-btn-secondary:hover {
+      background: var(--color-background-200);
+      color: var(--color-gray-1000);
+    }
+
+    /* 7-Day Action Tracker Styles */
+    .tracker-container {
+      background: var(--color-background-100);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .tracker-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .tracker-bar-bg {
+      height: 10px;
+      background: var(--color-background-200);
+      border-radius: 99px;
+      overflow: hidden;
+      margin: 12px 0 16px;
+      border: 1px solid var(--color-border);
+    }
+    .tracker-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #f5a623, #22c55e);
+      width: 0%;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .tracker-day-accordion {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+      background: var(--color-background);
+      margin-bottom: 8px;
+      overflow: hidden;
+    }
+    .tracker-day-summary {
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--color-gray-1000);
+      background: var(--color-background-100);
+      user-select: none;
+      transition: background 0.12s;
+    }
+    .tracker-day-summary:hover {
+      background: var(--color-background-200);
+    }
+    .tracker-tasks-list {
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tracker-task-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      color: var(--color-gray-900);
+      cursor: pointer;
+    }
+    .tracker-task-item input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: var(--color-accent);
+      cursor: pointer;
+    }
+    .tracker-task-item.checked span {
+      text-decoration: line-through;
+      color: var(--color-gray-600);
+    }
+
+    /* Profit & Break-even Simulator Box */
+    .profit-sim-box {
+      margin-top: 20px;
+      padding: 20px;
+      background: var(--color-background);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-sm);
+    }
+    .profit-metric-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin-top: 14px;
+    }
+    @media (max-width: 860px) {
+      .profit-metric-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 500px) {
+      .profit-metric-grid { grid-template-columns: 1fr; }
+    }
+
+    /* Command Palette Modal */
+    .search-modal-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.65);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: none;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 80px 16px 20px;
+    }
+    .search-modal-backdrop.active {
+      display: flex;
+    }
+    .search-modal-box {
+      width: 100%;
+      max-width: 640px;
+      background: var(--sidebar-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.45);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: modalFadeIn 0.15s ease-out;
+    }
+    @keyframes modalFadeIn {
+      from { opacity: 0; transform: translateY(-10px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .search-input-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--color-border);
+      background: var(--color-background);
+    }
+    .search-input-wrap input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      outline: none;
+      font-size: 15px;
+      color: var(--color-gray-1000);
+      font-family: var(--font-sans);
+    }
+    .search-results-list {
+      max-height: 380px;
+      overflow-y: auto;
+      padding: 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .search-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 9px 12px;
+      border-radius: var(--radius-sm);
+      color: var(--color-gray-900);
+      text-decoration: none;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.1s;
+    }
+    .search-item:hover, .search-item.selected {
+      background: var(--color-background-200);
+      color: var(--color-gray-1000);
+    }
+    .search-item.selected {
+      outline: 1px solid var(--color-accent);
+    }
+    .search-item-badge {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      padding: 2px 6px;
+      border-radius: var(--radius-sm);
+      background: var(--color-background-100);
+      border: 1px solid var(--color-border);
+      color: var(--color-accent);
+      flex-shrink: 0;
+    }
+    .search-modal-footer {
+      padding: 9px 16px;
+      background: var(--color-background-100);
+      border-top: 1px solid var(--color-border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      color: var(--color-gray-600);
+    }
+
   </style>
 </head>
 <body>
@@ -754,19 +1139,24 @@
           <span>aivideo<span class="accent">.md</span></span>
         </a>
         <div class="header-center">
-          <a href="#sec-prep" class="header-btn">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m22 2-7 20-4-9-9-4Z"></path><path d="M22 2 11 13"></path></svg>
-            <span class="lang-th">ตั้งค่า Pipeline</span>
-            <span class="lang-en">Pipeline Setup</span>
+          <a href="#sec-launchpad" class="header-btn" style="border-color:var(--color-accent); color:var(--color-accent);">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
+            <span class="lang-th">Launchpad</span>
+            <span class="lang-en">Launchpad</span>
           </a>
-          <a href="#sec-step12" class="header-btn">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
-            <span class="lang-th">เศรษฐศาสตร์รายได้</span>
-            <span class="lang-en">Unit Economics</span>
+          <a href="#sec-prompt-builder" class="header-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            <span class="lang-th">ตัวผสม Prompt</span>
+            <span class="lang-en">Prompt Studio</span>
+          </a>
+          <a href="#sec-action-tracker" class="header-btn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+            <span class="lang-th">แทร็กเกอร์ 7 วัน</span>
+            <span class="lang-en">7-Day Tracker</span>
           </a>
           <a href="#sec-workshops" class="header-btn">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="7" height="7" rx="1.5"></rect><rect x="14" y="3" width="7" height="7" rx="1.5"></rect><rect x="3" y="14" width="7" height="7" rx="1.5"></rect><rect x="14" y="14" width="7" height="7" rx="1.5"></rect></svg>
-            <span class="lang-th">เวิร์กช็อปจริง</span>
+            <span class="lang-th">กรณีศึกษา</span>
             <span class="lang-en">Case Studies</span>
           </a>
         </div>
@@ -789,6 +1179,14 @@
           </span>
         </a>
 
+        <!-- Quick Search Button (Ctrl + K) -->
+        <button class="header-btn" id="openSearchBtn" onclick="openSearchModal()" title="Quick Search (Ctrl + K)">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+          <span class="lang-th">ค้นหา</span>
+          <span class="lang-en">Search</span>
+          <kbd style="font-family:var(--font-mono); font-size:10px; background:var(--color-background-200); padding:1px 5px; border-radius:3px; border:1px solid var(--color-border); color:var(--color-gray-600); margin-left:3px;">Ctrl K</kbd>
+        </button>
+
         <button class="header-btn" id="themeToggleBtn" aria-label="Toggle Dark/Light Mode">
           <svg id="themeSvg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
           <span id="themeText">Dark</span>
@@ -802,6 +1200,41 @@
 
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
+      <div>
+        <div class="nav-group-title" style="color:var(--color-accent); font-weight:700;">
+          <span class="lang-th">⚡ สตูดิโอโต้ตอบ (Interactive)</span>
+          <span class="lang-en">⚡ Interactive Studio</span>
+        </div>
+        <a href="#sec-launchpad" class="nav-link">
+          <span>
+            <span class="lang-th">🚀 แดชบอร์ดเปิดโปรแกรม AI</span>
+            <span class="lang-en">🚀 AI Tool Launchpad</span>
+          </span>
+          <span class="tag" style="color:var(--color-accent);">11 Tools</span>
+        </a>
+        <a href="#sec-prompt-builder" class="nav-link">
+          <span>
+            <span class="lang-th">🎨 ตัวผสม Prompt อัจฉริยะ</span>
+            <span class="lang-en">🎨 Smart Prompt Builder</span>
+          </span>
+          <span class="tag">Studio</span>
+        </a>
+        <a href="#sec-action-tracker" class="nav-link">
+          <span>
+            <span class="lang-th">✅ แทร็กเกอร์ปฏิบัติการ 7 วัน</span>
+            <span class="lang-en">✅ 7-Day Action Tracker</span>
+          </span>
+          <span class="tag" id="sidebar-tracker-tag">0/18</span>
+        </a>
+        <a href="#sec-step12" class="nav-link">
+          <span>
+            <span class="lang-th">💰 แบบจำลองกำไรสุทธิ & ต้นทุน</span>
+            <span class="lang-en">💰 Net Profit & ROI Sim</span>
+          </span>
+          <span class="tag">Calc</span>
+        </a>
+      </div>
+
       <div>
         <div class="nav-group-title">
           <span class="lang-th">ไปป์ไลน์การผลิตหลัก</span>
@@ -1049,6 +1482,458 @@
 
       <!-- Container: Live Document View -->
       <div id="view-live-doc">
+
+        <!-- Studio Launchpad -->
+        <section id="sec-launchpad" class="module-card" style="border:1px solid var(--color-accent); background:var(--color-background-100);">
+          <div class="module-meta">
+            <span class="module-badge" style="background:var(--color-accent); color:#000; font-weight:700;">STUDIO LAUNCHPAD</span>
+            <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">ONE-CLICK TOOL DIRECTORY & SPECS</span>
+          </div>
+          <h2 class="module-heading">
+            <span class="lang-th">⚡ AI Studio Launchpad: ศูนย์รวมปุ่มลัดเครื่องมือ AI & สเปกแนะนำ</span>
+            <span class="lang-en">⚡ AI Studio Launchpad: One-Click Tool Directory & Recommended Specs</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">คลิกเข้าสู่หน้าเครื่องมือสร้างงานได้ทันที พร้อมสเปกที่ผ่านการปรับแต่งค่าที่ดีที่สุดสำหรับผลิตวิดีโอเชิงพาณิชย์</span>
+            <span class="lang-en">Direct one-click access to production AI suites with battle-tested configurations for commercial video throughput.</span>
+          </p>
+
+          <div class="launchpad-grid">
+            <!-- Claude -->
+            <a href="https://claude.ai" target="_blank" rel="noopener" class="launchpad-card">
+              <div class="lp-header">
+                <span class="lp-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  Claude 3.5 Sonnet
+                </span>
+                <span class="lp-badge">Strategy</span>
+              </div>
+              <p class="lp-desc">สร้าง Character Bible, สคริปต์วิดีโอ 15 วิ และโครงเนื้อหา Digital Product PDF 7 หน้า</p>
+              <div class="lp-spec">Mode: Sonnet 3.5 / Artifacts: Enabled</div>
+              <div class="lp-action">เปิด Claude.ai <span>➔</span></div>
+            </a>
+
+            <!-- Midjourney -->
+            <a href="https://discord.com" target="_blank" rel="noopener" class="launchpad-card">
+              <div class="lp-header">
+                <span class="lp-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"></path></svg>
+                  Midjourney v6.1
+                </span>
+                <span class="lp-badge">Anchor Face</span>
+              </div>
+              <p class="lp-desc">เจน Anchor Face หน้าตรง และล็อกหน้าตาด้วยพารามิเตอร์ Character Reference</p>
+              <div class="lp-spec">--cref [URL] --cw 100 --ar 9:16 --v 6.1</div>
+              <div class="lp-action">เปิด Midjourney <span>➔</span></div>
+            </a>
+
+            <!-- Higgsfield -->
+            <a href="https://higgsfield.ai" target="_blank" rel="noopener" class="launchpad-card">
+              <div class="lp-header">
+                <span class="lp-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                  Higgsfield AI
+                </span>
+                <span class="lp-badge">Soul Lock</span>
+              </div>
+              <p class="lp-desc">ล็อกโครงหน้าและโมเดลกล้องแบบเสมือนจริง 4K สำหรับสร้างภาพ Influencer ต่อเนื่อง</p>
+              <div class="lp-spec">Soul Lock: ON / Ultra Camera 4K</div>
+              <div class="lp-action">เปิด Higgsfield <span>➔</span></div>
+            </a>
+
+            <!-- Kling AI -->
+            <a href="https://klingai.com" target="_blank" rel="noopener" class="launchpad-card">
+              <div class="lp-header">
+                <span class="lp-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"></polygon><rect x="1" y="5" width="15" height="14" rx="2" ry="2"></rect></svg>
+                  Kling AI 1.5
+                </span>
+                <span class="lp-badge">Motion</span>
+              </div>
+              <p class="lp-desc">แปลงภาพนิ่งเป็นวิดีโอ 5 วินาที พร้อมโมชันกล้อง Pan, Push และฟิสิกส์การเคลื่อนไหวธรรมชาติ</p>
+              <div class="lp-spec">Professional Mode / Duration: 5s / 1080p</div>
+              <div class="lp-action">เปิด Kling AI <span>➔</span></div>
+            </a>
+
+            <!-- Hailuo AI -->
+            <a href="https://hailuoai.video" target="_blank" rel="noopener" class="launchpad-card">
+              <div class="lp-header">
+                <span class="lp-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect><line x1="7" y1="2" x2="7" y2="22"></line><line x1="17" y1="2" x2="17" y2="22"></line><line x1="2" y1="12" x2="22" y2="12"></line><line x1="2" y1="7" x2="7" y2="7"></line><line x1="2" y1="17" x2="7" y2="17"></line><line x1="17" y1="17" x2="22" y2="17"></line><line x1="17" y1="7" x2="22" y2="7"></line></svg>
+                  Hailuo AI (MiniMax)
+                </span>
+                <span class="lp-badge">2K Cinematic</span>
+              </div>
+              <p class="lp-desc">เรนเดอร์คลิปวิดีโอ 2K ให้ตัวละครขยับพูด เอียงคอ และกะพริบตาเป็นธรรมชาติสูง</p>
+              <div class="lp-spec">Quality: 2K / Aspect Ratio: 9:16 / 24fps</div>
+              <div class="lp-action">เปิด Hailuo AI <span>➔</span></div>
+            </a>
+
+            <!-- Hedra -->
+            <a href="https://hedra.com" target="_blank" rel="noopener" class="launchpad-card">
+              <div class="lp-header">
+                <span class="lp-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path><path d="M19 10v2a7 7 0 0 1-14 0v-2"></path><line x1="12" y1="19" x2="12" y2="23"></line><line x1="8" y1="23" x2="16" y2="23"></line></svg>
+                  Hedra (Character-1)
+                </span>
+                <span class="lp-badge">Lip-Sync</span>
+              </div>
+              <p class="lp-desc">ซิงก์เสียงพากย์เข้ากับรูปถ่ายเพื่อสร้างคลิปพูดคุยและแสดงอารมณ์สีหน้าสมจริง</p>
+              <div class="lp-spec">Audio-driven Facial Engine / 1080p</div>
+              <div class="lp-action">เปิด Hedra <span>➔</span></div>
+            </a>
+
+            <!-- ElevenLabs -->
+            <a href="https://elevenlabs.io" target="_blank" rel="noopener" class="launchpad-card">
+              <div class="lp-header">
+                <span class="lp-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                  ElevenLabs
+                </span>
+                <span class="lp-badge">Voice Studio</span>
+              </div>
+              <p class="lp-desc">โคลนเสียงและสังเคราะห์เสียงพากย์ธรรมชาติ สไตล์เพื่อนคุย มีน้ำหนักเสียงสมจริง</p>
+              <div class="lp-spec">Stability: 50% | Clarity: 80% | Speed: 1.05x</div>
+              <div class="lp-action">เปิด ElevenLabs <span>➔</span></div>
+            </a>
+
+            <!-- Canva -->
+            <a href="https://canva.com" target="_blank" rel="noopener" class="launchpad-card">
+              <div class="lp-header">
+                <span class="lp-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                  Canva
+                </span>
+                <span class="lp-badge">PDF Product</span>
+              </div>
+              <p class="lp-desc">จัดหน้า E-Book คู่มือ 7 หน้า หรือตารางออกกำลังกายเพื่อส่งออกเป็น PDF สั่งพิมพ์/ขาย</p>
+              <div class="lp-spec">Template: Ebook / Format: Standard PDF</div>
+              <div class="lp-action">เปิด Canva <span>➔</span></div>
+            </a>
+
+            <!-- Gumroad -->
+            <a href="https://gumroad.com" target="_blank" rel="noopener" class="launchpad-card">
+              <div class="lp-header">
+                <span class="lp-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                  Gumroad
+                </span>
+                <span class="lp-badge">Checkout $19</span>
+              </div>
+              <p class="lp-desc">ระบบรับชำระเงินบัตรเครดิต/PayPal ส่งไฟล์ PDF อัตโนมัติทันทีที่ลูกค้าโอนเงิน</p>
+              <div class="lp-spec">Product: Digital / Price: $19 (PWYW)</div>
+              <div class="lp-action">เปิด Gumroad <span>➔</span></div>
+            </a>
+
+            <!-- ManyChat -->
+            <a href="https://manychat.com" target="_blank" rel="noopener" class="launchpad-card">
+              <div class="lp-header">
+                <span class="lp-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                  ManyChat
+                </span>
+                <span class="lp-badge">DM Machine</span>
+              </div>
+              <p class="lp-desc">ระบบแชทบอทตอบคอมเมนต์หน้า Reels อัตโนมัติ พร้อมส่งลิงก์สั่งซื้อ Gumroad ทาง DM</p>
+              <div class="lp-spec">Trigger: Comments / Smart Delay: 15 min</div>
+              <div class="lp-action">เปิด ManyChat <span>➔</span></div>
+            </a>
+
+            <!-- CapCut -->
+            <a href="https://www.capcut.com" target="_blank" rel="noopener" class="launchpad-card">
+              <div class="lp-header">
+                <span class="lp-title">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
+                  CapCut Web
+                </span>
+                <span class="lp-badge">Assembly</span>
+              </div>
+              <p class="lp-desc">ตัดต่อวิดีโอ 9:16 ใส่ Auto Captions ซับไตเติลเด้งตามเสียง และตัดต่อเปลี่ยนภาพทุก 2 วินาที</p>
+              <div class="lp-spec">Canvas: 9:16 (1080x1920) / Frame: 30-60fps</div>
+              <div class="lp-action">เปิด CapCut <span>➔</span></div>
+            </a>
+          </div>
+        </section>
+
+        <!-- Interactive Prompt Generator -->
+        <section id="sec-prompt-builder" class="module-card">
+          <div class="module-meta">
+            <span class="module-badge">PROMPT STUDIO</span>
+            <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">INTERACTIVE SYNTHESIS ENGINE</span>
+          </div>
+          <h2 class="module-heading">
+            <span class="lang-th">🎨 ตัวผสม Prompt อัจฉริยะ: คลิกเลือกสไตล์และประกอบร่างทันที</span>
+            <span class="lang-en">🎨 Interactive Prompt Studio: Point-and-Click Formula Generator</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">เลือกตัวละคร เลนส์กล้อง แสง และโมเดลเป้าหมาย ระบบจะสังเคราะห์ Prompt ไวยากรณ์สมบูรณ์พร้อมพารามิเตอร์ล็อกอัตลักษณ์ให้กดคัดลอกได้ทันที</span>
+            <span class="lang-en">Select persona, focal length, lighting, and AI model target. The system synthesizes calibrated prompts with character-anchoring tags ready to copy.</span>
+          </p>
+
+          <div class="pb-grid">
+            <!-- Controls -->
+            <div class="pb-controls">
+              <div class="pb-control-group">
+                <label class="pb-label">
+                  <span>1. ตัวละคร & Niche (Persona)</span>
+                  <span style="color:var(--color-accent);">[PERSONA]</span>
+                </label>
+                <select id="pb_persona" class="pb-select" onchange="updatePromptBuilder()">
+                  <option value="fitness_female" selected>24yo athletic Thai-European female fitness influencer, hazel eyes, natural radiant skin, high ponytail</option>
+                  <option value="tech_male">27yo modern tech & AI wealth creator, minimal acetate glasses, sharp jawline, minimalist charcoal linen shirt</option>
+                  <option value="luxury_female">23yo high-fashion lifestyle model, effortless chic, luminous natural makeup, silk blouse</option>
+                  <option value="street_drama">30yo relatable everyday commuter, realistic expressive facial emotion, gritty authentic documentary look</option>
+                </select>
+              </div>
+
+              <div class="pb-control-group">
+                <label class="pb-label">
+                  <span>2. เลนส์ & มุมกล้อง (Camera & Focal Length)</span>
+                  <span style="color:var(--color-accent);">[OPTICS]</span>
+                </label>
+                <select id="pb_camera" class="pb-select" onchange="updatePromptBuilder()">
+                  <option value="portrait_85" selected>Shot on 85mm f/1.4 lens, cinematic shallow depth of field, creamy bokeh background, ultra-sharp eye focus</option>
+                  <option value="vlog_35">Handheld selfie vlog perspective on 35mm f/1.8 lens, natural arm-length distance, authentic mobile capture</option>
+                  <option value="wide_24">Cinematic wide angle on 24mm f/2.8 lens, full environmental composition, dynamic visual depth</option>
+                  <option value="macro_100">Intimate close-up on 100mm macro lens, visible skin micro-texture and subtle freckles, commercial clarity</option>
+                </select>
+              </div>
+
+              <div class="pb-control-group">
+                <label class="pb-label">
+                  <span>3. สภาพแสง & บรรยากาศ (Lighting & Environment)</span>
+                  <span style="color:var(--color-accent);">[LIGHTING]</span>
+                </label>
+                <select id="pb_light" class="pb-select" onchange="updatePromptBuilder()">
+                  <option value="gym_golden" selected>Sunlit modern luxury gym, soft morning golden hour streaming through floor-to-ceiling windows, subtle rim lighting</option>
+                  <option value="cafe_morning">Aesthetic sun-drenched minimalist coffee shop, warm morning ambient light, clean wood and marble textures</option>
+                  <option value="studio_soft">Professional studio high-key softbox lighting, perfectly balanced neutral fill, clean editorial aesthetic</option>
+                  <option value="cyber_neon">Moody atmospheric evening street, reflective wet asphalt, cinematic cyan and warm amber neon reflections</option>
+                </select>
+              </div>
+
+              <div class="pb-control-group">
+                <label class="pb-label">
+                  <span>4. ท่าทาง & บริบทเนื้อหา (Action & Context)</span>
+                  <span style="color:var(--color-accent);">[ACTION]</span>
+                </label>
+                <select id="pb_action" class="pb-select" onchange="updatePromptBuilder()">
+                  <option value="talking_head" selected>Talking directly to camera with an engaging confident smile, natural head tilt, authentic conversational delivery</option>
+                  <option value="smoothie_vlog">Holding a fresh green detox smoothie with paper straw, relaxed morning cafe vlog pose, smiling warmly at camera</option>
+                  <option value="ipad_product">Holding an iPad showing a sleek modern fitness workout guide, sitting at clean workspace, professional commercial look</option>
+                  <option value="sweat_hydrate">Catching breath after workout, towel around neck holding stainless steel water bottle, athletic glow</option>
+                  <option value="walking_street">Walking outdoors through sunlit city avenue toward camera, natural candid lifestyle motion</option>
+                </select>
+              </div>
+
+              <div class="pb-control-group">
+                <label class="pb-label">
+                  <span>5. ค่าย AI & พารามิเตอร์ระบบ (Engine Target)</span>
+                  <span style="color:var(--color-accent);">[ENGINE]</span>
+                </label>
+                <select id="pb_engine" class="pb-select" onchange="updatePromptBuilder()">
+                  <option value="mj_lock" selected>Midjourney v6.1 (Character Lock: --cref [URL] --cw 100 --ar 9:16 --v 6.1)</option>
+                  <option value="mj_anchor">Midjourney v6.1 (Master Anchor Shot: --ar 9:16 --v 6.1 --style raw)</option>
+                  <option value="kling_motion">Kling AI 1.5 (Video Motion Prompt: Camera push-in, 5s 1080p 24fps)</option>
+                  <option value="hailuo_lipsync">Hailuo AI / Hedra (Talking Head Lip-Sync: Natural mouth sync, expressive eyes)</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Output Display -->
+            <div class="pb-output-card">
+              <div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                  <span style="font-family:var(--font-mono); font-size:11px; text-transform:uppercase; color:var(--color-gray-700);">GENERATED PROMPT PAYLOAD</span>
+                  <span id="pb_badge" class="lp-badge">READY TO COPY</span>
+                </div>
+                <div id="pbOutput" class="pb-output-text"></div>
+              </div>
+
+              <div class="pb-actions-row">
+                <button class="pb-btn pb-btn-primary" onclick="copyBuiltPrompt(this)">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"></path></svg>
+                  <span>คัดลอก Prompt (Copy)</span>
+                </button>
+                <button class="pb-btn pb-btn-secondary" onclick="randomizePrompt()">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg>
+                  <span>สุ่มสูตร (Randomize)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 7-Day Interactive Action Tracker -->
+        <section id="sec-action-tracker" class="module-card">
+          <div class="module-meta">
+            <span class="module-badge" style="background:var(--color-status-live); color:#fff; font-weight:700;">LIVE ACTION TRACKER</span>
+            <span style="font-family:var(--font-mono); font-size:11.5px; color:var(--color-gray-700);">LOCALSTORAGE AUTOSAVE</span>
+          </div>
+          <h2 class="module-heading">
+            <span class="lang-th">✅ แทร็กเกอร์ปฏิบัติการ 7 วัน: เช็กลิสต์ลงมือทำจริงแบบจำค่าอัตโนมัติ</span>
+            <span class="lang-en">✅ 7-Day Action Progress Tracker: Persistent Execution Board</span>
+          </h2>
+          <p class="module-desc">
+            <span class="lang-th">เช็กภารกิจทีละสเต็ปตามพิมพ์เขียว Mark Tilbury ระบบจะบันทึกสถานะไว้ในเบราว์เซอร์ของคุณอัตโนมัติ ปิดเว็บเปิดใหม่ก็ไม่หาย</span>
+            <span class="lang-en">Check off milestones across Mark Tilbury's monetization roadmap. Progress saves automatically in your browser's local storage.</span>
+          </p>
+
+          <div class="tracker-container">
+            <div class="tracker-top">
+              <div>
+                <span style="font-family:var(--font-mono); font-size:12px; color:var(--color-gray-700); text-transform:uppercase;">TOTAL PIPELINE COMPLETION:</span>
+                <span id="trackerPercentText" style="font-family:var(--font-mono); font-size:18px; font-weight:700; color:var(--color-accent); margin-left:6px;">0%</span>
+                <span id="trackerCountText" style="font-size:12px; color:var(--color-gray-600); margin-left:4px;">(0 จาก 18 งานเสร็จสิ้น)</span>
+              </div>
+              <div style="display:flex; align-items:center; gap:8px;">
+                <span id="trackerStatusBadge" class="lp-badge" style="background:var(--color-background-200); color:var(--color-gray-800);">🚀 เริ่มต้นภารกิจ</span>
+                <button onclick="resetActionTracker()" class="pb-btn pb-btn-secondary" style="padding:4px 10px; font-size:11px;">รีเซ็ตสถานะ</button>
+              </div>
+            </div>
+
+            <!-- Progress Bar -->
+            <div class="tracker-bar-bg">
+              <div id="trackerProgressBar" class="tracker-bar-fill"></div>
+            </div>
+
+            <!-- Day 1 Accordion -->
+            <div class="tracker-day-accordion">
+              <div class="tracker-day-summary" onclick="toggleAccordion(this)">
+                <span>📍 DAY 1: วางตัวตน & เปิดบัญชี Creator (Persona & Strategy)</span>
+                <span style="font-size:11px; color:var(--color-accent);">คลิกเพื่อขยาย ▼</span>
+              </div>
+              <div class="tracker-tasks-list">
+                <label class="tracker-task-item" id="item_d1_1">
+                  <input type="checkbox" id="task_d1_1" onchange="handleTaskChange('task_d1_1')">
+                  <span>บรีฟ Claude 3.5 Sonnet สร้าง Character Bible (ชื่อ, อายุ 24, ปูมหลัง, เอกลักษณ์)</span>
+                </label>
+                <label class="tracker-task-item" id="item_d1_2">
+                  <input type="checkbox" id="task_d1_2" onchange="handleTaskChange('task_d1_2')">
+                  <span>เลือก Niche หลักที่คนพร้อมจ่ายเงิน (Fitness, Wealth/AI Tools, หรือ Luxury Lifestyle)</span>
+                </label>
+                <label class="tracker-task-item" id="item_d1_3">
+                  <input type="checkbox" id="task_d1_3" onchange="handleTaskChange('task_d1_3')">
+                  <span>สมัครบัญชี Instagram ใหม่แล้วสลับเป็น Professional Account (Creator Mode)</span>
+                </label>
+                <label class="tracker-task-item" id="item_d1_4">
+                  <input type="checkbox" id="task_d1_4" onchange="handleTaskChange('task_d1_4')">
+                  <span>เขียน Bio เน้น Call-to-Action เช่น "Comment 'WORKOUT' เพื่อรับตารางฟรีใน DM"</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Day 2 Accordion -->
+            <div class="tracker-day-accordion">
+              <div class="tracker-day-summary" onclick="toggleAccordion(this)">
+                <span>📍 DAY 2: เจนคลังภาพ 15 แอ็กชันล็อกหน้าตาถาวร (Face Locking)</span>
+                <span style="font-size:11px; color:var(--color-accent);">คลิกเพื่อขยาย ▼</span>
+              </div>
+              <div class="tracker-tasks-list">
+                <label class="tracker-task-item" id="item_d2_1">
+                  <input type="checkbox" id="task_d2_1" onchange="handleTaskChange('task_d2_1')">
+                  <span>เจน Master Anchor Shot 1 รูปใน Midjourney หรือ Higgsfield AI (สัดส่วน 9:16 แสงธรรมชาติ)</span>
+                </label>
+                <label class="tracker-task-item" id="item_d2_2">
+                  <input type="checkbox" id="task_d2_2" onchange="handleTaskChange('task_d2_2')">
+                  <span>ล็อกหน้าตาด้วยพารามิเตอร์ <code>--cref [URL] --cw 100</code> หรือระบบ Soul Lock</span>
+                </label>
+                <label class="tracker-task-item" id="item_d2_3">
+                  <input type="checkbox" id="task_d2_3" onchange="handleTaskChange('task_d2_3')">
+                  <span>ผลิตคลังรูป 15 ภาพใน 5 ฉาก: ยิม, คาเฟ่, ถือสินค้า, โต๊ะทำงาน, และเซลฟี่กระจก</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Day 3 Accordion -->
+            <div class="tracker-day-accordion">
+              <div class="tracker-day-summary" onclick="toggleAccordion(this)">
+                <span>📍 DAY 3: สังเคราะห์เสียงโคลน & ซิงค์ภาพขยับปากพูด (Motion Sync)</span>
+                <span style="font-size:11px; color:var(--color-accent);">คลิกเพื่อขยาย ▼</span>
+              </div>
+              <div class="tracker-tasks-list">
+                <label class="tracker-task-item" id="item_d3_1">
+                  <input type="checkbox" id="task_d3_1" onchange="handleTaskChange('task_d3_1')">
+                  <span>ตั้งค่าเสียงใน ElevenLabs: Stability 50%, Clarity 80%, Speed 1.05x</span>
+                </label>
+                <label class="tracker-task-item" id="item_d3_2">
+                  <input type="checkbox" id="task_d3_2" onchange="handleTaskChange('task_d3_2')">
+                  <span>อัดสคริปต์พูด 15 วินาทีสูตร Hook-Value-CTA ดาวน์โหลดเป็นไฟล์ MP3</span>
+                </label>
+                <label class="tracker-task-item" id="item_d3_3">
+                  <input type="checkbox" id="task_d3_3" onchange="handleTaskChange('task_d3_3')">
+                  <span>อัปโหลดรูป + เสียงเข้า Hailuo AI หรือ Hedra เรนเดอร์คลิปวิดีโอ 9:16 ขยับปากสมจริง</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Day 4 Accordion -->
+            <div class="tracker-day-accordion">
+              <div class="tracker-day-summary" onclick="toggleAccordion(this)">
+                <span>📍 DAY 4: สร้าง Digital Product ราคา $19 ใน 2 ชม. (Canva & Gumroad)</span>
+                <span style="font-size:11px; color:var(--color-accent);">คลิกเพื่อขยาย ▼</span>
+              </div>
+              <div class="tracker-tasks-list">
+                <label class="tracker-task-item" id="item_d4_1">
+                  <input type="checkbox" id="task_d4_1" onchange="handleTaskChange('task_d4_1')">
+                  <span>ให้ Claude สรุปเนื้อหาคู่มือ PDF 7 หน้า (7-Day Belly Fat Burner Routine)</span>
+                </label>
+                <label class="tracker-task-item" id="item_d4_2">
+                  <input type="checkbox" id="task_d4_2" onchange="handleTaskChange('task_d4_2')">
+                  <span>จัดรูปเล่มใน Canva ใส่รูปถ่าย AI Influencer ของเรา แล้วดาวน์โหลดไฟล์ PDF</span>
+                </label>
+                <label class="tracker-task-item" id="item_d4_3">
+                  <input type="checkbox" id="task_d4_3" onchange="handleTaskChange('task_d4_3')">
+                  <span>ลงขายบน Gumroad ตั้งราคา $19 (หรือ Pay What You Want) แล้วคัดลอกลิงก์ชำระเงิน</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Day 5 Accordion -->
+            <div class="tracker-day-accordion">
+              <div class="tracker-day-summary" onclick="toggleAccordion(this)">
+                <span>📍 DAY 5: เซ็ตบอทดูดเงินอัตโนมัติ (ManyChat DM Machine)</span>
+                <span style="font-size:11px; color:var(--color-accent);">คลิกเพื่อขยาย ▼</span>
+              </div>
+              <div class="tracker-tasks-list">
+                <label class="tracker-task-item" id="item_d5_1">
+                  <input type="checkbox" id="task_d5_1" onchange="handleTaskChange('task_d5_1')">
+                  <span>เชื่อมต่อ ManyChat เข้ากับ Instagram Creator Account</span>
+                </label>
+                <label class="tracker-task-item" id="item_d5_2">
+                  <input type="checkbox" id="task_d5_2" onchange="handleTaskChange('task_d5_2')">
+                  <span>ตั้ง Trigger: เมื่อมีคนคอมเมนต์คำว่า "PLAN" ให้ตอบคอมเมนต์อัตโนมัติทันที</span>
+                </label>
+                <label class="tracker-task-item" id="item_d5_3">
+                  <input type="checkbox" id="task_d5_3" onchange="handleTaskChange('task_d5_3')">
+                  <span>วางโฟลว์ Instant DM ส่งลิงก์ Gumroad พร้อมตั้ง Smart Delay 15 นาทีส่งข้อความติดตามผล</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Day 6 & 7 Accordion -->
+            <div class="tracker-day-accordion">
+              <div class="tracker-day-summary" onclick="toggleAccordion(this)">
+                <span>📍 DAY 6 & 7: ตัดต่อคลิป Viral & ปล่อยคลิปทำเงิน (Viral Launch)</span>
+                <span style="font-size:11px; color:var(--color-accent);">คลิกเพื่อขยาย ▼</span>
+              </div>
+              <div class="tracker-tasks-list">
+                <label class="tracker-task-item" id="item_d6_1">
+                  <input type="checkbox" id="task_d6_1" onchange="handleTaskChange('task_d6_1')">
+                  <span>ตัดต่อคลิปด้วยกฎ 3 วินาทีแรก (Hook หนักๆ) และสลับภาพทุก 2 วินาที พร้อมเสียง Sound Effect</span>
+                </label>
+                <label class="tracker-task-item" id="item_d6_2">
+                  <input type="checkbox" id="task_d6_2" onchange="handleTaskChange('task_d6_2')">
+                  <span>เขียนแคปชันกระตุ้นให้คนคอมเมนต์ "PLAN" และโพสต์คลิปในเวลา 11:30 น. หรือ 19:30 น.</span>
+                </label>
+                <label class="tracker-task-item" id="item_d6_3">
+                  <input type="checkbox" id="task_d6_3" onchange="handleTaskChange('task_d6_3')">
+                  <span>ตรวจเช็กยอด Reach ใน Instagram และยอดโอนเงินเข้าใน Gumroad / Stripe</span>
+                </label>
+              </div>
+            </div>
+          </div>
+        </section>
 
         <!-- Module 00 -->
         <section id="sec-prep" class="module-card">
@@ -1659,6 +2544,56 @@ Structure: Instrumental only, no vocals, seamless loop</pre>
                   <span class="lang-th">คิดเป็น 3-4 คลิป/วัน</span>
                   <span class="lang-en">~3-4 uploads daily</span>
                 </span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sub-Panel: AI Influencer Net Profit & Break-even Simulator -->
+          <div class="profit-sim-box">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+              <h3 style="font-size:15px; color:var(--color-gray-1000); font-weight:700; display:flex; align-items:center; gap:8px;">
+                <span>💼</span>
+                <span class="lang-th">แบบจำลองกำไรสุทธิ & จุดคุ้มทุน (AI Influencer Business Simulator)</span>
+                <span class="lang-en">Net Profit & Break-even Simulator (AI Creator Business Model)</span>
+              </h3>
+              <span class="lp-badge" style="color:var(--color-status-live); border-color:var(--color-status-live);">ROI CALCULATOR</span>
+            </div>
+            <p style="font-size:12.5px; color:var(--color-gray-800); margin-bottom:16px;">
+              คำนวณกำไรสุทธิต่อเดือนหลังหักค่าซอฟต์แวร์ AI คงที่ $50/เดือน (~฿1,750: Midjourney $10 + Kling $35 + ElevenLabs $5)
+            </p>
+
+            <div class="calc-grid">
+              <div>
+                <label class="calc-field-label">ยอดขายคู่มือ Digital Guide $19 (ชิ้น/เดือน)</label>
+                <input type="number" id="bs_sales" class="calc-input" value="60" min="0" max="1000" oninput="updateBusinessSim()">
+                <input type="range" id="bs_sales_slider" style="width:100%; margin-top:8px; accent-color:var(--color-accent);" min="0" max="300" value="60" oninput="document.getElementById('bs_sales').value=this.value; updateBusinessSim()">
+              </div>
+              <div>
+                <label class="calc-field-label">สปอนเซอร์รีวิวแบรนด์ + ค่าคอมมิชชัน Affiliate ($/เดือน)</label>
+                <input type="number" id="bs_sponsor" class="calc-input" value="650" min="0" step="50" oninput="updateBusinessSim()">
+              </div>
+            </div>
+
+            <div class="profit-metric-grid">
+              <div class="res-metric" style="background:var(--color-background-100); padding:12px; border-radius:var(--radius-sm); border:1px solid var(--color-border);">
+                <span class="res-metric-label">รายรับรวม (Gross)</span>
+                <span class="res-metric-value" id="bs_gross_thb" style="color:var(--color-gray-1000); font-size:19px;">฿62,650</span>
+                <span class="res-metric-sub" id="bs_gross_usd">$1,790 USD</span>
+              </div>
+              <div class="res-metric" style="background:var(--color-background-100); padding:12px; border-radius:var(--radius-sm); border:1px solid var(--color-border);">
+                <span class="res-metric-label">ต้นทุนเครื่องมือ AI</span>
+                <span class="res-metric-value" style="color:#ef4444; font-size:19px;">-฿1,750</span>
+                <span class="res-metric-sub">-$50 USD (Sub รายเดือน)</span>
+              </div>
+              <div class="res-metric" style="background:var(--color-background-100); padding:12px; border-radius:var(--radius-sm); border:1px solid var(--color-status-live);">
+                <span class="res-metric-label" style="color:var(--color-status-live);">กำไรสุทธิ (Net Income)</span>
+                <span class="res-metric-value" id="bs_net_thb" style="color:var(--color-status-live); font-size:22px;">฿60,900</span>
+                <span class="res-metric-sub" id="bs_net_usd">≈ $1,740 USD (Margin 97%)</span>
+              </div>
+              <div class="res-metric" style="background:var(--color-background-100); padding:12px; border-radius:var(--radius-sm); border:1px solid var(--color-accent);">
+                <span class="res-metric-label" style="color:var(--color-accent);">จุดคุ้มทุน (Break-Even)</span>
+                <span class="res-metric-value" id="bs_breakeven" style="color:var(--color-accent); font-size:20px;">3 เล่ม</span>
+                <span class="res-metric-sub">ขายเพียง 3 เล่มก็คืนทุนค่า AI แล้ว!</span>
               </div>
             </div>
           </div>
@@ -2841,6 +3776,379 @@ Prompt: Slow push-in camera, subject blinks naturally, subtle breath movement, s
         }
       });
     });
+
+    /* ========================================================
+       INTERACTIVE STUDIO LOGIC (Prompt Builder, Tracker, Sim, Search)
+       ======================================================== */
+
+    // 1. Prompt Builder Logic
+    const promptPresets = {
+      fitness_female: {
+        talking_head: "cinematic portrait of a 24-year-old athletic Thai-European female fitness influencer, hazel eyes, natural radiant skin texture, subtle freckles, high messy ponytail, wearing sleek black gym sports bra, natural daylight streaming into gym, slow camera push-in, natural head tilt, realistic smiling mouth movement, photorealistic 8k",
+        smoothie_vlog: "handheld selfie vlog shot of a 24-year-old athletic Thai-European female influencer holding a fresh green detox smoothie with paper straw, sitting in sunlit minimalist cafe, warm genuine smile looking at camera, shallow depth of field, authentic pores and texture",
+        ipad_product: "clean commercial shot of a 24-year-old athletic female influencer holding an iPad displaying a modern wellness workout guide, sitting at sunlit Scandinavian wood desk, confident professional smile, soft ambient daylight",
+        sweat_hydrate: "candid mid-workout shot of a 24-year-old female influencer wiping forehead with sports towel, holding stainless steel water flask, athletic aesthetic, natural sweat glow, gym environment",
+        walking_street: "dynamic tracking shot of a 24-year-old athletic influencer walking along sunlit city sidewalk toward camera, natural morning light, effortless streetwear lifestyle"
+      },
+      tech_male: {
+        talking_head: "cinematic portrait of a 27-year-old modern tech entrepreneur and AI creator, minimal acetate glasses, sharp jawline, minimalist charcoal linen shirt, modern smart office background, engaging confident expression talking to camera",
+        smoothie_vlog: "first-person vlog of a 27yo tech creator holding artisan espresso cup in aesthetic minimalist coworking space, casual conversational smile, crisp morning daylight",
+        ipad_product: "tech creator working on dual monitor desk setup holding tablet with AI automation dashboard, futuristic minimal aesthetic, high resolution",
+        sweat_hydrate: "tech creator taking a break during morning rooftop workout, modern skyline backdrop, morning sun flare",
+        walking_street: "modern creator walking through financial district with backpack, cinematic 35mm street vlog perspective"
+      },
+      luxury_female: {
+        talking_head: "high-fashion editorial portrait of a 23-year-old luxury lifestyle influencer, luminous dewy makeup, silk ivory blouse, elegant Parisian apartment backdrop, graceful head movement and confident smile",
+        smoothie_vlog: "chic cafe vlog shot holding iced matcha latte, marble cafe table, soft Parisian window light, authentic candid luxury style",
+        ipad_product: "luxury creator reviewing digital fashion lookbook on tablet, aesthetic marble desk, minimal designer interior",
+        sweat_hydrate: "pilates studio morning routine, aesthetic reformer background, pastel athletic wear, soft diffused studio light",
+        walking_street: "runway-inspired street style tracking shot along sunlit boutique street, effortless chic aesthetic"
+      },
+      street_drama: {
+        talking_head: "hyper-realistic cinematic close up of everyday 30yo commuter talking with intense emotional sincerity, dramatic rim light, gritty city bus terminal background, raw authentic documentary style",
+        smoothie_vlog: "candid street food stall moment, handheld documentary realism, warm tungsten streetlamp lighting",
+        ipad_product: "character looking thoughtfully at tablet screen in cozy humble apartment, evening lamp glow, relatable emotion",
+        sweat_hydrate: "exhausted yet determined worker catching breath on stairwell, dramatic shadows, realistic sweat and emotion",
+        walking_street: "walking through bustling street market in evening drizzle, neon umbrella reflections, cinematic 24fps"
+      }
+    };
+
+    function updatePromptBuilder() {
+      const persona = document.getElementById('pb_persona').value;
+      const camera = document.getElementById('pb_camera').options[document.getElementById('pb_camera').selectedIndex].text;
+      const light = document.getElementById('pb_light').options[document.getElementById('pb_light').selectedIndex].text;
+      const actionKey = document.getElementById('pb_action').value;
+      const engine = document.getElementById('pb_engine').value;
+
+      const baseText = promptPresets[persona]?.[actionKey] || promptPresets.fitness_female.talking_head;
+
+      let finalPrompt = `${baseText}, ${camera}, ${light}`;
+
+      if (engine === 'mj_lock') {
+        finalPrompt += " --cref [YOUR_ANCHOR_IMAGE_URL] --cw 100 --ar 9:16 --v 6.1";
+      } else if (engine === 'mj_anchor') {
+        finalPrompt += " --ar 9:16 --v 6.1 --style raw";
+      } else if (engine === 'kling_motion') {
+        finalPrompt = `[Motion Simulation]: ${baseText}. Camera movement: gentle push-in, natural head tilt, authentic subtle breathing, 1080p vertical 24fps.`;
+      } else if (engine === 'hailuo_lipsync') {
+        finalPrompt = `[Audio Lip-Sync]: Synchronize natural mouth movements, blinking, and head articulation with high fidelity, vertical 9:16 format, realistic facial performance.`;
+      }
+
+      document.getElementById('pbOutput').textContent = finalPrompt;
+      document.getElementById('pb_badge').textContent = engine.toUpperCase();
+    }
+
+    function copyBuiltPrompt(btn) {
+      const text = document.getElementById('pbOutput').textContent;
+      copyText(text, btn);
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '<span>คัดลอกแล้ว ✓</span>';
+      setTimeout(() => { btn.innerHTML = originalText; }, 1800);
+    }
+
+    function randomizePrompt() {
+      const personas = ['fitness_female', 'tech_male', 'luxury_female', 'street_drama'];
+      const actions = ['talking_head', 'smoothie_vlog', 'ipad_product', 'sweat_hydrate', 'walking_street'];
+      const engines = ['mj_lock', 'mj_anchor', 'kling_motion', 'hailuo_lipsync'];
+
+      document.getElementById('pb_persona').value = personas[Math.floor(Math.random() * personas.length)];
+      document.getElementById('pb_action').value = actions[Math.floor(Math.random() * actions.length)];
+      document.getElementById('pb_engine').value = engines[Math.floor(Math.random() * engines.length)];
+      document.getElementById('pb_camera').selectedIndex = Math.floor(Math.random() * 4);
+      document.getElementById('pb_light').selectedIndex = Math.floor(Math.random() * 4);
+
+      updatePromptBuilder();
+    }
+
+    // 2. 7-Day Action Tracker Logic
+    const TRACKER_TASKS = [
+      'task_d1_1', 'task_d1_2', 'task_d1_3', 'task_d1_4',
+      'task_d2_1', 'task_d2_2', 'task_d2_3',
+      'task_d3_1', 'task_d3_2', 'task_d3_3',
+      'task_d4_1', 'task_d4_2', 'task_d4_3',
+      'task_d5_1', 'task_d5_2', 'task_d5_3',
+      'task_d6_1', 'task_d6_2', 'task_d6_3'
+    ];
+
+    function initActionTracker() {
+      const saved = JSON.parse(localStorage.getItem('ai_video_7day_tracker') || '{}');
+      TRACKER_TASKS.forEach(id => {
+        const cb = document.getElementById(id);
+        const item = document.getElementById('item_' + id.replace('task_', ''));
+        if (cb) {
+          cb.checked = !!saved[id];
+          if (item) {
+            if (cb.checked) item.classList.add('checked');
+            else item.classList.remove('checked');
+          }
+        }
+      });
+      calcTrackerProgress();
+    }
+
+    function handleTaskChange(id) {
+      const cb = document.getElementById(id);
+      const item = document.getElementById('item_' + id.replace('task_', ''));
+      if (item) {
+        if (cb.checked) item.classList.add('checked');
+        else item.classList.remove('checked');
+      }
+
+      const saved = JSON.parse(localStorage.getItem('ai_video_7day_tracker') || '{}');
+      saved[id] = cb.checked;
+      localStorage.setItem('ai_video_7day_tracker', JSON.stringify(saved));
+
+      calcTrackerProgress();
+    }
+
+    function calcTrackerProgress() {
+      const saved = JSON.parse(localStorage.getItem('ai_video_7day_tracker') || '{}');
+      let done = 0;
+      TRACKER_TASKS.forEach(id => { if (saved[id]) done++; });
+
+      const total = TRACKER_TASKS.length;
+      const pct = Math.round((done / total) * 100);
+
+      const bar = document.getElementById('trackerProgressBar');
+      const pctText = document.getElementById('trackerPercentText');
+      const countText = document.getElementById('trackerCountText');
+      const badge = document.getElementById('trackerStatusBadge');
+      const sideTag = document.getElementById('sidebar-tracker-tag');
+
+      if (bar) bar.style.width = pct + '%';
+      if (pctText) pctText.textContent = pct + '%';
+      if (countText) countText.textContent = `(${done} จาก ${total} งานเสร็จสิ้น)`;
+      if (sideTag) sideTag.textContent = `${done}/${total}`;
+
+      if (badge) {
+        if (pct === 100) {
+          badge.textContent = '🏆 สำเร็จครบ 100% พร้อมทำเงิน!';
+          badge.style.background = 'var(--color-status-live)';
+          badge.style.color = '#fff';
+        } else if (pct >= 50) {
+          badge.textContent = '🔥 กำลังวิ่งฉิว เกินครึ่งทางแล้ว!';
+          badge.style.background = 'var(--color-accent)';
+          badge.style.color = '#000';
+        } else if (done > 0) {
+          badge.textContent = '🚀 กำลังตั้งค่าระบบ';
+          badge.style.background = 'var(--color-background-200)';
+          badge.style.color = 'var(--color-gray-800)';
+        } else {
+          badge.textContent = '🚀 เริ่มต้นภารกิจ';
+          badge.style.background = 'var(--color-background-200)';
+          badge.style.color = 'var(--color-gray-800)';
+        }
+      }
+    }
+
+    function resetActionTracker() {
+      if (confirm('คุณต้องการรีเซ็ตเช็กลิสต์ 7 วันทั้งหมดใช่หรือไม่?')) {
+        localStorage.removeItem('ai_video_7day_tracker');
+        initActionTracker();
+      }
+    }
+
+    function toggleAccordion(summaryEl) {
+      const list = summaryEl.nextElementSibling;
+      if (list.style.display === 'none') {
+        list.style.display = 'flex';
+        summaryEl.querySelector('span:last-child').textContent = 'คลิกเพื่อย่อ ▲';
+      } else {
+        list.style.display = 'none';
+        summaryEl.querySelector('span:last-child').textContent = 'คลิกเพื่อขยาย ▼';
+      }
+    }
+
+    // 3. Business Net Profit & Break-even Simulator
+    function updateBusinessSim() {
+      const sales = parseInt(document.getElementById('bs_sales').value, 10) || 0;
+      const sponsors = parseFloat(document.getElementById('bs_sponsor').value) || 0;
+      const price = 19.0;
+      const aiCostUsd = 50.0;
+      const fxRate = 35.0;
+
+      const grossUsd = (sales * price) + sponsors;
+      const netUsd = grossUsd - aiCostUsd;
+
+      const grossThb = grossUsd * fxRate;
+      const netThb = netUsd * fxRate;
+      const breakEvenUnits = Math.ceil(aiCostUsd / price);
+
+      document.getElementById('bs_gross_thb').textContent = '฿' + Math.round(grossThb).toLocaleString();
+      document.getElementById('bs_gross_usd').textContent = '$' + Math.round(grossUsd).toLocaleString() + ' USD';
+
+      document.getElementById('bs_net_thb').textContent = '฿' + Math.round(netThb).toLocaleString();
+      const marginPct = grossUsd > 0 ? Math.round((netUsd / grossUsd) * 100) : 0;
+      document.getElementById('bs_net_usd').textContent = '≈ $' + Math.round(netUsd).toLocaleString() + ` USD (Margin ${marginPct}%)`;
+
+      document.getElementById('bs_breakeven').textContent = `${breakEvenUnits} เล่ม`;
+    }
+
+    // 4. Quick Search & Command Palette Modal
+    const searchDatabase = [
+      { title: "⚡ AI Studio Launchpad (รวม 11 เครื่องมือ AI)", category: "Studio Tool", url: "#sec-launchpad" },
+      { title: "🎨 ตัวผสม Prompt อัจฉริยะ (Interactive Prompt Builder)", category: "Studio Tool", url: "#sec-prompt-builder" },
+      { title: "✅ แทร็กเกอร์ปฏิบัติการ 7 วัน (7-Day Action Tracker)", category: "Action Board", url: "#sec-action-tracker" },
+      { title: "💰 แบบจำลองกำไรสุทธิ & จุดคุ้มทุน (AI Creator Business Model)", category: "Economics", url: "#sec-step12" },
+      { title: "00. โครงสร้างเครื่องมือพื้นฐาน (Toolchain Setup)", category: "Module 00", url: "#sec-prep" },
+      { title: "01. สถาปัตยกรรมสคริปต์ 4 คัต (Script Architecture)", category: "Module 01", url: "#sec-step1" },
+      { title: "02. ล็อกหน้าตัวละคร Midjourney --cref (Character Lock)", category: "Module 02", url: "#sec-step2" },
+      { title: "03. สังเคราะห์การเคลื่อนไหว Kling AI (Motion Synthesis)", category: "Module 03", url: "#sec-step3" },
+      { title: "04. วิศวกรรมเสียงพากย์ ElevenLabs (Voice Synthesis)", category: "Module 04", url: "#sec-step4" },
+      { title: "05. การประกอบตัดต่อ CapCut 9:16 (CapCut Assembly)", category: "Module 05", url: "#sec-step5" },
+      { title: "06. โมเดลรายได้เชิงพาณิชย์ & Affiliate (Commercial Models)", category: "Module 06", url: "#sec-step6" },
+      { title: "07. กลยุทธ์แฮชแท็ก & อัลกอริทึม SEO (Algorithm SEO)", category: "Module 07", url: "#sec-step7" },
+      { title: "08. การวิเคราะห์อัตราการดูจบ (Audience Retention)", category: "Module 08", url: "#sec-step8" },
+      { title: "09. การทดสอบแบบแยก 5 Hook (A/B Hook Testing)", category: "Module 09", url: "#sec-step9" },
+      { title: "10. ดนตรีประกอบและการควบคุมอารมณ์ Suno AI (Soundtrack)", category: "Module 10", url: "#sec-step10" },
+      { title: "11. การผลิตแบบกลุ่ม 25 คลิป/สัปดาห์ (Batch Pipeline)", category: "Module 11", url: "#sec-step11" },
+      { title: "12. แบบจำลองเศรษฐศาสตร์ต่อหน่วยและเครื่องคำนวณ (Unit Economics)", category: "Module 12", url: "#sec-step12" },
+      { title: "13. เทคนิคการกำกับกล้องขั้นสูง (Camera Directing)", category: "Module 13", url: "#sec-step13" },
+      { title: "14. กฎหมาย ลิขสิทธิ์ และข้อกำหนดแพลตฟอร์ม (Legal & IP)", category: "Module 14", url: "#sec-step14" },
+      { title: "15. การปิดการขายกับลูกค้าแบรนด์ (Client Acquisition)", category: "Module 15", url: "#sec-step15" },
+      { title: "16. ตารางเปรียบเทียบโมเดล AI วิดีโอ 2026 (Benchmark)", category: "Benchmark", url: "#sec-bonus" },
+      { title: "กรณีศึกษา A: สินค้าความงาม TikTok Shop Affiliate", category: "Case Study", url: "#sec-workshops" },
+      { title: "กรณีศึกษา B: วิดีโอสะท้อนสังคมและพัฒนาตนเอง (Moral Drama)", category: "Case Study", url: "#sec-workshops" },
+      { title: "กรณีศึกษา C: สารคดีอัตโนมัติ YouTube Automation", category: "Case Study", url: "#sec-workshops" },
+      { title: "Case Study D: โมเดล AI Influencer หาเงินของ Mark Tilbury", category: "Case Study", url: "#sec-workshops" },
+      { title: "คู่มือจับมือทำ 7 วันแบบทีละคลิก: สเต็ปสร้าง AI Influencer", category: "Hand-Holding Guide", url: "#sec-workshops" },
+      { title: "เช็กลิสต์ตรวจความพร้อมก่อนส่งงาน (Pre-Flight QA)", category: "QA Checklist", url: "#sec-checklist" }
+    ];
+
+    let searchSelectedIndex = -1;
+
+    function openSearchModal() {
+      const modal = document.getElementById('searchModal');
+      const input = document.getElementById('searchInput');
+      modal.classList.add('active');
+      input.value = '';
+      renderSearchResults('');
+      setTimeout(() => input.focus(), 50);
+    }
+
+    function closeSearchModal() {
+      const modal = document.getElementById('searchModal');
+      modal.classList.remove('active');
+    }
+
+    function handleModalBackdropClick(e) {
+      if (e.target.id === 'searchModal') closeSearchModal();
+    }
+
+    function renderSearchResults(query) {
+      const container = document.getElementById('searchResults');
+      const q = query.toLowerCase().trim();
+      const filtered = q ? searchDatabase.filter(item => 
+        item.title.toLowerCase().includes(q) || item.category.toLowerCase().includes(q)
+      ) : searchDatabase.slice(0, 10);
+
+      searchSelectedIndex = filtered.length > 0 ? 0 : -1;
+
+      if (filtered.length === 0) {
+        container.innerHTML = `<div style="padding:20px; text-align:center; color:var(--color-gray-600); font-size:13px;">ไม่พบผลลัพธ์สำหรับ "${query}"</div>`;
+        return;
+      }
+
+      container.innerHTML = filtered.map((item, idx) => `
+        <a href="${item.url}" class="search-item ${idx === 0 ? 'selected' : ''}" onclick="selectSearchResult(event, '${item.url}')">
+          <span style="display:flex; align-items:center; gap:8px;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+            ${item.title}
+          </span>
+          <span class="search-item-badge">${item.category}</span>
+        </a>
+      `).join('');
+    }
+
+    function selectSearchResult(e, url) {
+      if (e) e.preventDefault();
+      closeSearchModal();
+      const target = document.querySelector(url);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        target.classList.remove('highlight-target');
+        void target.offsetWidth;
+        target.classList.add('highlight-target');
+        setTimeout(() => target.classList.remove('highlight-target'), 2500);
+      }
+    }
+
+    // Keyboard Shortcuts
+    document.addEventListener('keydown', (e) => {
+      // Ctrl+K or Cmd+K
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+        e.preventDefault();
+        const modal = document.getElementById('searchModal');
+        if (modal.classList.contains('active')) closeSearchModal();
+        else openSearchModal();
+      }
+
+      // Inside Modal Navigation
+      const modal = document.getElementById('searchModal');
+      if (modal && modal.classList.contains('active')) {
+        const items = modal.querySelectorAll('.search-item');
+        if (e.key === 'Escape') {
+          e.preventDefault();
+          closeSearchModal();
+        } else if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          if (items.length > 0) {
+            searchSelectedIndex = (searchSelectedIndex + 1) % items.length;
+            items.forEach((el, idx) => el.classList.toggle('selected', idx === searchSelectedIndex));
+            items[searchSelectedIndex]?.scrollIntoView({ block: 'nearest' });
+          }
+        } else if (e.key === 'ArrowUp') {
+          e.preventDefault();
+          if (items.length > 0) {
+            searchSelectedIndex = (searchSelectedIndex - 1 + items.length) % items.length;
+            items.forEach((el, idx) => el.classList.toggle('selected', idx === searchSelectedIndex));
+            items[searchSelectedIndex]?.scrollIntoView({ block: 'nearest' });
+          }
+        } else if (e.key === 'Enter') {
+          e.preventDefault();
+          if (items.length > 0 && searchSelectedIndex >= 0) {
+            items[searchSelectedIndex].click();
+          }
+        }
+      }
+    });
+
+    document.getElementById('searchInput')?.addEventListener('input', (e) => {
+      renderSearchResults(e.target.value);
+    });
+
+    // Initialize all studio components on load
+    document.addEventListener('DOMContentLoaded', () => {
+      updatePromptBuilder();
+      initActionTracker();
+      updateBusinessSim();
+    });
+    // In case DOM is already loaded:
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+      setTimeout(() => {
+        updatePromptBuilder();
+        initActionTracker();
+        updateBusinessSim();
+      }, 50);
+    }
+
   </script>
+  <!-- Quick Search & Command Palette Modal (Ctrl + K) -->
+  <div id="searchModal" class="search-modal-backdrop" onclick="handleModalBackdropClick(event)">
+    <div class="search-modal-box">
+      <div class="search-input-wrap">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" style="color:var(--color-gray-600); flex-shrink:0;"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+        <input type="text" id="searchInput" placeholder="ค้นหาเครื่องมือ, Prompt, ขั้นตอน, หรือเทคนิค... (กด Esc เพื่อปิด)" autocomplete="off">
+        <button onclick="closeSearchModal()" style="background:transparent; border:none; color:var(--color-gray-600); cursor:pointer; font-size:16px; padding:2px 6px;">✕</button>
+      </div>
+      <div id="searchResults" class="search-results-list">
+        <!-- Results rendered by JS -->
+      </div>
+      <div class="search-modal-footer">
+        <span>นำทาง: <kbd>↑</kbd> <kbd>↓</kbd> | เลือก: <kbd>Enter</kbd> | ปิด: <kbd>Esc</kbd></span>
+        <span style="color:var(--color-accent);">AI Video Mastery Studio v3.3</span>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
